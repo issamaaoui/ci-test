@@ -1,0 +1,9 @@
+{
+  "minimum-stability":"dev",
+  "require":{
+    "phpunit/phpunit":"3.7.9",
+  },
+  "extra": {
+    "magento-root-dir": "magento/"
+  }
+}
