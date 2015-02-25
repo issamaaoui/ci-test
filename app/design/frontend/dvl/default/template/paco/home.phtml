@@ -1,0 +1,62 @@
+<div class="prez" id="prez-section">
+	<a
+		style="position: absolute; top: 0; right: 0; z-index: 500; margin-top: 7px; margin-right: 15px;"
+		href="<?php echo Mage::getModel('catalog/product')->load(21)->getProductUrl(); ?>"
+		class="btn btn-default hidden-xs"> Pre-order now </a>
+</div>
+
+<div class="prez-content" id="prez-content-section">
+    <nav class="navbar navbar-default" data-spy="affix"
+    	data-offset-top="100" role="navigation">
+    	<div class="container-fluid">
+    		<!-- Brand and toggle get grouped for better mobile display -->
+    		<div class="navbar-header">
+    			<button type="button" class="navbar-toggle collapsed"
+    				data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+    				<span class="sr-only">Toggle navigation</span> <span
+    					class="icon-bar"></span> <span class="icon-bar"></span> <span
+    					class="icon-bar"></span>
+    			</button>
+    		</div>
+    
+    		<!-- Collect the nav links, forms, and other content for toggling -->
+    		<div class="collapse navbar-collapse"
+    			id="bs-example-navbar-collapse-1">
+    			<div class="nav navbar-nav navbar-left">
+    				<a href="#" class="btn btn-default navbar-btn">Phantom</a> <a
+    					href="#" class="btn btn-default navbar-btn">Expert</a>
+    			</div>
+    
+    
+    			<div class="nav navbar-nav navbar-right">
+    				<a href="#" class="btn btn-default navbar-btn">Story</a> <a href="#"
+    					class="btn btn-default navbar-btn">Pre order Now</a>
+    			</div>
+    		</div>
+    		<!-- /.navbar-collapse -->
+    	</div>
+    	<!-- /.container-fluid -->
+    </nav>
+    <div class="main-content">
+    	<div class="container-fluid content">
+    		<div class="col-md-12">
+    			<img src="<?php echo $this->getSkinUrl('images/home001.png'); ?>" />
+    		</div>
+    	</div>
+    	<div class="container-fluid content">
+    		<div class="col-md-12">
+    			<img src="<?php echo $this->getSkinUrl('images/home002.png'); ?>" />
+    		</div>
+    	</div>
+    	<div class="container-fluid content">
+    		<div class="col-md-12">
+    			<img src="<?php echo $this->getSkinUrl('images/home003.png'); ?>" />
+    		</div>
+    	</div>
+    	<div class="container-fluid content">
+    		<div class="col-md-12">
+    			<img src="<?php echo $this->getSkinUrl('images/home004.png'); ?>" />
+    		</div>
+    	</div>
+    </div>
+</div>

@@ -1,0 +1,7 @@
+ <SalesOrderSelectionByElements>
+    <SelectionByID>
+      <InclusionExclusionCode>I</InclusionExclusionCode>
+      <IntervalBoundaryTypeCode>1</IntervalBoundaryTypeCode>
+      <LowerBoundaryID>3238</LowerBoundaryID>
+    </SelectionByID>
+  </SalesOrderSelectionByElements>

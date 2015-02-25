@@ -1,0 +1,275 @@
+.field-wrapper{
+    border: 1px solid #c6c5ca;
+    background: rgba(255,255,255,0.8);
+    display: table;
+    width: 100%;
+    padding: 10px 0;
+    margin-bottom: 5px;
+    position: relative;
+}
+
+.form-product-wrapper{
+    margin-top: 70px;
+}
+input:focus{
+    outline: none;
+}
+select:focus{
+    outline: none;
+}
+button{
+    background: none;
+    border: none;
+}
+button:focus{
+    outlien: none;
+}
+input::-webkit-input-placeholder { font-style: italic;}
+input:-moz-placeholder { font-style: italic; }
+input::-moz-placeholder { font-style: italic; }
+input:-ms-input-placeholder { font-style: italic; }
+
+.field-wrapper label{
+    margin-bottom: 0;
+    display: table-cell;
+    width: 160px;
+    text-align: left;
+    color: #3b3b3b;
+    vertical-align: top;
+    padding: 0 10px;
+    font-weight: 500;
+}
+
+.field-wrapper label .required-icon{
+    position: absolute;
+    right: 10px;
+    top: 13px;
+}
+
+.field-wrapper input{
+    border: none;
+    color: #bababa;
+    background: none;
+    display: table-cell;
+    width: 100%;
+    padding: 0 10px;
+}
+
+.field-wrapper input:focus{
+    outline: none;
+}
+
+.field-wrapper select{
+    background: none;
+    border: none;
+}
+
+.field-wrapper.active{
+    border-color: #ff9900;
+}
+
+.button-submit{
+    background: #FFFFFF;
+    color: #000000;
+    border: none;
+    margin: 15px 0;
+    padding: 10px 25px;
+    text-transform: uppercase;
+    border: 1px solid #000000;
+}
+.button-submit:hover{
+    background: #000000;
+    color: #FFFFFF;
+}
+
+.action-wrapper{
+    text-align: right;
+}
+
+.birth-date-field-wrapper .field-day-wrapper label,
+.birth-date-field-wrapper .field-month-wrapper label,
+.birth-date-field-wrapper .field-year-wrapper label{
+    display: none;
+}
+
+.birth-date-field-wrapper .field-day-wrapper,
+.birth-date-field-wrapper .field-month-wrapper,
+.birth-date-field-wrapper .field-year-wrapper{
+    float: left;
+}
+.birth-date-field-wrapper .field-day-wrapper input,
+.birth-date-field-wrapper .field-month-wrapper input,
+.birth-date-field-wrapper .field-year-wrapper input{
+    float: left;
+    padding: 0 5px;
+    text-align: center;
+}
+.birth-date-field-wrapper .field-day-wrapper input{
+    width: 37px;
+}
+.birth-date-field-wrapper .field-month-wrapper input{
+    width: 37px;
+}
+.birth-date-field-wrapper .field-year-wrapper input{
+    width: 50px;
+}
+
+#form-validate li.control{
+    padding: 0 32px;
+}
+
+#form-validate .buttons-set{
+    padding: 0 32px;
+}
+
+
+
+
+li.control .checkbox input[type=checkbox]{
+    margin-left: 0;
+}
+
+div.checkbox input[type=checkbox]{
+    margin-left: 0;
+}
+
+.customer-account-create #form-validate .buttons-set,
+.customer-account-forgotpassword #form-validate .buttons-set{
+    padding: 0;
+}
+
+#footer-newsletter{
+
+}
+#footer-newsletter label{
+    float: left;
+    font-size: 10px;
+    line-height: 28px;
+    color: #999999;
+    margin: 0;
+}
+#footer-newsletter .field-newsletter-input{
+    float: right;
+    border: 1px solid #999999;
+    color: #999999;
+    line-height: 21px;
+    width: 250px;
+}
+#footer-newsletter .field-newsletter-input input{
+    border: none;
+    background: none;
+    padding: 0 10px;
+    width: 88%;
+}
+
+#footer-newsletter .field-newsletter-input button{
+    text-transform: uppercase;
+    font-size: 10px;
+    width: 10%;
+}
+
+#checkout-step-review .checkbox input[type="checkbox"]{
+    margin-left: 0;
+}
+
+.cgv-link-wrapper{
+    margin-left: 20px;
+}
+
+.block-form-title{
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: 18px;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+}
+
+.account-login .block-form-login,
+.account-login .block-create-account{
+    padding: 0 50px;
+}
+
+#form-validate ul{
+    margin: 0;
+}
+#form-validate .button-submit{
+    margin: 0;
+}
+
+.forms-header-wrapper{
+    text-transform: uppercase;
+    color: #000000;
+    font-size: 18px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    background: white;
+    text-align: center;
+    padding: 85px 0;
+}
+
+.forms-content-wrapper{
+    padding: 50px 0;
+}
+
+.preorder-form-content{
+    height: 110px;
+}
+
+.preorder-form-wrapper .button-submit{
+    padding: 5px 30px;
+}
+
+.footer-login{
+    margin-top: 15px;
+}
+.radio label, .checkbox label{
+    line-height: 27px;
+}
+
+/* Large desktop */
+@media (min-width: 1200px) {
+
+}
+
+@media (max-width: 979px){
+
+}
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) {
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+    .field-wrapper{
+        /*border-left: none;*/
+        /*border-right: none;*/
+    }
+    form .block-form{
+        padding: 0;
+    }
+    form .block-form .content{
+        padding: 0 32px;
+    }
+    .main-container .pre-order{
+        padding: 0;
+    }
+    .preorder-form-content{
+        height: auto;
+    }
+    #checkout-step-login .block-create-account,
+    #checkout-step-login .block-form-login{
+        padding: 0;
+    }
+}
+
+/* Landscape phones and down */
+@media (max-width: 480px) {
+    .forms-header-wrapper{
+        font-size: 16px;
+        padding: 85px 10px;
+    }
+    .forms-content-wrapper{
+        padding: 15px 0;
+    }
+}

@@ -1,0 +1,2516 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+	<sections>
+		<payboxcw translate="label comment" module="PayboxCw">
+			<class>separator-top</class>
+			<label>Paybox</label>
+			<tab>sales</tab>
+			<frontend_type>text</frontend_type>
+			<sort_order>900</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>
+
+			<groups>
+				<general translate="label" module="PayboxCw">
+					<label>Paybox Parameters</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>0</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<link translate="label comment">
+							<label></label>
+							<frontend_model>payboxcw/adminhtml_system_config_link</frontend_model>
+							<sort_order>0</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</link>
+						<version translate="label comment">
+							<label>Version</label>
+							<frontend_type>label</frontend_type>
+							<sort_order>1</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</version>
+						<operation_mode translate="label,comment">
+							<label>Operation Mode</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>10</sort_order>
+							<comment>If the test mode is selected the test account is used. Otherwise the configured account is used.</comment>
+							<source_model>payboxcw/source_Operationmode</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</operation_mode>
+						<paybox_hmac_key translate="label,comment">
+							<label>Live HMAC Key</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>11</sort_order>
+							<comment>The HMAC key as defined in the live backoffice of Paybox. You may need generate the HMAC key. Please take a look at the manual how to do this.</comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</paybox_hmac_key>
+						<paybox_rang translate="label,comment">
+							<label>Live Rang (PBX_RANG)</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>12</sort_order>
+							<comment>The rang (PBX_RANG) as defined in the live backoffice of Paybox. It must be nummeric value with length two. In the backoffice it may be displayed as a three char value. You must truncate the first digit.</comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</paybox_rang>
+						<paybox_site translate="label,comment">
+							<label>Live Site ID (PBX_SITE)</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>13</sort_order>
+							<comment>The site id (PBX_RANG) as defined in the backoffice of Paybox.</comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</paybox_site>
+						<paybox_identifier translate="label,comment">
+							<label>Live Identifier (PBX_IDENTIFIANT)</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>14</sort_order>
+							<comment>The identifier as defined in the backoffice of Paybox.</comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</paybox_identifier>
+						<paybox_shop_password translate="label,comment">
+							<label>Live Password</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>15</sort_order>
+							<comment>This password is used for recurring payments and for the alias manager as well as for the server authorization. This is the password of the Paybox account.</comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</paybox_shop_password>
+						<order_id_schema translate="label,comment">
+							<label>Order Prefix</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>16</sort_order>
+							<comment>Here you can insert an order prefix. The prefix allows you to change the order number that is transmitted to Authorize.net. The prefix must contain the tag {id}. It will then be replaced by the order number (e.g. name_{id}).</comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</order_id_schema>
+						<transaction_updates translate="label,comment">
+							<label>Transaction Updates</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>17</sort_order>
+							<comment>When the store is not available (network outage, server failure or any other outage), when the feedback of Paybox is sent, then the transaction state is not updated. Hence no order confirmation e-mail is sent and the order is not in the paid state. By activating the transaction update, such transactions can be authorized later over direct link. To use this feature the update service must be activated and the API username and the API password must be set.</comment>
+							<source_model>payboxcw/source_Transactionupdates</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</transaction_updates>
+						<cancel_existing_orders translate="label,comment">
+							<label>Cancel pending orders when out of stock</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>18</sort_order>
+							<comment>If a product is in stock only once and the payment of the customer ordering this product fails or is aborted, it won&apos;t be available until the order is canceled (see timeout option below). Enable this setting to cancel the customer&apos;s pending orders when he returns to the cart page and a product is not available anymore. Be careful though: If you enable this option, there is a chance that payments are made with the corresponding order being already canceled.</comment>
+							<source_model>payboxcw/source_Cancelexistingorders</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</cancel_existing_orders>
+						<wait_for_success translate="label,comment">
+							<label>Wait On Success Page</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>19</sort_order>
+							<comment>In some cases the transaction requires a few seconds until it is successfully authorized. When this option is enabled the user is hold until the transaction reach the final state. If this is not the case in 30 seconds a message is shown to the customer, which explains the situation.</comment>
+							<source_model>payboxcw/source_Waitforsuccess</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</wait_for_success>
+					</fields>
+				</general>
+				<recurring translate="label" module="PayboxCw">
+					<label>Recurring Payments</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>10</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<comment><![CDATA[If you would like to use recurring payments, you need our magento module "Customweb Subscription". For further information go to <a href="http://www.sellxed.com/shop/" target="_blank">sellxed.com</a>.]]></comment>
+				</recurring>
+			</groups>	
+		</payboxcw>
+		<payment>
+			<groups>
+			<payboxcw_creditcard translate="label,comment" module="PayboxCw">
+				<label>Paybox Credit Card</label>
+				<frontend_type>text</frontend_type>
+				<sort_order>1</sort_order>
+				<show_in_default>1</show_in_default>
+				<show_in_website>1</show_in_website>
+				<show_in_store>1</show_in_store>
+				<fields>
+						<active translate="label,comment">
+							<label>Enabled</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>10</sort_order>
+							<comment>Enable the payment method</comment>
+							<source_model>payboxcw/source_Active</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</active>
+						<title translate="label,comment">
+							<label>Titel</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>11</sort_order>
+							<comment>Title of the payment method</comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</title>
+						<description translate="label,comment">
+							<label>Description</label>
+							<frontend_type>textarea</frontend_type>
+							<sort_order>12</sort_order>
+							<comment>Payment method description</comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</description>
+						<show_image translate="label,comment">
+							<label>Show the payment image</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>13</sort_order>
+							<comment>Show the payment image on the checkout page</comment>
+							<source_model>payboxcw/source_Showimage</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</show_image>
+						<show_payment_id translate="label,comment">
+							<label>Show the payment id</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>14</sort_order>
+							<comment>Show the payment id in the order information</comment>
+							<source_model>payboxcw/source_Showpaymentid</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</show_payment_id>
+						<Currency translate="label,comment">
+							<label>Currency</label>
+							<frontend_type>multiselect</frontend_type>
+							<sort_order>15</sort_order>
+							<comment>Allowed currencies for this payment method</comment>
+							<source_model>payboxcw/source_CreditCardCurrency</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<can_be_empty>1</can_be_empty>
+						</Currency>
+						<use_base_currency translate="label,comment">
+							<label>Use base currency</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>16</sort_order>
+							<comment>Send amounts to Paybox in base currency.</comment>
+							<source_model>payboxcw/source_Usebasecurrency</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</use_base_currency>
+						<allowspecific translate="label,comment">
+							<label>Payment from applicable countries</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>17</sort_order>
+							<comment>Payment from applicable countries</comment>
+							<source_model>adminhtml/system_config_source_payment_allspecificcountries</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</allowspecific>
+						<specificcountry translate="label,comment">
+							<label>Payment from specific countries</label>
+							<frontend_type>multiselect</frontend_type>
+							<sort_order>18</sort_order>
+							<comment>Payment from specific countries</comment>
+							<source_model>payboxcw/source_CreditCardSpecificcountry</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<can_be_empty>1</can_be_empty>
+						</specificcountry>
+						<sort_order translate="label,comment">
+							<label>Sort Order</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>19</sort_order>
+							<comment></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</sort_order>
+						<min_order_total translate="label,comment">
+							<label>Minimum Order Total</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>20</sort_order>
+							<comment></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</min_order_total>
+						<max_order_total translate="label,comment">
+							<label>Maximum Order Total</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>21</sort_order>
+							<comment></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</max_order_total>
+						<settlement translate="label,comment">
+							<label>Invoice settlement</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>22</sort_order>
+							<comment>Choose settlement after order in case you want an invoice to be created with your oder. The state of the invoice will set according to your capture status</comment>
+							<source_model>payboxcw/source_Settlement</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</settlement>
+						<credit_card_brands translate="label,comment">
+							<label>Credit Card Brands</label>
+							<frontend_type>multiselect</frontend_type>
+							<sort_order>23</sort_order>
+							<comment>The brand of the credit card is detected by the card number if hidden authorization is used. If the payment page is used, the user has to select the brand. The allowed credit card brands can be restricted by this setting.</comment>
+							<source_model>payboxcw/source_Creditcardbrands</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<can_be_empty>1</can_be_empty>
+						</credit_card_brands>
+						<brand_selection translate="label,comment">
+							<label>Image Brand Selection</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>24</sort_order>
+							<comment>The card brand selection is automatically done depending on the entered card number. If no Javascript is active in the browser, a drop down is shown. In case JavaScript a the brand logos can be shown. Should the brand selection using images?</comment>
+							<source_model>payboxcw/source_Brandselection</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</brand_selection>
+						<capturing translate="label,comment">
+							<label>Capturing</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>25</sort_order>
+							<comment>By setting the capturing the reservation can be captured directly after the order or later manually over the backend of the store. The difference between &apos;order&apos; and &apos;authorization&apos; is that on &apos;order&apos; only a check is done, but not really a reservation on the card.</comment>
+							<source_model>payboxcw/source_Capturing</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</capturing>
+						<status_authorized translate="label,comment">
+							<label>Authorized Status</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>26</sort_order>
+							<comment>This status is set, when the payment was successfull and it is authorized.</comment>
+							<source_model>payboxcw/source_Statusauthorized</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_authorized>
+						<status_uncertain translate="label,comment">
+							<label>Uncertain Status</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>27</sort_order>
+							<comment>You can specify the order status for new orders that have an uncertain authorisation status.</comment>
+							<source_model>payboxcw/source_Statusuncertain</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_uncertain>
+						<status_captured translate="label,comment">
+							<label>Captured Status</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>28</sort_order>
+							<comment>You can specify the order status for orders that are captured either directly after the order or manually in the backend.</comment>
+							<source_model>payboxcw/source_Statuscaptured</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_captured>
+						<authorizationMethod translate="label,comment">
+							<label>Authorization Method</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>29</sort_order>
+							<comment>Select the authorization method to use for processing this payment method.</comment>
+							<source_model>payboxcw/source_CreditCardAuthorizationMethod</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</authorizationMethod>
+						<alias_manager translate="label,comment">
+							<label>Alias Manager</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>30</sort_order>
+							<comment>The alias manager allows the customer to select from a credit card previously stored. The sensitive data is stored by Paybox.</comment>
+							<source_model>payboxcw/source_Aliasmanager</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</alias_manager>
+				</fields>
+			</payboxcw_creditcard>
+			<payboxcw_visa translate="label,comment" module="PayboxCw">
+				<label>Paybox Visa</label>
+				<frontend_type>text</frontend_type>
+				<sort_order>1</sort_order>
+				<show_in_default>1</show_in_default>
+				<show_in_website>1</show_in_website>
+				<show_in_store>1</show_in_store>
+				<fields>
+						<active translate="label,comment">
+							<label>Enabled</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>10</sort_order>
+							<comment>Enable the payment method</comment>
+							<source_model>payboxcw/source_Active</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</active>
+						<title translate="label,comment">
+							<label>Titel</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>11</sort_order>
+							<comment>Title of the payment method</comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</title>
+						<description translate="label,comment">
+							<label>Description</label>
+							<frontend_type>textarea</frontend_type>
+							<sort_order>12</sort_order>
+							<comment>Payment method description</comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</description>
+						<show_image translate="label,comment">
+							<label>Show the payment image</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>13</sort_order>
+							<comment>Show the payment image on the checkout page</comment>
+							<source_model>payboxcw/source_Showimage</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</show_image>
+						<show_payment_id translate="label,comment">
+							<label>Show the payment id</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>14</sort_order>
+							<comment>Show the payment id in the order information</comment>
+							<source_model>payboxcw/source_Showpaymentid</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</show_payment_id>
+						<Currency translate="label,comment">
+							<label>Currency</label>
+							<frontend_type>multiselect</frontend_type>
+							<sort_order>15</sort_order>
+							<comment>Allowed currencies for this payment method</comment>
+							<source_model>payboxcw/source_VisaCurrency</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<can_be_empty>1</can_be_empty>
+						</Currency>
+						<use_base_currency translate="label,comment">
+							<label>Use base currency</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>16</sort_order>
+							<comment>Send amounts to Paybox in base currency.</comment>
+							<source_model>payboxcw/source_Usebasecurrency</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</use_base_currency>
+						<allowspecific translate="label,comment">
+							<label>Payment from applicable countries</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>17</sort_order>
+							<comment>Payment from applicable countries</comment>
+							<source_model>adminhtml/system_config_source_payment_allspecificcountries</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</allowspecific>
+						<specificcountry translate="label,comment">
+							<label>Payment from specific countries</label>
+							<frontend_type>multiselect</frontend_type>
+							<sort_order>18</sort_order>
+							<comment>Payment from specific countries</comment>
+							<source_model>payboxcw/source_VisaSpecificcountry</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<can_be_empty>1</can_be_empty>
+						</specificcountry>
+						<sort_order translate="label,comment">
+							<label>Sort Order</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>19</sort_order>
+							<comment></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</sort_order>
+						<min_order_total translate="label,comment">
+							<label>Minimum Order Total</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>20</sort_order>
+							<comment></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</min_order_total>
+						<max_order_total translate="label,comment">
+							<label>Maximum Order Total</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>21</sort_order>
+							<comment></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</max_order_total>
+						<settlement translate="label,comment">
+							<label>Invoice settlement</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>22</sort_order>
+							<comment>Choose settlement after order in case you want an invoice to be created with your oder. The state of the invoice will set according to your capture status</comment>
+							<source_model>payboxcw/source_Settlement</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</settlement>
+						<capturing translate="label,comment">
+							<label>Capturing</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>23</sort_order>
+							<comment>By setting the capturing the reservation can be captured directly after the order or later manually over the backend of the store. The difference between &apos;order&apos; and &apos;authorization&apos; is that on &apos;order&apos; only a check is done, but not really a reservation on the card.</comment>
+							<source_model>payboxcw/source_Capturing</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</capturing>
+						<status_authorized translate="label,comment">
+							<label>Authorized Status</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>24</sort_order>
+							<comment>This status is set, when the payment was successfull and it is authorized.</comment>
+							<source_model>payboxcw/source_Statusauthorized</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_authorized>
+						<status_uncertain translate="label,comment">
+							<label>Uncertain Status</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>25</sort_order>
+							<comment>You can specify the order status for new orders that have an uncertain authorisation status.</comment>
+							<source_model>payboxcw/source_Statusuncertain</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_uncertain>
+						<status_captured translate="label,comment">
+							<label>Captured Status</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>26</sort_order>
+							<comment>You can specify the order status for orders that are captured either directly after the order or manually in the backend.</comment>
+							<source_model>payboxcw/source_Statuscaptured</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_captured>
+						<authorizationMethod translate="label,comment">
+							<label>Authorization Method</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>27</sort_order>
+							<comment>Select the authorization method to use for processing this payment method.</comment>
+							<source_model>payboxcw/source_VisaAuthorizationMethod</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</authorizationMethod>
+						<alias_manager translate="label,comment">
+							<label>Alias Manager</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>28</sort_order>
+							<comment>The alias manager allows the customer to select from a credit card previously stored. The sensitive data is stored by Paybox.</comment>
+							<source_model>payboxcw/source_Aliasmanager</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</alias_manager>
+				</fields>
+			</payboxcw_visa>
+			<payboxcw_mastercard translate="label,comment" module="PayboxCw">
+				<label>Paybox MasterCard</label>
+				<frontend_type>text</frontend_type>
+				<sort_order>1</sort_order>
+				<show_in_default>1</show_in_default>
+				<show_in_website>1</show_in_website>
+				<show_in_store>1</show_in_store>
+				<fields>
+						<active translate="label,comment">
+							<label>Enabled</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>10</sort_order>
+							<comment>Enable the payment method</comment>
+							<source_model>payboxcw/source_Active</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</active>
+						<title translate="label,comment">
+							<label>Titel</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>11</sort_order>
+							<comment>Title of the payment method</comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</title>
+						<description translate="label,comment">
+							<label>Description</label>
+							<frontend_type>textarea</frontend_type>
+							<sort_order>12</sort_order>
+							<comment>Payment method description</comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</description>
+						<show_image translate="label,comment">
+							<label>Show the payment image</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>13</sort_order>
+							<comment>Show the payment image on the checkout page</comment>
+							<source_model>payboxcw/source_Showimage</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</show_image>
+						<show_payment_id translate="label,comment">
+							<label>Show the payment id</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>14</sort_order>
+							<comment>Show the payment id in the order information</comment>
+							<source_model>payboxcw/source_Showpaymentid</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</show_payment_id>
+						<Currency translate="label,comment">
+							<label>Currency</label>
+							<frontend_type>multiselect</frontend_type>
+							<sort_order>15</sort_order>
+							<comment>Allowed currencies for this payment method</comment>
+							<source_model>payboxcw/source_MasterCardCurrency</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<can_be_empty>1</can_be_empty>
+						</Currency>
+						<use_base_currency translate="label,comment">
+							<label>Use base currency</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>16</sort_order>
+							<comment>Send amounts to Paybox in base currency.</comment>
+							<source_model>payboxcw/source_Usebasecurrency</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</use_base_currency>
+						<allowspecific translate="label,comment">
+							<label>Payment from applicable countries</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>17</sort_order>
+							<comment>Payment from applicable countries</comment>
+							<source_model>adminhtml/system_config_source_payment_allspecificcountries</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</allowspecific>
+						<specificcountry translate="label,comment">
+							<label>Payment from specific countries</label>
+							<frontend_type>multiselect</frontend_type>
+							<sort_order>18</sort_order>
+							<comment>Payment from specific countries</comment>
+							<source_model>payboxcw/source_MasterCardSpecificcountry</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<can_be_empty>1</can_be_empty>
+						</specificcountry>
+						<sort_order translate="label,comment">
+							<label>Sort Order</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>19</sort_order>
+							<comment></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</sort_order>
+						<min_order_total translate="label,comment">
+							<label>Minimum Order Total</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>20</sort_order>
+							<comment></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</min_order_total>
+						<max_order_total translate="label,comment">
+							<label>Maximum Order Total</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>21</sort_order>
+							<comment></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</max_order_total>
+						<settlement translate="label,comment">
+							<label>Invoice settlement</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>22</sort_order>
+							<comment>Choose settlement after order in case you want an invoice to be created with your oder. The state of the invoice will set according to your capture status</comment>
+							<source_model>payboxcw/source_Settlement</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</settlement>
+						<capturing translate="label,comment">
+							<label>Capturing</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>23</sort_order>
+							<comment>By setting the capturing the reservation can be captured directly after the order or later manually over the backend of the store. The difference between &apos;order&apos; and &apos;authorization&apos; is that on &apos;order&apos; only a check is done, but not really a reservation on the card.</comment>
+							<source_model>payboxcw/source_Capturing</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</capturing>
+						<status_authorized translate="label,comment">
+							<label>Authorized Status</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>24</sort_order>
+							<comment>This status is set, when the payment was successfull and it is authorized.</comment>
+							<source_model>payboxcw/source_Statusauthorized</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_authorized>
+						<status_uncertain translate="label,comment">
+							<label>Uncertain Status</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>25</sort_order>
+							<comment>You can specify the order status for new orders that have an uncertain authorisation status.</comment>
+							<source_model>payboxcw/source_Statusuncertain</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_uncertain>
+						<status_captured translate="label,comment">
+							<label>Captured Status</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>26</sort_order>
+							<comment>You can specify the order status for orders that are captured either directly after the order or manually in the backend.</comment>
+							<source_model>payboxcw/source_Statuscaptured</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_captured>
+						<authorizationMethod translate="label,comment">
+							<label>Authorization Method</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>27</sort_order>
+							<comment>Select the authorization method to use for processing this payment method.</comment>
+							<source_model>payboxcw/source_MasterCardAuthorizationMethod</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</authorizationMethod>
+						<alias_manager translate="label,comment">
+							<label>Alias Manager</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>28</sort_order>
+							<comment>The alias manager allows the customer to select from a credit card previously stored. The sensitive data is stored by Paybox.</comment>
+							<source_model>payboxcw/source_Aliasmanager</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</alias_manager>
+				</fields>
+			</payboxcw_mastercard>
+			<payboxcw_americanexpress translate="label,comment" module="PayboxCw">
+				<label>Paybox American Express</label>
+				<frontend_type>text</frontend_type>
+				<sort_order>1</sort_order>
+				<show_in_default>1</show_in_default>
+				<show_in_website>1</show_in_website>
+				<show_in_store>1</show_in_store>
+				<fields>
+						<active translate="label,comment">
+							<label>Enabled</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>10</sort_order>
+							<comment>Enable the payment method</comment>
+							<source_model>payboxcw/source_Active</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</active>
+						<title translate="label,comment">
+							<label>Titel</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>11</sort_order>
+							<comment>Title of the payment method</comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</title>
+						<description translate="label,comment">
+							<label>Description</label>
+							<frontend_type>textarea</frontend_type>
+							<sort_order>12</sort_order>
+							<comment>Payment method description</comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</description>
+						<show_image translate="label,comment">
+							<label>Show the payment image</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>13</sort_order>
+							<comment>Show the payment image on the checkout page</comment>
+							<source_model>payboxcw/source_Showimage</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</show_image>
+						<show_payment_id translate="label,comment">
+							<label>Show the payment id</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>14</sort_order>
+							<comment>Show the payment id in the order information</comment>
+							<source_model>payboxcw/source_Showpaymentid</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</show_payment_id>
+						<Currency translate="label,comment">
+							<label>Currency</label>
+							<frontend_type>multiselect</frontend_type>
+							<sort_order>15</sort_order>
+							<comment>Allowed currencies for this payment method</comment>
+							<source_model>payboxcw/source_AmericanExpressCurrency</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<can_be_empty>1</can_be_empty>
+						</Currency>
+						<use_base_currency translate="label,comment">
+							<label>Use base currency</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>16</sort_order>
+							<comment>Send amounts to Paybox in base currency.</comment>
+							<source_model>payboxcw/source_Usebasecurrency</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</use_base_currency>
+						<allowspecific translate="label,comment">
+							<label>Payment from applicable countries</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>17</sort_order>
+							<comment>Payment from applicable countries</comment>
+							<source_model>adminhtml/system_config_source_payment_allspecificcountries</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</allowspecific>
+						<specificcountry translate="label,comment">
+							<label>Payment from specific countries</label>
+							<frontend_type>multiselect</frontend_type>
+							<sort_order>18</sort_order>
+							<comment>Payment from specific countries</comment>
+							<source_model>payboxcw/source_AmericanExpressSpecificcountry</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<can_be_empty>1</can_be_empty>
+						</specificcountry>
+						<sort_order translate="label,comment">
+							<label>Sort Order</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>19</sort_order>
+							<comment></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</sort_order>
+						<min_order_total translate="label,comment">
+							<label>Minimum Order Total</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>20</sort_order>
+							<comment></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</min_order_total>
+						<max_order_total translate="label,comment">
+							<label>Maximum Order Total</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>21</sort_order>
+							<comment></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</max_order_total>
+						<settlement translate="label,comment">
+							<label>Invoice settlement</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>22</sort_order>
+							<comment>Choose settlement after order in case you want an invoice to be created with your oder. The state of the invoice will set according to your capture status</comment>
+							<source_model>payboxcw/source_Settlement</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</settlement>
+						<capturing translate="label,comment">
+							<label>Capturing</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>23</sort_order>
+							<comment>By setting the capturing the reservation can be captured directly after the order or later manually over the backend of the store. The difference between &apos;order&apos; and &apos;authorization&apos; is that on &apos;order&apos; only a check is done, but not really a reservation on the card.</comment>
+							<source_model>payboxcw/source_Capturing</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</capturing>
+						<status_authorized translate="label,comment">
+							<label>Authorized Status</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>24</sort_order>
+							<comment>This status is set, when the payment was successfull and it is authorized.</comment>
+							<source_model>payboxcw/source_Statusauthorized</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_authorized>
+						<status_uncertain translate="label,comment">
+							<label>Uncertain Status</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>25</sort_order>
+							<comment>You can specify the order status for new orders that have an uncertain authorisation status.</comment>
+							<source_model>payboxcw/source_Statusuncertain</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_uncertain>
+						<status_captured translate="label,comment">
+							<label>Captured Status</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>26</sort_order>
+							<comment>You can specify the order status for orders that are captured either directly after the order or manually in the backend.</comment>
+							<source_model>payboxcw/source_Statuscaptured</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_captured>
+						<authorizationMethod translate="label,comment">
+							<label>Authorization Method</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>27</sort_order>
+							<comment>Select the authorization method to use for processing this payment method.</comment>
+							<source_model>payboxcw/source_AmericanExpressAuthorizationMethod</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</authorizationMethod>
+				</fields>
+			</payboxcw_americanexpress>
+			<payboxcw_diners translate="label,comment" module="PayboxCw">
+				<label>Paybox Diners Club</label>
+				<frontend_type>text</frontend_type>
+				<sort_order>1</sort_order>
+				<show_in_default>1</show_in_default>
+				<show_in_website>1</show_in_website>
+				<show_in_store>1</show_in_store>
+				<fields>
+						<active translate="label,comment">
+							<label>Enabled</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>10</sort_order>
+							<comment>Enable the payment method</comment>
+							<source_model>payboxcw/source_Active</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</active>
+						<title translate="label,comment">
+							<label>Titel</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>11</sort_order>
+							<comment>Title of the payment method</comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</title>
+						<description translate="label,comment">
+							<label>Description</label>
+							<frontend_type>textarea</frontend_type>
+							<sort_order>12</sort_order>
+							<comment>Payment method description</comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</description>
+						<show_image translate="label,comment">
+							<label>Show the payment image</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>13</sort_order>
+							<comment>Show the payment image on the checkout page</comment>
+							<source_model>payboxcw/source_Showimage</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</show_image>
+						<show_payment_id translate="label,comment">
+							<label>Show the payment id</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>14</sort_order>
+							<comment>Show the payment id in the order information</comment>
+							<source_model>payboxcw/source_Showpaymentid</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</show_payment_id>
+						<Currency translate="label,comment">
+							<label>Currency</label>
+							<frontend_type>multiselect</frontend_type>
+							<sort_order>15</sort_order>
+							<comment>Allowed currencies for this payment method</comment>
+							<source_model>payboxcw/source_DinersCurrency</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<can_be_empty>1</can_be_empty>
+						</Currency>
+						<use_base_currency translate="label,comment">
+							<label>Use base currency</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>16</sort_order>
+							<comment>Send amounts to Paybox in base currency.</comment>
+							<source_model>payboxcw/source_Usebasecurrency</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</use_base_currency>
+						<allowspecific translate="label,comment">
+							<label>Payment from applicable countries</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>17</sort_order>
+							<comment>Payment from applicable countries</comment>
+							<source_model>adminhtml/system_config_source_payment_allspecificcountries</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</allowspecific>
+						<specificcountry translate="label,comment">
+							<label>Payment from specific countries</label>
+							<frontend_type>multiselect</frontend_type>
+							<sort_order>18</sort_order>
+							<comment>Payment from specific countries</comment>
+							<source_model>payboxcw/source_DinersSpecificcountry</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<can_be_empty>1</can_be_empty>
+						</specificcountry>
+						<sort_order translate="label,comment">
+							<label>Sort Order</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>19</sort_order>
+							<comment></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</sort_order>
+						<min_order_total translate="label,comment">
+							<label>Minimum Order Total</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>20</sort_order>
+							<comment></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</min_order_total>
+						<max_order_total translate="label,comment">
+							<label>Maximum Order Total</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>21</sort_order>
+							<comment></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</max_order_total>
+						<settlement translate="label,comment">
+							<label>Invoice settlement</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>22</sort_order>
+							<comment>Choose settlement after order in case you want an invoice to be created with your oder. The state of the invoice will set according to your capture status</comment>
+							<source_model>payboxcw/source_Settlement</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</settlement>
+						<capturing translate="label,comment">
+							<label>Capturing</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>23</sort_order>
+							<comment>By setting the capturing the reservation can be captured directly after the order or later manually over the backend of the store. The difference between &apos;order&apos; and &apos;authorization&apos; is that on &apos;order&apos; only a check is done, but not really a reservation on the card.</comment>
+							<source_model>payboxcw/source_Capturing</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</capturing>
+						<status_authorized translate="label,comment">
+							<label>Authorized Status</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>24</sort_order>
+							<comment>This status is set, when the payment was successfull and it is authorized.</comment>
+							<source_model>payboxcw/source_Statusauthorized</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_authorized>
+						<status_uncertain translate="label,comment">
+							<label>Uncertain Status</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>25</sort_order>
+							<comment>You can specify the order status for new orders that have an uncertain authorisation status.</comment>
+							<source_model>payboxcw/source_Statusuncertain</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_uncertain>
+						<status_captured translate="label,comment">
+							<label>Captured Status</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>26</sort_order>
+							<comment>You can specify the order status for orders that are captured either directly after the order or manually in the backend.</comment>
+							<source_model>payboxcw/source_Statuscaptured</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_captured>
+						<authorizationMethod translate="label,comment">
+							<label>Authorization Method</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>27</sort_order>
+							<comment>Select the authorization method to use for processing this payment method.</comment>
+							<source_model>payboxcw/source_DinersAuthorizationMethod</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</authorizationMethod>
+				</fields>
+			</payboxcw_diners>
+			<payboxcw_jcb translate="label,comment" module="PayboxCw">
+				<label>Paybox JCB</label>
+				<frontend_type>text</frontend_type>
+				<sort_order>1</sort_order>
+				<show_in_default>1</show_in_default>
+				<show_in_website>1</show_in_website>
+				<show_in_store>1</show_in_store>
+				<fields>
+						<active translate="label,comment">
+							<label>Enabled</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>10</sort_order>
+							<comment>Enable the payment method</comment>
+							<source_model>payboxcw/source_Active</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</active>
+						<title translate="label,comment">
+							<label>Titel</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>11</sort_order>
+							<comment>Title of the payment method</comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</title>
+						<description translate="label,comment">
+							<label>Description</label>
+							<frontend_type>textarea</frontend_type>
+							<sort_order>12</sort_order>
+							<comment>Payment method description</comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</description>
+						<show_image translate="label,comment">
+							<label>Show the payment image</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>13</sort_order>
+							<comment>Show the payment image on the checkout page</comment>
+							<source_model>payboxcw/source_Showimage</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</show_image>
+						<show_payment_id translate="label,comment">
+							<label>Show the payment id</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>14</sort_order>
+							<comment>Show the payment id in the order information</comment>
+							<source_model>payboxcw/source_Showpaymentid</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</show_payment_id>
+						<Currency translate="label,comment">
+							<label>Currency</label>
+							<frontend_type>multiselect</frontend_type>
+							<sort_order>15</sort_order>
+							<comment>Allowed currencies for this payment method</comment>
+							<source_model>payboxcw/source_JcbCurrency</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<can_be_empty>1</can_be_empty>
+						</Currency>
+						<use_base_currency translate="label,comment">
+							<label>Use base currency</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>16</sort_order>
+							<comment>Send amounts to Paybox in base currency.</comment>
+							<source_model>payboxcw/source_Usebasecurrency</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</use_base_currency>
+						<allowspecific translate="label,comment">
+							<label>Payment from applicable countries</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>17</sort_order>
+							<comment>Payment from applicable countries</comment>
+							<source_model>adminhtml/system_config_source_payment_allspecificcountries</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</allowspecific>
+						<specificcountry translate="label,comment">
+							<label>Payment from specific countries</label>
+							<frontend_type>multiselect</frontend_type>
+							<sort_order>18</sort_order>
+							<comment>Payment from specific countries</comment>
+							<source_model>payboxcw/source_JcbSpecificcountry</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<can_be_empty>1</can_be_empty>
+						</specificcountry>
+						<sort_order translate="label,comment">
+							<label>Sort Order</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>19</sort_order>
+							<comment></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</sort_order>
+						<min_order_total translate="label,comment">
+							<label>Minimum Order Total</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>20</sort_order>
+							<comment></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</min_order_total>
+						<max_order_total translate="label,comment">
+							<label>Maximum Order Total</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>21</sort_order>
+							<comment></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</max_order_total>
+						<settlement translate="label,comment">
+							<label>Invoice settlement</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>22</sort_order>
+							<comment>Choose settlement after order in case you want an invoice to be created with your oder. The state of the invoice will set according to your capture status</comment>
+							<source_model>payboxcw/source_Settlement</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</settlement>
+						<capturing translate="label,comment">
+							<label>Capturing</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>23</sort_order>
+							<comment>By setting the capturing the reservation can be captured directly after the order or later manually over the backend of the store. The difference between &apos;order&apos; and &apos;authorization&apos; is that on &apos;order&apos; only a check is done, but not really a reservation on the card.</comment>
+							<source_model>payboxcw/source_Capturing</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</capturing>
+						<status_authorized translate="label,comment">
+							<label>Authorized Status</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>24</sort_order>
+							<comment>This status is set, when the payment was successfull and it is authorized.</comment>
+							<source_model>payboxcw/source_Statusauthorized</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_authorized>
+						<status_uncertain translate="label,comment">
+							<label>Uncertain Status</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>25</sort_order>
+							<comment>You can specify the order status for new orders that have an uncertain authorisation status.</comment>
+							<source_model>payboxcw/source_Statusuncertain</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_uncertain>
+						<status_captured translate="label,comment">
+							<label>Captured Status</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>26</sort_order>
+							<comment>You can specify the order status for orders that are captured either directly after the order or manually in the backend.</comment>
+							<source_model>payboxcw/source_Statuscaptured</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_captured>
+						<authorizationMethod translate="label,comment">
+							<label>Authorization Method</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>27</sort_order>
+							<comment>Select the authorization method to use for processing this payment method.</comment>
+							<source_model>payboxcw/source_JcbAuthorizationMethod</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</authorizationMethod>
+						<alias_manager translate="label,comment">
+							<label>Alias Manager</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>28</sort_order>
+							<comment>The alias manager allows the customer to select from a credit card previously stored. The sensitive data is stored by Paybox.</comment>
+							<source_model>payboxcw/source_Aliasmanager</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</alias_manager>
+				</fields>
+			</payboxcw_jcb>
+			<payboxcw_aurore translate="label,comment" module="PayboxCw">
+				<label>Paybox Aurore</label>
+				<frontend_type>text</frontend_type>
+				<sort_order>1</sort_order>
+				<show_in_default>1</show_in_default>
+				<show_in_website>1</show_in_website>
+				<show_in_store>1</show_in_store>
+				<fields>
+						<active translate="label,comment">
+							<label>Enabled</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>10</sort_order>
+							<comment>Enable the payment method</comment>
+							<source_model>payboxcw/source_Active</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</active>
+						<title translate="label,comment">
+							<label>Titel</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>11</sort_order>
+							<comment>Title of the payment method</comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</title>
+						<description translate="label,comment">
+							<label>Description</label>
+							<frontend_type>textarea</frontend_type>
+							<sort_order>12</sort_order>
+							<comment>Payment method description</comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</description>
+						<show_image translate="label,comment">
+							<label>Show the payment image</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>13</sort_order>
+							<comment>Show the payment image on the checkout page</comment>
+							<source_model>payboxcw/source_Showimage</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</show_image>
+						<show_payment_id translate="label,comment">
+							<label>Show the payment id</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>14</sort_order>
+							<comment>Show the payment id in the order information</comment>
+							<source_model>payboxcw/source_Showpaymentid</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</show_payment_id>
+						<Currency translate="label,comment">
+							<label>Currency</label>
+							<frontend_type>multiselect</frontend_type>
+							<sort_order>15</sort_order>
+							<comment>Allowed currencies for this payment method</comment>
+							<source_model>payboxcw/source_AuroreCurrency</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<can_be_empty>1</can_be_empty>
+						</Currency>
+						<use_base_currency translate="label,comment">
+							<label>Use base currency</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>16</sort_order>
+							<comment>Send amounts to Paybox in base currency.</comment>
+							<source_model>payboxcw/source_Usebasecurrency</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</use_base_currency>
+						<allowspecific translate="label,comment">
+							<label>Payment from applicable countries</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>17</sort_order>
+							<comment>Payment from applicable countries</comment>
+							<source_model>adminhtml/system_config_source_payment_allspecificcountries</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</allowspecific>
+						<specificcountry translate="label,comment">
+							<label>Payment from specific countries</label>
+							<frontend_type>multiselect</frontend_type>
+							<sort_order>18</sort_order>
+							<comment>Payment from specific countries</comment>
+							<source_model>payboxcw/source_AuroreSpecificcountry</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<can_be_empty>1</can_be_empty>
+						</specificcountry>
+						<sort_order translate="label,comment">
+							<label>Sort Order</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>19</sort_order>
+							<comment></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</sort_order>
+						<min_order_total translate="label,comment">
+							<label>Minimum Order Total</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>20</sort_order>
+							<comment></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</min_order_total>
+						<max_order_total translate="label,comment">
+							<label>Maximum Order Total</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>21</sort_order>
+							<comment></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</max_order_total>
+						<settlement translate="label,comment">
+							<label>Invoice settlement</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>22</sort_order>
+							<comment>Choose settlement after order in case you want an invoice to be created with your oder. The state of the invoice will set according to your capture status</comment>
+							<source_model>payboxcw/source_Settlement</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</settlement>
+						<capturing translate="label,comment">
+							<label>Capturing</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>23</sort_order>
+							<comment>By setting the capturing the reservation can be captured directly after the order or later manually over the backend of the store. The difference between &apos;order&apos; and &apos;authorization&apos; is that on &apos;order&apos; only a check is done, but not really a reservation on the card.</comment>
+							<source_model>payboxcw/source_Capturing</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</capturing>
+						<status_authorized translate="label,comment">
+							<label>Authorized Status</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>24</sort_order>
+							<comment>This status is set, when the payment was successfull and it is authorized.</comment>
+							<source_model>payboxcw/source_Statusauthorized</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_authorized>
+						<status_uncertain translate="label,comment">
+							<label>Uncertain Status</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>25</sort_order>
+							<comment>You can specify the order status for new orders that have an uncertain authorisation status.</comment>
+							<source_model>payboxcw/source_Statusuncertain</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_uncertain>
+						<status_captured translate="label,comment">
+							<label>Captured Status</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>26</sort_order>
+							<comment>You can specify the order status for orders that are captured either directly after the order or manually in the backend.</comment>
+							<source_model>payboxcw/source_Statuscaptured</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_captured>
+						<authorizationMethod translate="label,comment">
+							<label>Authorization Method</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>27</sort_order>
+							<comment>Select the authorization method to use for processing this payment method.</comment>
+							<source_model>payboxcw/source_AuroreAuthorizationMethod</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</authorizationMethod>
+						<alias_manager translate="label,comment">
+							<label>Alias Manager</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>28</sort_order>
+							<comment>The alias manager allows the customer to select from a credit card previously stored. The sensitive data is stored by Paybox.</comment>
+							<source_model>payboxcw/source_Aliasmanager</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</alias_manager>
+				</fields>
+			</payboxcw_aurore>
+			<payboxcw_bcmc translate="label,comment" module="PayboxCw">
+				<label>Paybox Bancontact / Mister Cash</label>
+				<frontend_type>text</frontend_type>
+				<sort_order>1</sort_order>
+				<show_in_default>1</show_in_default>
+				<show_in_website>1</show_in_website>
+				<show_in_store>1</show_in_store>
+				<fields>
+						<active translate="label,comment">
+							<label>Enabled</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>10</sort_order>
+							<comment>Enable the payment method</comment>
+							<source_model>payboxcw/source_Active</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</active>
+						<title translate="label,comment">
+							<label>Titel</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>11</sort_order>
+							<comment>Title of the payment method</comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</title>
+						<description translate="label,comment">
+							<label>Description</label>
+							<frontend_type>textarea</frontend_type>
+							<sort_order>12</sort_order>
+							<comment>Payment method description</comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</description>
+						<show_image translate="label,comment">
+							<label>Show the payment image</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>13</sort_order>
+							<comment>Show the payment image on the checkout page</comment>
+							<source_model>payboxcw/source_Showimage</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</show_image>
+						<show_payment_id translate="label,comment">
+							<label>Show the payment id</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>14</sort_order>
+							<comment>Show the payment id in the order information</comment>
+							<source_model>payboxcw/source_Showpaymentid</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</show_payment_id>
+						<Currency translate="label,comment">
+							<label>Currency</label>
+							<frontend_type>multiselect</frontend_type>
+							<sort_order>15</sort_order>
+							<comment>Allowed currencies for this payment method</comment>
+							<source_model>payboxcw/source_BcmcCurrency</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<can_be_empty>1</can_be_empty>
+						</Currency>
+						<use_base_currency translate="label,comment">
+							<label>Use base currency</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>16</sort_order>
+							<comment>Send amounts to Paybox in base currency.</comment>
+							<source_model>payboxcw/source_Usebasecurrency</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</use_base_currency>
+						<allowspecific translate="label,comment">
+							<label>Payment from applicable countries</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>17</sort_order>
+							<comment>Payment from applicable countries</comment>
+							<source_model>adminhtml/system_config_source_payment_allspecificcountries</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</allowspecific>
+						<specificcountry translate="label,comment">
+							<label>Payment from specific countries</label>
+							<frontend_type>multiselect</frontend_type>
+							<sort_order>18</sort_order>
+							<comment>Payment from specific countries</comment>
+							<source_model>payboxcw/source_BcmcSpecificcountry</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<can_be_empty>1</can_be_empty>
+						</specificcountry>
+						<sort_order translate="label,comment">
+							<label>Sort Order</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>19</sort_order>
+							<comment></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</sort_order>
+						<min_order_total translate="label,comment">
+							<label>Minimum Order Total</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>20</sort_order>
+							<comment></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</min_order_total>
+						<max_order_total translate="label,comment">
+							<label>Maximum Order Total</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>21</sort_order>
+							<comment></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</max_order_total>
+						<settlement translate="label,comment">
+							<label>Invoice settlement</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>22</sort_order>
+							<comment>Choose settlement after order in case you want an invoice to be created with your oder. The state of the invoice will set according to your capture status</comment>
+							<source_model>payboxcw/source_Settlement</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</settlement>
+						<capturing translate="label,comment">
+							<label>Capturing</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>23</sort_order>
+							<comment>By setting the capturing the reservation can be captured directly after the order or later manually over the backend of the store. The difference between &apos;order&apos; and &apos;authorization&apos; is that on &apos;order&apos; only a check is done, but not really a reservation on the card.</comment>
+							<source_model>payboxcw/source_Capturing</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</capturing>
+						<status_authorized translate="label,comment">
+							<label>Authorized Status</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>24</sort_order>
+							<comment>This status is set, when the payment was successfull and it is authorized.</comment>
+							<source_model>payboxcw/source_Statusauthorized</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_authorized>
+						<status_uncertain translate="label,comment">
+							<label>Uncertain Status</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>25</sort_order>
+							<comment>You can specify the order status for new orders that have an uncertain authorisation status.</comment>
+							<source_model>payboxcw/source_Statusuncertain</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_uncertain>
+						<status_captured translate="label,comment">
+							<label>Captured Status</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>26</sort_order>
+							<comment>You can specify the order status for orders that are captured either directly after the order or manually in the backend.</comment>
+							<source_model>payboxcw/source_Statuscaptured</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_captured>
+						<authorizationMethod translate="label,comment">
+							<label>Authorization Method</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>27</sort_order>
+							<comment>Select the authorization method to use for processing this payment method.</comment>
+							<source_model>payboxcw/source_BcmcAuthorizationMethod</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</authorizationMethod>
+						<alias_manager translate="label,comment">
+							<label>Alias Manager</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>28</sort_order>
+							<comment>The alias manager allows the customer to select from a credit card previously stored. The sensitive data is stored by Paybox.</comment>
+							<source_model>payboxcw/source_Aliasmanager</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</alias_manager>
+				</fields>
+			</payboxcw_bcmc>
+			<payboxcw_paypal translate="label,comment" module="PayboxCw">
+				<label>Paybox PayPal</label>
+				<frontend_type>text</frontend_type>
+				<sort_order>1</sort_order>
+				<show_in_default>1</show_in_default>
+				<show_in_website>1</show_in_website>
+				<show_in_store>1</show_in_store>
+				<fields>
+						<active translate="label,comment">
+							<label>Enabled</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>10</sort_order>
+							<comment>Enable the payment method</comment>
+							<source_model>payboxcw/source_Active</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</active>
+						<title translate="label,comment">
+							<label>Titel</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>11</sort_order>
+							<comment>Title of the payment method</comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</title>
+						<description translate="label,comment">
+							<label>Description</label>
+							<frontend_type>textarea</frontend_type>
+							<sort_order>12</sort_order>
+							<comment>Payment method description</comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</description>
+						<show_image translate="label,comment">
+							<label>Show the payment image</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>13</sort_order>
+							<comment>Show the payment image on the checkout page</comment>
+							<source_model>payboxcw/source_Showimage</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</show_image>
+						<show_payment_id translate="label,comment">
+							<label>Show the payment id</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>14</sort_order>
+							<comment>Show the payment id in the order information</comment>
+							<source_model>payboxcw/source_Showpaymentid</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</show_payment_id>
+						<Currency translate="label,comment">
+							<label>Currency</label>
+							<frontend_type>multiselect</frontend_type>
+							<sort_order>15</sort_order>
+							<comment>Allowed currencies for this payment method</comment>
+							<source_model>payboxcw/source_PayPalCurrency</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<can_be_empty>1</can_be_empty>
+						</Currency>
+						<use_base_currency translate="label,comment">
+							<label>Use base currency</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>16</sort_order>
+							<comment>Send amounts to Paybox in base currency.</comment>
+							<source_model>payboxcw/source_Usebasecurrency</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</use_base_currency>
+						<allowspecific translate="label,comment">
+							<label>Payment from applicable countries</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>17</sort_order>
+							<comment>Payment from applicable countries</comment>
+							<source_model>adminhtml/system_config_source_payment_allspecificcountries</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</allowspecific>
+						<specificcountry translate="label,comment">
+							<label>Payment from specific countries</label>
+							<frontend_type>multiselect</frontend_type>
+							<sort_order>18</sort_order>
+							<comment>Payment from specific countries</comment>
+							<source_model>payboxcw/source_PayPalSpecificcountry</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<can_be_empty>1</can_be_empty>
+						</specificcountry>
+						<sort_order translate="label,comment">
+							<label>Sort Order</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>19</sort_order>
+							<comment></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</sort_order>
+						<min_order_total translate="label,comment">
+							<label>Minimum Order Total</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>20</sort_order>
+							<comment></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</min_order_total>
+						<max_order_total translate="label,comment">
+							<label>Maximum Order Total</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>21</sort_order>
+							<comment></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</max_order_total>
+						<settlement translate="label,comment">
+							<label>Invoice settlement</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>22</sort_order>
+							<comment>Choose settlement after order in case you want an invoice to be created with your oder. The state of the invoice will set according to your capture status</comment>
+							<source_model>payboxcw/source_Settlement</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</settlement>
+						<capturing translate="label,comment">
+							<label>Capturing</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>23</sort_order>
+							<comment>By setting the capturing the reservation can be captured directly after the order or later manually over the backend of the store. The difference between &apos;order&apos; and &apos;authorization&apos; is that on &apos;order&apos; only a check is done, but not really a reservation on the card.</comment>
+							<source_model>payboxcw/source_Capturing</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</capturing>
+						<status_authorized translate="label,comment">
+							<label>Authorized Status</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>24</sort_order>
+							<comment>This status is set, when the payment was successfull and it is authorized.</comment>
+							<source_model>payboxcw/source_Statusauthorized</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_authorized>
+						<status_uncertain translate="label,comment">
+							<label>Uncertain Status</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>25</sort_order>
+							<comment>You can specify the order status for new orders that have an uncertain authorisation status.</comment>
+							<source_model>payboxcw/source_Statusuncertain</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_uncertain>
+						<status_captured translate="label,comment">
+							<label>Captured Status</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>26</sort_order>
+							<comment>You can specify the order status for orders that are captured either directly after the order or manually in the backend.</comment>
+							<source_model>payboxcw/source_Statuscaptured</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_captured>
+						<authorizationMethod translate="label,comment">
+							<label>Authorization Method</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>27</sort_order>
+							<comment>Select the authorization method to use for processing this payment method.</comment>
+							<source_model>payboxcw/source_PayPalAuthorizationMethod</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</authorizationMethod>
+						<alias_manager translate="label,comment">
+							<label>Alias Manager</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>28</sort_order>
+							<comment>The alias manager allows the customer to select from a credit card previously stored. The sensitive data is stored by Paybox.</comment>
+							<source_model>payboxcw/source_Aliasmanager</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</alias_manager>
+				</fields>
+			</payboxcw_paypal>
+			<payboxcw_uneurocom translate="label,comment" module="PayboxCw">
+				<label>Paybox 1Euro.com</label>
+				<frontend_type>text</frontend_type>
+				<sort_order>1</sort_order>
+				<show_in_default>1</show_in_default>
+				<show_in_website>1</show_in_website>
+				<show_in_store>1</show_in_store>
+				<fields>
+						<active translate="label,comment">
+							<label>Enabled</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>10</sort_order>
+							<comment>Enable the payment method</comment>
+							<source_model>payboxcw/source_Active</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</active>
+						<title translate="label,comment">
+							<label>Titel</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>11</sort_order>
+							<comment>Title of the payment method</comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</title>
+						<description translate="label,comment">
+							<label>Description</label>
+							<frontend_type>textarea</frontend_type>
+							<sort_order>12</sort_order>
+							<comment>Payment method description</comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</description>
+						<show_image translate="label,comment">
+							<label>Show the payment image</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>13</sort_order>
+							<comment>Show the payment image on the checkout page</comment>
+							<source_model>payboxcw/source_Showimage</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</show_image>
+						<show_payment_id translate="label,comment">
+							<label>Show the payment id</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>14</sort_order>
+							<comment>Show the payment id in the order information</comment>
+							<source_model>payboxcw/source_Showpaymentid</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</show_payment_id>
+						<Currency translate="label,comment">
+							<label>Currency</label>
+							<frontend_type>multiselect</frontend_type>
+							<sort_order>15</sort_order>
+							<comment>Allowed currencies for this payment method</comment>
+							<source_model>payboxcw/source_UnEuroComCurrency</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<can_be_empty>1</can_be_empty>
+						</Currency>
+						<use_base_currency translate="label,comment">
+							<label>Use base currency</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>16</sort_order>
+							<comment>Send amounts to Paybox in base currency.</comment>
+							<source_model>payboxcw/source_Usebasecurrency</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</use_base_currency>
+						<allowspecific translate="label,comment">
+							<label>Payment from applicable countries</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>17</sort_order>
+							<comment>Payment from applicable countries</comment>
+							<source_model>adminhtml/system_config_source_payment_allspecificcountries</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</allowspecific>
+						<specificcountry translate="label,comment">
+							<label>Payment from specific countries</label>
+							<frontend_type>multiselect</frontend_type>
+							<sort_order>18</sort_order>
+							<comment>Payment from specific countries</comment>
+							<source_model>payboxcw/source_UnEuroComSpecificcountry</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<can_be_empty>1</can_be_empty>
+						</specificcountry>
+						<sort_order translate="label,comment">
+							<label>Sort Order</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>19</sort_order>
+							<comment></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</sort_order>
+						<min_order_total translate="label,comment">
+							<label>Minimum Order Total</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>20</sort_order>
+							<comment></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</min_order_total>
+						<max_order_total translate="label,comment">
+							<label>Maximum Order Total</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>21</sort_order>
+							<comment></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</max_order_total>
+						<settlement translate="label,comment">
+							<label>Invoice settlement</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>22</sort_order>
+							<comment>Choose settlement after order in case you want an invoice to be created with your oder. The state of the invoice will set according to your capture status</comment>
+							<source_model>payboxcw/source_Settlement</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</settlement>
+						<capturing translate="label,comment">
+							<label>Capturing</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>23</sort_order>
+							<comment>By setting the capturing the reservation can be captured directly after the order or later manually over the backend of the store. The difference between &apos;order&apos; and &apos;authorization&apos; is that on &apos;order&apos; only a check is done, but not really a reservation on the card.</comment>
+							<source_model>payboxcw/source_Capturing</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</capturing>
+						<status_authorized translate="label,comment">
+							<label>Authorized Status</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>24</sort_order>
+							<comment>This status is set, when the payment was successfull and it is authorized.</comment>
+							<source_model>payboxcw/source_Statusauthorized</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_authorized>
+						<status_uncertain translate="label,comment">
+							<label>Uncertain Status</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>25</sort_order>
+							<comment>You can specify the order status for new orders that have an uncertain authorisation status.</comment>
+							<source_model>payboxcw/source_Statusuncertain</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_uncertain>
+						<status_captured translate="label,comment">
+							<label>Captured Status</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>26</sort_order>
+							<comment>You can specify the order status for orders that are captured either directly after the order or manually in the backend.</comment>
+							<source_model>payboxcw/source_Statuscaptured</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_captured>
+						<authorizationMethod translate="label,comment">
+							<label>Authorization Method</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>27</sort_order>
+							<comment>Select the authorization method to use for processing this payment method.</comment>
+							<source_model>payboxcw/source_UnEuroComAuthorizationMethod</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</authorizationMethod>
+						<alias_manager translate="label,comment">
+							<label>Alias Manager</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>28</sort_order>
+							<comment>The alias manager allows the customer to select from a credit card previously stored. The sensitive data is stored by Paybox.</comment>
+							<source_model>payboxcw/source_Aliasmanager</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</alias_manager>
+				</fields>
+			</payboxcw_uneurocom>
+			<payboxcw_ideal translate="label,comment" module="PayboxCw">
+				<label>Paybox iDEAL</label>
+				<frontend_type>text</frontend_type>
+				<sort_order>1</sort_order>
+				<show_in_default>1</show_in_default>
+				<show_in_website>1</show_in_website>
+				<show_in_store>1</show_in_store>
+				<fields>
+						<active translate="label,comment">
+							<label>Enabled</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>10</sort_order>
+							<comment>Enable the payment method</comment>
+							<source_model>payboxcw/source_Active</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</active>
+						<title translate="label,comment">
+							<label>Titel</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>11</sort_order>
+							<comment>Title of the payment method</comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</title>
+						<description translate="label,comment">
+							<label>Description</label>
+							<frontend_type>textarea</frontend_type>
+							<sort_order>12</sort_order>
+							<comment>Payment method description</comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</description>
+						<show_image translate="label,comment">
+							<label>Show the payment image</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>13</sort_order>
+							<comment>Show the payment image on the checkout page</comment>
+							<source_model>payboxcw/source_Showimage</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</show_image>
+						<show_payment_id translate="label,comment">
+							<label>Show the payment id</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>14</sort_order>
+							<comment>Show the payment id in the order information</comment>
+							<source_model>payboxcw/source_Showpaymentid</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</show_payment_id>
+						<Currency translate="label,comment">
+							<label>Currency</label>
+							<frontend_type>multiselect</frontend_type>
+							<sort_order>15</sort_order>
+							<comment>Allowed currencies for this payment method</comment>
+							<source_model>payboxcw/source_IDealCurrency</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<can_be_empty>1</can_be_empty>
+						</Currency>
+						<use_base_currency translate="label,comment">
+							<label>Use base currency</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>16</sort_order>
+							<comment>Send amounts to Paybox in base currency.</comment>
+							<source_model>payboxcw/source_Usebasecurrency</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</use_base_currency>
+						<allowspecific translate="label,comment">
+							<label>Payment from applicable countries</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>17</sort_order>
+							<comment>Payment from applicable countries</comment>
+							<source_model>adminhtml/system_config_source_payment_allspecificcountries</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</allowspecific>
+						<specificcountry translate="label,comment">
+							<label>Payment from specific countries</label>
+							<frontend_type>multiselect</frontend_type>
+							<sort_order>18</sort_order>
+							<comment>Payment from specific countries</comment>
+							<source_model>payboxcw/source_IDealSpecificcountry</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<can_be_empty>1</can_be_empty>
+						</specificcountry>
+						<sort_order translate="label,comment">
+							<label>Sort Order</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>19</sort_order>
+							<comment></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</sort_order>
+						<min_order_total translate="label,comment">
+							<label>Minimum Order Total</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>20</sort_order>
+							<comment></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</min_order_total>
+						<max_order_total translate="label,comment">
+							<label>Maximum Order Total</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>21</sort_order>
+							<comment></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</max_order_total>
+						<settlement translate="label,comment">
+							<label>Invoice settlement</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>22</sort_order>
+							<comment>Choose settlement after order in case you want an invoice to be created with your oder. The state of the invoice will set according to your capture status</comment>
+							<source_model>payboxcw/source_Settlement</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</settlement>
+						<capturing translate="label,comment">
+							<label>Capturing</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>23</sort_order>
+							<comment>By setting the capturing the reservation can be captured directly after the order or later manually over the backend of the store. The difference between &apos;order&apos; and &apos;authorization&apos; is that on &apos;order&apos; only a check is done, but not really a reservation on the card.</comment>
+							<source_model>payboxcw/source_Capturing</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</capturing>
+						<status_authorized translate="label,comment">
+							<label>Authorized Status</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>24</sort_order>
+							<comment>This status is set, when the payment was successfull and it is authorized.</comment>
+							<source_model>payboxcw/source_Statusauthorized</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_authorized>
+						<status_uncertain translate="label,comment">
+							<label>Uncertain Status</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>25</sort_order>
+							<comment>You can specify the order status for new orders that have an uncertain authorisation status.</comment>
+							<source_model>payboxcw/source_Statusuncertain</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_uncertain>
+						<status_captured translate="label,comment">
+							<label>Captured Status</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>26</sort_order>
+							<comment>You can specify the order status for orders that are captured either directly after the order or manually in the backend.</comment>
+							<source_model>payboxcw/source_Statuscaptured</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_captured>
+						<authorizationMethod translate="label,comment">
+							<label>Authorization Method</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>27</sort_order>
+							<comment>Select the authorization method to use for processing this payment method.</comment>
+							<source_model>payboxcw/source_IDealAuthorizationMethod</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</authorizationMethod>
+						<alias_manager translate="label,comment">
+							<label>Alias Manager</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>28</sort_order>
+							<comment>The alias manager allows the customer to select from a credit card previously stored. The sensitive data is stored by Paybox.</comment>
+							<source_model>payboxcw/source_Aliasmanager</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</alias_manager>
+				</fields>
+			</payboxcw_ideal>
+			<payboxcw_oney translate="label,comment" module="PayboxCw">
+				<label>Paybox Oney</label>
+				<frontend_type>text</frontend_type>
+				<sort_order>1</sort_order>
+				<show_in_default>1</show_in_default>
+				<show_in_website>1</show_in_website>
+				<show_in_store>1</show_in_store>
+				<fields>
+						<active translate="label,comment">
+							<label>Enabled</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>10</sort_order>
+							<comment>Enable the payment method</comment>
+							<source_model>payboxcw/source_Active</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</active>
+						<title translate="label,comment">
+							<label>Titel</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>11</sort_order>
+							<comment>Title of the payment method</comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</title>
+						<description translate="label,comment">
+							<label>Description</label>
+							<frontend_type>textarea</frontend_type>
+							<sort_order>12</sort_order>
+							<comment>Payment method description</comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</description>
+						<show_image translate="label,comment">
+							<label>Show the payment image</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>13</sort_order>
+							<comment>Show the payment image on the checkout page</comment>
+							<source_model>payboxcw/source_Showimage</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</show_image>
+						<show_payment_id translate="label,comment">
+							<label>Show the payment id</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>14</sort_order>
+							<comment>Show the payment id in the order information</comment>
+							<source_model>payboxcw/source_Showpaymentid</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</show_payment_id>
+						<Currency translate="label,comment">
+							<label>Currency</label>
+							<frontend_type>multiselect</frontend_type>
+							<sort_order>15</sort_order>
+							<comment>Allowed currencies for this payment method</comment>
+							<source_model>payboxcw/source_OneyCurrency</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<can_be_empty>1</can_be_empty>
+						</Currency>
+						<use_base_currency translate="label,comment">
+							<label>Use base currency</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>16</sort_order>
+							<comment>Send amounts to Paybox in base currency.</comment>
+							<source_model>payboxcw/source_Usebasecurrency</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</use_base_currency>
+						<allowspecific translate="label,comment">
+							<label>Payment from applicable countries</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>17</sort_order>
+							<comment>Payment from applicable countries</comment>
+							<source_model>adminhtml/system_config_source_payment_allspecificcountries</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</allowspecific>
+						<specificcountry translate="label,comment">
+							<label>Payment from specific countries</label>
+							<frontend_type>multiselect</frontend_type>
+							<sort_order>18</sort_order>
+							<comment>Payment from specific countries</comment>
+							<source_model>payboxcw/source_OneySpecificcountry</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<can_be_empty>1</can_be_empty>
+						</specificcountry>
+						<sort_order translate="label,comment">
+							<label>Sort Order</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>19</sort_order>
+							<comment></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</sort_order>
+						<min_order_total translate="label,comment">
+							<label>Minimum Order Total</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>20</sort_order>
+							<comment></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</min_order_total>
+						<max_order_total translate="label,comment">
+							<label>Maximum Order Total</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>21</sort_order>
+							<comment></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</max_order_total>
+						<settlement translate="label,comment">
+							<label>Invoice settlement</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>22</sort_order>
+							<comment>Choose settlement after order in case you want an invoice to be created with your oder. The state of the invoice will set according to your capture status</comment>
+							<source_model>payboxcw/source_Settlement</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</settlement>
+						<capturing translate="label,comment">
+							<label>Capturing</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>23</sort_order>
+							<comment>By setting the capturing the reservation can be captured directly after the order or later manually over the backend of the store. The difference between &apos;order&apos; and &apos;authorization&apos; is that on &apos;order&apos; only a check is done, but not really a reservation on the card.</comment>
+							<source_model>payboxcw/source_Capturing</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</capturing>
+						<status_authorized translate="label,comment">
+							<label>Authorized Status</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>24</sort_order>
+							<comment>This status is set, when the payment was successfull and it is authorized.</comment>
+							<source_model>payboxcw/source_Statusauthorized</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_authorized>
+						<status_uncertain translate="label,comment">
+							<label>Uncertain Status</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>25</sort_order>
+							<comment>You can specify the order status for new orders that have an uncertain authorisation status.</comment>
+							<source_model>payboxcw/source_Statusuncertain</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_uncertain>
+						<status_captured translate="label,comment">
+							<label>Captured Status</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>26</sort_order>
+							<comment>You can specify the order status for orders that are captured either directly after the order or manually in the backend.</comment>
+							<source_model>payboxcw/source_Statuscaptured</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_captured>
+						<authorizationMethod translate="label,comment">
+							<label>Authorization Method</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>27</sort_order>
+							<comment>Select the authorization method to use for processing this payment method.</comment>
+							<source_model>payboxcw/source_OneyAuthorizationMethod</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</authorizationMethod>
+						<alias_manager translate="label,comment">
+							<label>Alias Manager</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>28</sort_order>
+							<comment>The alias manager allows the customer to select from a credit card previously stored. The sensitive data is stored by Paybox.</comment>
+							<source_model>payboxcw/source_Aliasmanager</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</alias_manager>
+				</fields>
+			</payboxcw_oney>
+			</groups>
+		</payment>
+	</sections>
+</config>

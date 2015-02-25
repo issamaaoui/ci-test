@@ -1,0 +1,18 @@
+<?php $key_menu = $this->getMenu(); ?>
+<?php if ($key_menu != null): ?>
+	  <?php $menu = Mage::getModel('fluidmenu/fluidmenu')->load($key_menu, 'key_menu'); ?>
+	  <?php $menuItems = $this->getMenuItems($key_menu); ?>
+	  <?php if (count($menuItems) > 0): ?>
+	  		<div class="links-list" >
+			    <ul>
+				      <?php foreach ($menuItems as $_menuItem): ?>
+					        <li>
+					        	<a href="<?php echo $_menuItem->getRealUrl() ?>"  <?php echo $_menuItem->getProprerty(); ?> >
+							         <?php echo $_menuItem->getName() ?>
+							     </a>
+					        </li>
+				      <?php endforeach; ?>
+			    </ul>
+			</div>
+	  <?php endif; ?>
+<?php endif; ?>

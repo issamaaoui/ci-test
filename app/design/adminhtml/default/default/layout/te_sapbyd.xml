@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author te <renaud.fasimana@technology-everywhere.fr>
+ * @since 6 févr. 2015
+ *
+**/
+-->
+<layout version="0.1.0">
+    <adminhtml_sapbyd_customer_index>
+        <reference name="content">
+            <block type="te_sapbyd/adminhtml_customer" name="te_sapbyd_customer" />
+        </reference>
+    </adminhtml_sapbyd_customer_index>
+
+    <adminhtml_sapbyd_customer_grid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="te_sapbyd/adminhtml_customer_grid" name="te_sapbyd_customer_grid" />
+        </block>
+    </adminhtml_sapbyd_customer_grid>
+
+    <adminhtml_sapbyd_order_index>
+        <reference name="content">
+            <block type="te_sapbyd/adminhtml_order" name="te_sapbyd_order" />
+        </reference>
+    </adminhtml_sapbyd_order_index>
+
+    <adminhtml_sapbyd_order_grid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="te_sapbyd/adminhtml_order_grid" name="te_sapbyd_order_grid" />
+        </block>
+    </adminhtml_sapbyd_order_grid>
+</layout>

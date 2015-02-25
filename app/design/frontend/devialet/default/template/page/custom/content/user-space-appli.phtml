@@ -1,0 +1,38 @@
+<div class="content-user-appli">
+    <ul class="tab-appli">
+        <li class="active"><?php echo $this->__('Phantom') ?></li>
+        <li><?php echo $this->__('Expert') ?></li>
+    </ul>
+
+    <div class="content-wrapper">
+
+        <div class="panel-appli active" data-panel-id="0">
+            <h3 class="panel-title"><?php echo $this->__('Phantom') ?></h3>
+            <p><strong><?php echo $this->__('Devialet Remote + Streamer') ?></strong></p>
+            <p><?php echo $this->__('Play your music and manage your Devialet from your smartphone and tablet.') ?></p>
+            <p>
+            <div class="content-link-wrapper">
+                <a title="Devialet sur App Store" href="https://itunes.apple.com/fr/genre/ios/id36?mt=8" target="_blank">
+                    <img src="<?php echo $this->getSkinUrl('images/icon-link-appli-ios.png') ?>" alt="<?php echo $this->__('application ios'); ?>" height="40" />
+                </a>&nbsp;
+                <a title="Devialet sur Google play" href="https://play.google.com/store/apps/details?id=com.devialet.remote" target="_blank">
+                    <img src="<?php echo $this->getSkinUrl('images/icon-link-appli-android.png') ?>" alt="<?php echo $this->__('application android'); ?>" height="40" />
+                </a>
+            </div>
+            </p>
+        </div>
+
+        <div class="panel-appli" data-panel-id="1">
+            <h3 class="panel-title"><?php echo $this->__('Expert') ?></h3>
+            <p><?php echo $this->__('Find here all the applications that will allow you to enjoy a full experience of your Devialet devices.') ?></p>
+            <br/>
+
+            <div class="content-link-wrapper">
+                <div class="appli-link"><span class="label-dl-link"><?php echo $this->__('Firmware') ?></span><a href="#" class="b-grey"><?php echo $this->__('Download') ?></a></div>
+                <div class="appli-link"><span class="label-dl-link"><?php echo $this->__('USB Driver') ?></span><a href="#" class="b-grey"><?php echo $this->__('Download') ?></a></div>
+                <div class="appli-link"><span class="label-dl-link"><?php echo $this->__('Devialet air') ?></span><a href="#" class="b-grey"><?php echo $this->__('Download') ?></a></div>
+            </div>
+        </div>
+
+    </div>
+</div>

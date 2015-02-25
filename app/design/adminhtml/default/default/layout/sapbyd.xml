@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <sapbyd_adminhtml_sapbyd_index>
+        <reference name="content">
+            <block type="sapbyd/adminhtml_sapbyd" name="sapbyd" />
+        </reference>
+    </sapbyd_adminhtml_sapbyd_index>
+</layout>

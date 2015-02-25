@@ -1,0 +1,19 @@
+      <glob>
+         <CustomerSelectionByIdentification>
+            <!--Zero or more repetitions:-->
+            <SelectionByInternalID>
+               <!--Optional:-->
+               <InclusionExclusionCode>I</InclusionExclusionCode>
+               <!--Optional:-->
+               <IntervalBoundaryTypeCode>1</IntervalBoundaryTypeCode>
+               <!--Optional:-->
+               <LowerBoundaryInternalID>1001765</LowerBoundaryInternalID>
+               <!--Optional:-->
+         	  </SelectionByInternalID>
+         </CustomerSelectionByIdentification>
+         <ProcessingConditions>
+            <!--Optional:-->
+            <QueryHitsMaximumNumberValue>10</QueryHitsMaximumNumberValue>
+            <QueryHitsUnlimitedIndicator>false</QueryHitsUnlimitedIndicator>
+         </ProcessingConditions>
+      </glob>

@@ -1,0 +1,613 @@
+@font-face{
+    font-family: 'Brandon';
+    src: url(../fonts/Brandon_thin.otf) format('truetype');
+    font-style: normal;
+    font-weight: 100;
+}
+@font-face{
+    font-family: 'Brandon';
+    src: url(../fonts/Brandon_thin.otf) format('truetype');
+    font-style: normal;
+    font-weight: 200;
+}
+@font-face{
+    font-family: 'Brandon';
+    src: url(../fonts/Brandon_light.otf) format('truetype');
+    font-style: normal;
+    font-weight: 300;
+}
+@font-face{
+    font-family: 'Brandon';
+    src: url(../fonts/Brandon_med.otf) format('truetype');
+    font-style: normal;
+    font-weight: 500;
+}
+@font-face{
+    font-family: 'Brandon';
+    src: url(../fonts/Brandon_reg.otf) format('truetype');
+    font-style: normal;
+    font-weight: 400;
+}
+@font-face{
+    font-family: 'Brandon';
+    src: url(../fonts/Brandon_blk.otf) format('truetype');
+    font-style: normal;
+    font-weight: 600;
+}
+@font-face{
+    font-family: 'Brandon';
+    src: url(../fonts/Brandon_bld.otf) format('truetype');
+    font-style: normal;
+    font-weight: 700;
+}
+
+ul li a:focus{
+    text-decoration: none;
+    outline: none;
+}
+
+.upper{
+    text-transform: uppercase;
+}
+
+html{
+    height: 100%;
+}
+
+html, body{
+    min-height: 100%;
+}
+html body{
+    font-family: "Brandon", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.42857;
+    color: #333333;
+    background-color: #fff;
+    position: relative;
+}
+
+.float-wrapper::after{
+    display: table;
+    clear: both;
+    width: 100%;
+    content: '';
+}
+
+.f-right{
+    float: right;
+}
+
+.f-left{
+    float: left;
+}
+
+.d-table-cell{
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.alert-msg-secure{
+    color: #3FA435;
+}
+
+body.preorder-index-index{
+    background: #F5F5F5;
+}
+body.category-devialet-phantom,
+body.checkout-onepage-index,
+body.checkout-onepage-success{
+    background: #f9f9f9;
+}
+body.cms-page-view{
+
+}
+body.checkout-onepage-index .page-title{
+    display: none;
+}
+body.preorder-index-index .main-container{
+    width: 100%;
+}
+button:focus{
+    outline: none;
+}
+
+button.btn.btn-default:focus,
+button.btn.button:focus{
+    outline: none;
+}
+
+button.btn{
+    border-radius: 40px;
+    border-color: #ff8d50;
+    background: #FFFFFF;
+    outline: none;
+}
+
+button.btn:hover{
+    background-color: #ff8d50;
+    color: white;
+    border-color: #ff8d50;
+}
+
+
+body > .wrapper > .page >.footer-container{
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    z-index: 1020;
+}
+ul, ol{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+ul li, ol li{
+    list-style: none;
+}
+form, fieldset{
+    border-style: none;
+    margin: 0;
+    padding: 0;
+}
+p{
+    margin: 0 0 10px;
+}
+
+
+/*-----------------------------------------------------*/
+/*---------       Default style Magento      ----------*/
+/*-----------------------------------------------------*/
+.main:after, .col-wrapper:after {
+    clear: both;
+    content: "";
+    display: table;
+}
+.col-left, .col-right, .col-main {
+    padding: 0 10px;
+}
+.col-left {
+    clear: left;
+    float: left;
+    padding-left: 0;
+    width: 25%;
+}
+.col-left img {
+    max-width: 100%;
+}
+.col-right {
+    float: right;
+    padding-right: 0;
+    width: 25%;
+}
+.col-right img {
+    max-width: 100%;
+}
+.col-main {
+    float: left;
+    width: 75%;
+}
+.col1-layout .col-main {
+    float: none;
+    padding: 0;
+    width: auto;
+}
+.col2-left-layout .col-main {
+    float: right;
+    padding-right: 0;
+}
+.col2-right-layout .col-main {
+    padding-left: 0;
+}
+.col3-layout .col-right {
+    width: 20.8333%;
+}
+.col3-layout .col-wrapper {
+    float: left;
+    width: 79.1667%;
+}
+.col3-layout .col-wrapper .col-main {
+    float: right;
+    width: 73.6842%;
+}
+.col3-layout .col-wrapper .col-left {
+    width: 26.3158%;
+}
+/* BreadCrumbs */
+.breadcrumbs { font-size:13px; line-height:1.25; margin:20px 0 30px; }
+.breadcrumbs li { display:inline; }
+.breadcrumbs li strong { font-weight:bold; }
+
+.page-title h1 {
+    color: #000000;
+    font-size: 20px;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+h2.legend{
+    color: #000000;
+    font-size: 15px;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+.messages{
+    margin: 10px 0;
+}
+.messages .success-msg{
+    color: #3FA435;
+}
+.messages .error-msg{
+    color: #CD1619;
+}
+
+.header-container{
+    position: fixed;
+    z-index: 1030;
+    width: 100%;
+    font-family: 'Brandon';
+    background: #FFFFFF;
+}
+
+.main-container{
+    padding-top: 102px;
+    padding-bottom: 161px;
+}
+
+.header-container .header button.menu-open-trigger{
+    float: left;
+    margin: 11px 0 11px 36px;
+    position: relative;
+    z-index: 10;
+    min-width: 0;
+    transition:
+        margin 0.5s;
+}
+.header-container .main-menu .menu-container .menu-wrapper a{
+    text-decoration: none;
+    color: #939393;
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 0.01em;
+    display: inline-block;
+    background-position: left center;
+}
+
+.header-container .main-menu .menu-container .menu-devialet-wrapper .menu-item,
+.header-container .main-menu .menu-container .menu-expert-wrapper .menu-item{
+    width: 100%;
+}
+
+.header-container .main-menu .menu-container .menu-wrapper .menu-item a{
+    width: 100%;
+}
+
+.header-container .main-menu.active button.menu-trigger i::before{
+    content: '\e809';
+}
+
+.header-container .header .logo-wrapper a{
+    display: inline-block;
+}
+.header-container .header .form-language .icon-wrapper{
+    width: 22px;
+    height: 22px;
+    background: #636363;
+    color: white;
+    text-align: center;
+    line-height: 21px;
+    border-radius: 3px;
+    font-size: 20px;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+}
+
+.header-container .header .form-language .icon-wrapper i::before{
+    margin-left: 0;
+    margin-right: 0;
+}
+
+#select-language-button{
+    height: 26px;
+    width: 6.8em!important;
+    color: white;
+    background: #000000;
+    border-color: white;
+    border-radius: 4px;
+    padding: 0 6px;
+}
+#select-language-button:focus{
+    outline:none;
+}
+
+#select-language-button .ui-icon::before{
+    content: '\e805';
+}
+
+#select-language-button .ui-selectmenu-text{
+    padding: 0;
+}
+
+.ui-selectmenu-menu.ui-selectmenu-open{
+    z-index: 1050;
+}
+
+.ui-selectmenu-menu.ui-selectmenu-open #select-language-menu{
+    border: none;
+}
+
+.ui-selectmenu-menu.ui-selectmenu-open #select-language-menu li{
+    color: #FFFFFF;
+    background: #000000;
+}
+
+.ui-selectmenu-menu.ui-selectmenu-open #select-language-menu li.ui-state-focus{
+    border-color: #ff8d50;
+}
+
+.footer{
+    background: #000000;
+    padding: 37px 0 10px;
+}
+
+.footer nav.navbar{
+    margin-bottom: 0;
+}
+
+.mobile-nav-wrapper .button-wrapper{
+    height: 48px;
+}
+
+.mobile-nav-wrapper .button-wrapper button.menu-close-trigger{
+    background: none;
+    border: 1px solid white;
+    border-radius: 50%;
+    color: white;
+    margin: 11px 15px;
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+    text-align: center;
+    line-height: 25px;
+    font-size: 18px;
+}
+
+.mobile-nav-wrapper{
+    display: none;
+    position: fixed;
+    background: #000000;
+    height: 100%;
+    z-index: 11;
+    overflow: hidden;
+    width: 0;
+    transition:
+        width 0.5s;
+}
+
+nav.navbar.navbar-inverse.active .mobile-nav-wrapper{
+    width: 200px;
+}
+
+nav.navbar.navbar-inverse.active button.menu-open-trigger{
+    margin: 11px 0 11px 215px;
+}
+
+.mobile-nav-wrapper ul.menu-mobile-tablette{
+    list-style: none;
+    padding: 0;
+}
+
+.mobile-nav-wrapper ul.menu-mobile-tablette li a{
+    text-decoration: none;
+    color: white;
+    display: block;
+    width: 200px;
+    padding: 2px 14px;
+    text-transform: uppercase;
+    line-height: 35px;
+}
+
+.menu-mobile-tablette li{
+    float: none;
+}
+
+/*-----------------------------------------------------*/
+/*--------- Menu phantom nav et sidebar      ----------*/
+/*-----------------------------------------------------*/
+#phantom_menu{
+    margin:30px 0 0 0;
+}
+.nav-phantom li{
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+#phantom_menu .nav-phantom > li > a{
+    background-color: #d0d0cf;
+    color: #000;
+    border: 0;
+    font-size: 13px;
+}
+#phantom_menu .nav-phantom > li > a:hover{
+    background-color: #ff8d50;
+    color: #fff;
+}
+#phantom_menu .nav-phantom > li.active > a,
+#phantom_menu .nav-phantom > li.active > a:hover,
+#phantom_menu .nav-phantom > li.active > a:focus {
+    background: #ff8d50;
+    color: #fff;
+}
+
+#phantom_sidebar{
+    margin-top: 100px;
+}
+#phantom_sidebar .nav > li{
+    margin-bottom: 20px;
+    width: 220px;
+}
+#phantom_sidebar .nav > li > a{
+    width: 100%;
+    -moz-user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857;
+    margin-bottom: 0;
+    padding: 6px 12px;
+    text-align: center;
+    vertical-align: middle;
+}
+#phantom_sidebar .nav > li > a:hover,
+#phantom_sidebar .nav > li > a:focus{
+    background: #ff8d50;
+    border-color: #ff8d50;
+    color: #ffffff;
+}
+#phantom_sidebar .nav > li.active > a,
+#phantom_sidebar .nav > li.active > a:hover,
+#phantom_sidebar .nav > li.active > a:focus {
+    background: #ff8d50;
+    color: #fff;
+}
+
+/*---------------------------------------*/
+/*--------- Pré-commandez      ----------*/
+/*---------------------------------------*/
+.pre-order .label_form{
+    margin: 22px 0;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+.pre-order .label_form .title{
+    width: 210px;
+    margin: auto;
+    text-align: left;
+}
+.pre-order form{
+    margin-bottom: 50px;
+}
+
+a.b-white{
+    display: inline-block;
+    color: #000000;
+    background: #FFFFFF;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid #000000;
+}
+a.b-white:hover{
+    color: #FFFFFF;
+    background: #000000;
+    text-decoration: none;
+}
+a.b-white:focus{
+    color: #FFFFFF;
+    background: #000000;
+    text-decoration: none;
+}
+a.b-black{
+    display: inline-block;
+    color: #FFFFFF;
+    background: #000000;
+    border: 1px solid #FFFFFF;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+a.b-black:hover{
+    color: #000000;
+    background: #FFFFFF;
+    text-decoration: none;
+}
+a.b-black:focus{
+    color: #000000;
+    background: #FFFFFF;
+    text-decoration: none;
+}
+a.b-white:focus{
+    outline: none;
+    text-decoration: none;
+    color: #FFFFFF;
+}
+a.b-grey{
+    text-transform: uppercase;
+    color: #999999;
+    padding: 10px 20px;
+    border: 1px solid #999999;
+    display: inline-block;
+    text-decoration: none;
+}
+a.b-grey:hover{
+    text-transform: uppercase;
+    color: #e0e0e0;
+    background: #999999;
+    text-decoration: none;
+}
+a.b-grey:focus{
+    color: #e0e0e0;
+    background: #999999;
+    text-decoration: none;
+}
+a.link-b{
+    color: #000000;
+    text-decoration: none;
+}
+a.link-b:hover{
+    color: #000000;
+    text-decoration: none;
+}
+a.link-b:focus{
+    color: #000000;
+    text-decoration: none;
+}
+
+i[class^="mobile-icon-"]{
+    display: none;
+}
+
+body > .wrapper > .page >.footer-container{
+    display: none;
+}
+.link-wrapper{
+    font-size: 12px;
+    font-weight: 400;
+}
+.customer-forms-wrapper,
+.preorder-form-wrapper{
+    padding-top: 59px;
+}
+
+@media only screen and (max-device-width : 1024px) and (orientation : landscape){
+    i[class^="mobile-icon-"]{
+        display: inline-block;
+    }
+}
+
+@media only screen and (max-width: 979px) {
+    i[class^="mobile-icon-"]{
+        display: inline-block;
+    }
+    .footer{
+        padding: 20px 0 10px;
+    }
+    .main-container{
+        padding-top: 72px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .main-container{
+        padding-bottom: 0;
+    }
+    .footer-container{
+        display: none;
+    }
+
+}

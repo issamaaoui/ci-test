@@ -1,0 +1,19 @@
+
+<?php
+$orders =$this->getOrderCollection();
+
+foreach($orders as $order):
+?>
+    <tr>
+        <td class="tal"><?php echo $order->getData("created_at"); ?></td>
+        <td><?php echo $order->getData("increment_id"); ?></td>
+        <td><?php echo $order->getData("customer_id"); ?>  </td>
+        <td><?php echo $order->getData("customer_email"); ?></td>
+        <td><?php echo $order->getData("sapbyd_customer_id"); ?></td>
+        <td><?php echo $order->getData("sapbyd_code"); ?></td>
+        <td><?php echo $order->getData("sapbyd_message"); ?></td> 
+        <td class="tar"><a target="_blank" href="#">Vue</a></td>
+    </tr> 
+<?php
+endforeach;
+?>

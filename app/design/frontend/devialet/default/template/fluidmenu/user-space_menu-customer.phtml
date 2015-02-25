@@ -1,0 +1,19 @@
+<?php $key_menu = $this->getMenu(); ?>
+<?php if ($key_menu != null): ?>
+    <?php $menuItems = $this->getMenuItems($key_menu); ?>
+    <?php if (count($menuItems) > 0): ?>
+        <ul <?php echo trim($this->getHtmlId()) ? 'id="'.$this->getHtmlId().'"' : '';?>>
+            <?php foreach ($menuItems as $_menuItem): ?>
+                <li <?php echo $_menuItem->getClassHtml(); ?> >
+                    <a href="<?php echo $_menuItem->getRealUrl() ?>">
+                        <span class="icon-wrapper">
+                            <i <?php echo $_menuItem->getClassHtml() ?>></i>
+                        </span>
+                        <span class="link-txt"><?php echo $_menuItem->getName() ?></span>
+                    </a>
+                </li>
+            <?php endforeach; ?>
+            <li><a href="https://help.devialet.com/"><i class="link-mailto"></i><span class="link-txt"><?php echo $this->__('Contactez Devialet') ?></span></a></li>
+        </ul>
+    <?php endif; ?>
+<?php endif; ?>

@@ -1,0 +1,21 @@
+<?php 
+	$key_menu = $this->getMenu(); 
+	$level_items = $this->getLevel();
+?>
+<?php if ($key_menu != null and $level_items != null): ?>
+	  <?php //$menu = Mage::getModel('fluidmenu/fluidmenu')->load($key_menu, 'key_menu') ?>
+	  <?php $submenuItems = $this->getCurrentSubMenu($key_menu, $level_items, 4); ?>
+	  <?php if (count($submenuItems) > 0): ?>
+	  		<nav class="navbar">
+			    	<ul>
+					      <?php foreach ($submenuItems as $_menuItem): ?>
+						        <li <?php echo $_menuItem->getClassHtml(); ?> >
+							          <a href="<?php echo $_menuItem->getRealUrl() ?>"  <?php echo $_menuItem->getProprerty(); ?> >
+							          		<?php echo $_menuItem->getName() ?>
+							          </a>
+						        </li>
+					      <?php endforeach; ?>
+			    	</ul>
+			  </nav>
+	  <?php endif; ?>
+<?php endif; ?>

@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author te <renaud.fasimana@technology-everywhere.fr>
+ * @since 6 févr. 2015
+ *
+**/
+-->
+<config>
+    <modules>
+        <Te_Sapbyd>
+            <version>1.0.0</version>
+        </Te_Sapbyd>
+    </modules>
+    <global>
+        <models>
+            <te_sapbyd>
+                <class>Te_Sapbyd_Model</class>
+            </te_sapbyd>
+        </models>
+        <blocks>
+            <te_sapbyd>
+                <class>Te_Sapbyd_Block</class>
+            </te_sapbyd>
+        </blocks>
+        <helpers>
+            <te_sapbyd>
+                <class>Te_Sapbyd_Helper</class>
+            </te_sapbyd>
+        </helpers>
+    </global>
+    <adminhtml>
+        <layout>
+            <updates>
+                <te_sapbyd>
+                    <file>te_sapbyd.xml</file>
+                </te_sapbyd>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <Te_Sapbyd>
+                    <files>
+                        <default>Te_Sapbyd.csv</default>
+                    </files>
+                </Te_Sapbyd>
+            </modules>
+        </translate>
+    </adminhtml>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <te_sapbyd before="Mage_Adminhtml">Te_Sapbyd_Adminhtml</te_sapbyd>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <crontab>
+        <jobs>
+            <sapbyd_import_tracking>
+                <schedule>
+                    <cron_expr>53 * * * *</cron_expr>
+                </schedule>
+                <run>
+                    <model>te_sapbyd/observer::importTrackingNumbers</model>
+                </run>
+            </sapbyd_import_tracking>
+            <sapbyd_import_invoice>
+                <schedule>
+                    <cron_expr>23 * * * *</cron_expr>
+                </schedule>
+                <run>
+                    <model>te_sapbyd/observer::importInvoices</model>
+                </run>
+            </sapbyd_import_invoice>
+        </jobs>
+    </crontab>
+</config>

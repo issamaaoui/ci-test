@@ -1,0 +1,112 @@
+body.page-print.sales-order-print{
+
+}
+
+body.page-print.sales-order-print .page-print-content{
+    width: 800px;
+    margin: 0 auto;
+}
+body.page-print.sales-order-print .print-head{
+    text-align: center;
+    margin: 10px 0;
+}
+body.page-print.sales-order-print .order-section-title{
+    font-weight: 300;
+    text-transform: uppercase;
+    border-bottom: 1px solid #d8d8d8;
+}
+body.page-print.sales-order-print #my-orders-table{
+    width: 100%;
+    border-collapse: collapse;
+}
+body.page-print.sales-order-print  .grand_total_incl{
+    text-transform: uppercase;
+    font-size: 22px;
+}
+body.page-print.sales-order-print td.last{
+    text-align: right;
+}
+
+body.page-print.sales-order-print .nobr{
+    display: inline-block;
+    width: 110px;
+    text-align: center;
+}
+
+body.page-print.sales-order-print .block-order-information{
+    width: 44%;
+    max-width: 50%;
+    padding: 0 3%;
+    float: left;
+    margin-top: 50px;
+    height: 200px;
+}
+.content-wrapper{
+    padding: 0 3%;
+}
+.clearfix{
+    clear:both;
+}
+#my-orders-table thead{
+    display: none;
+}
+#my-orders-table td{
+    padding: 10px 15px;
+}
+#my-orders-table .grand_total_incl{
+    background: #000000;
+    color: #FFFFFF;
+    padding: 10px 15px;
+}
+#my-orders-table tfoot{
+    border-top: 1px solid #ededed;
+    -webkit-print-color-adjust: exact;
+}
+#my-orders-table tfoot tr td{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+#my-orders-table tfoot tr td.a-right{
+    text-align: right;
+}
+#my-orders-table tfoot tr.first td{
+    padding-bottom: 0;
+    padding-top: 10px;
+}
+#my-orders-table tfoot tr.summary-total td{
+    padding-bottom: 10px;
+    padding-top: 0;
+}
+#my-orders-table tfoot tr.last.grand_total_incl td{
+    padding: 6px 15px;
+}
+#my-orders-table tfoot tr.last.grand_total_incl td.a-right{
+    text-align: left;
+}
+#my-orders-table tfoot tr.last.grand_total_incl td.last.a-right{
+    text-align: right;
+}
+#my-orders-table tbody td{
+    border-left: 1px solid #ededed;
+    border-right: 1px solid #ededed;
+}
+#my-orders-table tbody td.cell-price-unity{
+    width: 100px;
+    border-right: none;
+}
+#my-orders-table tbody td.cell-ugk{
+    width: 100px;
+}
+
+#my-orders-table tbody td.cell-qty{
+    width: 50px;
+    text-align: center;
+    border-left: none;
+}
+.order-items.order-details{
+    float: none;
+}
+h1.order-title{
+    text-transform: uppercase;
+    font-size: 20px;
+}

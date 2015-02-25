@@ -1,0 +1,439 @@
+body.cms-page-view div.page-title{
+    display: none;
+}
+body.cms-page-view p{
+    margin: 0;
+    padding: 0;
+}
+body.cms-devialet-awards .main-container.container{
+    width: 100%;
+}
+#page_cms_cyber{
+
+}
+#page_cms_cyber .page-cms-title-wrapper{
+    padding: 145px 0 150px;
+    background: #f9f9f9;
+}
+#page_cms_awards .page-cms-title-wrapper{
+    padding: 95px 0 35px;
+    background: #f9f9f9;
+}
+#page_cms_awards .page-cms-title-wrapper h3{
+    font-size: 32px;
+}
+.page-cms-title-wrapper h3{
+    font-size: 34px;
+    font-weight: 200;
+    letter-spacing: 2px;
+    text-align: center;
+    color: #8d8d8d;
+    text-transform: uppercase;
+}
+#page_cms_cyber .page-cms-content-wrapper{
+    color: #999999;
+    padding: 50px 0 240px;
+    font-weight: 300;
+    width: 100%;
+    max-width: 1170px;
+    margin: 0 auto;
+}
+#page_cms_cyber .page-cms-content-wrapper p{
+    margin: 20px 0;
+    font-size: 18px;
+}
+#page_cms_cyber .page-cms-content-wrapper .content-left{
+    float: left;
+    width: 50%;
+    padding-left: 150px;
+}
+#page_cms_cyber .page-cms-content-wrapper .content-right{
+    float: left;
+    width: 50%;
+}
+#page_cms_cyber .page-cms-content-wrapper .content-right .image-wrapper{
+    position: relative;
+    top: -108px;
+}
+#page_cms_cyber .page-cms-content-wrapper{
+
+}
+#page_cms_cyber .page-cms-content-wrapper .tab-label-wrapper{
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 18px;
+    margin: 65px 0 30px;
+}
+#page_cms_cyber .page-cms-content-wrapper table {
+    border-collapse: collapse;
+    width: 100%;
+}
+#page_cms_cyber .page-cms-content-wrapper table thead th{
+    border: 1px solid #cccccc;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: 20px;
+    padding: 15px 0;
+    letter-spacing: 1px;
+}
+#page_cms_cyber .page-cms-content-wrapper table tbody{
+    border: 1px solid #cccccc;
+}
+#page_cms_cyber .page-cms-content-wrapper table tfoot{
+    border: 1px solid #cccccc;
+    text-align: center;
+}
+#page_cms_cyber .page-cms-content-wrapper table tfoot td{
+    padding: 12px 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+#page_cms_cyber .page-cms-content-wrapper table tbody td{
+    border-left: 1px solid #cccccc;
+    border-right: 1px solid #cccccc;
+    width: 50%;
+    padding: 20px 35px;
+    font-size: 28px;
+}
+
+#page_cms_cyber .bottom-content {
+    margin: 40px 0;
+}
+#page_cms_cyber .bottom-content .stat-wrapper{
+    float: left;
+    width: 33.33%;
+    text-align: center;
+    text-transform: uppercase;
+}
+#page_cms_cyber .bottom-content .stat-wrapper .stat-value{
+    font-weight: 400;
+    font-size: 50px;
+}
+#page_cms_cyber .bottom-content .stat-wrapper .stat-label{
+    letter-spacing: 1px;
+    font-size: 17px;
+}
+
+.cms-page-bottom{
+    background: #f9f9f9;
+    padding:  120px 0 130px;
+}
+
+.cms-page-bottom .bottom-content{
+    color: #8d8d8d;
+    font-size: 20px;
+    text-align: center;
+    font-weight: 300;
+}
+
+.awards-container{
+    padding: 100px 0;
+}
+
+.award-wrapper{
+    text-align: center;
+    margin-bottom: 50px;
+}
+.award-wrapper .table-cell-wrapper{
+    display: table;
+    width: 100%;
+}
+.award-wrapper .table-cell-wrapper .image-wrapper{
+    display: table-cell;
+    vertical-align: middle;
+    height: 120px;
+}
+.award-wrapper .table-cell-wrapper .image-wrapper img{
+
+}
+.award-wrapper .awards-label{
+    width: 114px;
+    margin: 0 auto;
+    letter-spacing: 1px;
+    color: #8d8d8d;
+    font-weight: 300;
+}
+
+.awards-count-wrapper{
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 50px;
+    color: #8d8d8d;
+}
+.awards-count-wrapper .count-wrapper{
+    font-size: 69px;
+    font-weight: 300;
+}
+.awards-count-wrapper .awards-title{
+    font-weight: 300;
+    letter-spacing: 2px;
+    font-size: 17px;
+}
+
+/*
+** Who we are and Revolution pages
+*/
+body.cms-devialet-revolution .container,
+body.cms-qui-sommes-nous .container {
+    width: 100%;
+}
+
+body.cms-devialet-revolution h1,
+body.cms-devialet-revolution h2, 
+body.cms-devialet-revolution p, 
+body.cms-devialet-revolution .figure, 
+body.cms-devialet-revolution .figure-unit,
+body.cms-qui-sommes-nous h1,
+body.cms-qui-sommes-nous h2, 
+body.cms-qui-sommes-nous p, 
+body.cms-qui-sommes-nous .figure, 
+body.cms-qui-sommes-nous .figure-unit {
+    color: #999999;
+    font-family: "Brandon";
+    font-weight: 300;
+    line-height: 1em;
+    margin: 0px;
+    letter-spacing: 1px;
+}
+
+body.cms-devialet-revolution h1,
+body.cms-qui-sommes-nous h1 {
+    text-transform: uppercase;
+    font-size: 34px;
+    line-height: 43px;
+}
+
+body.cms-devialet-revolution h2,
+body.cms-qui-sommes-nous h2 {
+    text-transform: uppercase;
+    font-size: 26px;
+    line-height: 33px;
+    margin-bottom: 42px;
+    margin-top: 70px;
+}
+
+body.cms-devialet-revolution p,
+body.cms-qui-sommes-nous p {
+    font-size: 18px;
+    line-height: 25px;
+    margin-bottom: 70px;
+}
+
+body.cms-devialet-revolution .figure,
+body.cms-qui-sommes-nous .figure {
+    font-size: 68px;
+}
+
+body.cms-devialet-revolution .figure-unit,
+body.cms-qui-sommes-nous .figure-unit {
+    text-transform: uppercase;
+}
+
+body.cms-devialet-revolution .caption,
+body.cms-qui-sommes-nous .caption {
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 300;
+    text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.75);
+}
+
+body.cms-devialet-revolution .background-gray,
+body.cms-qui-sommes-nous .background-gray {
+    background: #f9f9f9;
+}
+
+@media only screen and (max-width: 767px) {
+    body.cms-devialet-revolution .text-block,
+    body.cms-qui-sommes-nous .text-block {
+        text-align: center;
+    }
+}
+
+/*
+** Who we are page
+*/
+.whoweare .title {
+    text-align: center;
+    padding-top: 55px;
+    padding-bottom: 30px;
+}
+
+.whoweare .figures {
+    background: #f9f9f9;
+    padding-top: 30px;
+    padding-bottom: 55px;
+}
+
+.whoweare .prices {
+    text-align: right;
+}
+
+.whoweare .pattents {
+    text-align: left;
+}
+
+.whoweare span.figure-wrapper {
+    display: inline-block;
+    text-align: center;
+}
+
+.whoweare .prices span.figure-wrapper {
+    margin-right: 14%;
+}
+
+.whoweare .pattents span.figure-wrapper {
+    margin-left: 14%;
+}
+
+.whoweare .team-photo {
+    height: 700px;
+    background: url(team.jpg) top center no-repeat;
+    background-size: cover;
+}
+
+@media only screen and (max-width: 1199px) {
+    .whoweare .team-photo {
+        height: 510px;
+    }
+}
+
+@media only screen and (max-width: 979px) {
+    .whoweare .team-photo {
+        height: 420px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .whoweare .team-photo {
+        height: 320px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .whoweare .team-photo {
+        height: 230px;
+    }
+}
+
+.whoweare .team-photo > div {
+    height: 100%;
+}
+
+.whoweare .team-photo .caption {
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    text-align: right;
+}
+
+.whoweare .workplace-photo {
+    height: 768px;
+    background: url(workplace.jpg) top center no-repeat;
+    background-size: cover;
+}
+
+@media only screen and (max-width: 1199px) {
+    .whoweare .workplace-photo {
+        height: 690px;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .whoweare .workplace-photo {
+        height: 590px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .whoweare .workplace-photo {
+        height: 460px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .whoweare .workplace-photo {
+        height: 290px;
+    }
+}
+
+/*
+** Revolution page
+*/
+.revolution .title {
+    text-align: center;
+    padding-top: 95px;
+    padding-bottom: 30px;
+}
+
+.revolution .title-text-block p {
+    margin-bottom: 95px;
+}
+
+.revolution .full-screen {
+    height: 768px;
+}
+
+@media only screen and (max-width: 1199px) {
+    .revolution .full-screen {
+        height: 768px;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .revolution .full-screen {
+        height: 600px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .revolution .full-screen {
+        height: 100%;
+        padding: 40px 0px;
+    }
+}
+
+.revolution .vertical-center {
+    height: 100%;
+    white-space: nowrap; /* prevents the text-container to line-break when the screen is too tight */
+}
+
+.revolution .text-container {
+    white-space: initial;
+}
+
+.revolution .vertical-center::before {
+    content: '';
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -0.25em;
+    display: inline-block;
+}
+
+.revolution .vertical-center .text-container, 
+.revolution .vertical-center .picture-container {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.revolution .picture-container img {
+    max-width: 100%;
+}
+
+.revolution .picture-container.picture-left {
+    margin-left: -15px;
+}
+
+.revolution .picture-container.picture-right {
+    margin-right: -15px;
+}
+
+@media only screen and (max-width: 767px) {
+    .revolution .vertical-center {
+        text-align: center;
+    }
+
+    .revolution .picture-phantom {
+        padding-right: 26%;
+    }
+}

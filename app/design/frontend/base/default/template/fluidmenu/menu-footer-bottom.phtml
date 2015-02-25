@@ -1,0 +1,21 @@
+<?php $key_menu = $this->getMenu(); ?>
+<?php if ($key_menu != null): ?>
+	  <?php $menu = Mage::getModel('fluidmenu/fluidmenu')->load($key_menu, 'key_menu'); ?>
+	  <?php $menuItems = $this->getMenuItems($key_menu); ?>
+	  <?php if (count($menuItems) > 0): ?>
+		    <ul class="<?php echo $this->getHtmlClass() ?>">
+                        <li><h3><span><a href="<?php echo Mage::getBaseUrl('media') . 'logo-hd.png'; ?>"></a></span></h3></li>
+			      <?php foreach ($menuItems as $_menuItem): ?>
+				        <li>
+                            <h3>
+                                <span>
+                                      <a href="<?php echo $_menuItem->getRealUrl() ?>"  <?php echo $_menuItem->getProprerty(); ?> >
+                                            <?php echo $_menuItem->getName() ?>
+                                      </a>
+                                 </span>
+                            </h3>
+				        </li>
+			      <?php endforeach; ?>
+		    </ul>
+	  <?php endif; ?>
+<?php endif; ?>

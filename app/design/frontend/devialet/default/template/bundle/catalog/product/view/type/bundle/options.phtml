@@ -1,0 +1,75 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2014 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+
+<?php $_product = $this->getProduct(); ?>
+<?php $_options = Mage::helper('core')->decorateArray($this->getOptions()); ?>
+<?php if ($_product->isSaleable()):?>
+    <?php if (count($_options)): ?>
+
+        <dl>
+            <div class="phantom-product-wrapper">
+                <div class="option-title-wrapper col-xs-12"><?php echo $this->__('Sélectionnez les modèles')  ?></div>
+                <?php foreach ($_options as $_option): ?>
+                    <?php if(!$_option->getSelections()): ?>
+                        <?php continue; ?>
+                    <?php endif; ?>
+                    <?php
+                        $option_product = Mage::getModel('catalog/product')->load($_option->_data['selections'][0]->_data['product_id']);
+                        $id_cat = $option_product->getCategoryIds();
+                    ?>
+                    <?php if(isset($id_cat[0]) && $id_cat[0] == 11): ?>
+                        <div class="option-wrapper col-md-6">
+                            <?php echo $this->getOptionHtml($_option) ?>
+                        </div>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="accessoir-product-wrapper">
+                <div class="option-title-wrapper col-xs-12"><?php echo $this->__('Sélectionnez les accessoires') ?></div>
+                <?php foreach ($_options as $_option): ?>
+                    <?php if(!$_option->getSelections()): ?>
+                        <?php continue; ?>
+                    <?php endif; ?>
+                    <?php
+                        $option_product = Mage::getModel('catalog/product')->load($_option->_data['selections'][0]->_data['product_id']);
+                        $id_cat = $option_product->getCategoryIds();
+                    ?>
+                    <?php if(isset($id_cat[0]) && $id_cat[0] == 15): ?>
+                        <div class="option-wrapper col-xs-12">
+                            <?php echo $this->getOptionHtml($_option) ?>
+                        </div>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            </div>
+        </dl>
+
+    <?php else: ?>
+        <p><?php echo $this->__('No options of this product are available.') ?></p>
+    <?php endif; ?>
+<?php endif;?>

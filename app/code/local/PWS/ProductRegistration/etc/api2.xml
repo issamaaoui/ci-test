@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <api2>
+        <resource_groups>
+            <pws_productregistration translate="title" module="api2">
+                <title>Devialet Product Registration</title>
+                <sort_order>10</sort_order>
+            </pws_productregistration>
+        </resource_groups>
+        <resources>
+            <pws_productregistration translate="title" module="api2">
+                <group>pws_productregistration</group>
+                <model>pws_productregistration/api2_productregistration</model>
+                <title>Product Registration API</title>
+                <sort_order>10</sort_order>
+                <privileges>
+                    <admin>
+                        <retrieve>1</retrieve>
+                        <create>1</create>
+                        <update>1</update>
+                        <delete>1</delete>
+                    </admin>
+                    <customer>
+                        <retrieve>1</retrieve>
+                        <create>1</create>
+                        <update>1</update>
+                        <delete>1</delete>
+                    </customer>
+                </privileges>
+                <attributes translate="" module="api2">
+                    <registration_id>Product Registration ID</registration_id>
+                    <customer_id>Customer ID</customer_id>
+                    <product_id>Product ID</product_id>
+                    <serial_number>Serial Number</serial_number>
+                    <date_of_purchase>Date of purchase</date_of_purchase>
+                    <purchased_from>Purchased from</purchased_from>
+                    <is_valid>Is valid</is_valid>
+                    <notes>Notes</notes>
+                    <store_id>Store ID</store_id>
+                </attributes>
+                <routes>
+                    <route_entity>
+                        <route>/productregistration/serial_number</route>
+                        <action_type>entity</action_type>
+                    </route_entity>
+                    <route_collection>
+                        <route>/productregistration/serial_numbers</route>
+                        <action_type>collection</action_type>
+                    </route_collection>
+                </routes>
+                <versions>1</versions>
+            </pws_productregistration>
+        </resources>
+    </api2>
+</config>

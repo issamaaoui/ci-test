@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<api>
+		<resources>
+			<payboxcw_transaction translate="title" module="PayboxCw">
+				<model>payboxcw/transaction_api</model>
+				<title>PayboxCw Transaction API</title>
+				<acl>payboxcw_transaction</acl>
+				<methods>
+					<list translate="title" module="PayboxCw">
+						<title>Retrieve transaction</title>
+						<method>items</method>
+						<acl>payboxcw_transaction/list</acl>
+					</list>
+					<info translate="title" module="PayboxCw">
+						<title>Retrieve transaction data</title>
+						<method>info</method>
+						<acl>payboxcw_transaction/info</acl>
+					</info>
+				</methods>
+				<faults module="PayboxCw">
+					<filters_invalid>
+						<code>101</code >
+						<message>Invalid filters specified. Details in error message.</message>
+					</filters_invalid>
+					<not_exists>
+						<code>102</code >
+						<message>Transaction doesn't exist.</message>
+					</not_exists>
+				</faults>
+			</payboxcw_transaction>
+		</resources>
+		<v2>
+            <resources_function_prefix>
+                <payboxcw_transaction>payboxcwTransaction</payboxcw_transaction>
+            </resources_function_prefix>
+        </v2>
+		<acl>
+			<resources>
+				<payboxcw_transaction translate="title" module="PayboxCw">
+					<title>PayboxCw Transactions</title>
+					<list translate="title" module="PayboxCw">
+						<title>View All</title>
+					</list>
+					<info translate="title" module="PayboxCw">
+						<title>Get Info</title>
+					</info>
+				 </payboxcw_transaction>
+			</resources>
+		</acl>
+	</api>
+</config>

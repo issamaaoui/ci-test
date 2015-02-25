@@ -1,0 +1,17 @@
+<?php $key_menu = $this->getMenu(null); ?>
+<?php if ($key_menu != null) { ?>
+  <?php $menu = Mage::getModel('fluidmenu/fluidmenu')->load($key_menu, 'key_menu') ?>
+  <?php $menuItems = $this->getMenuItems($key_menu); ?>
+  <?php if (count($menuItems) > 0) { ?>
+    <ul class="fidesio_fluidmenu <?php echo $key_menu ?> <?php echo $this->getHtmlClass() ?>" id="<?php echo $this->getHtmlId() ?>">
+      <?php foreach ($menuItems as $_menuItem): ?>
+        <li>
+          <a href="<?php echo $_menuItem->getRealUrl() ?>"  <?php echo $_menuItem->getProprerty(); ?> >
+          		<?php echo $_menuItem->getName() ?>
+          </a>
+        	<?php echo $this->getSubMenuBlock($_menuItem)->toHtml(); ?>
+        </li>
+    <?php endforeach; ?>
+    </ul>
+  <?php } ?>
+<?php } ?>

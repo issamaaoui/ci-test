@@ -1,0 +1,65 @@
+<!--@subject SAP export Order Error @-->
+<!--@vars
+{"store url=\"\"":"Store Url",
+"var logo_url":"Email Logo Image Url",
+"var logo_alt":"Email Logo Image Alt"}
+@-->
+<!--@styles
+body { font: 15px 'Arial', sans-serif; color: #58585a; padding: 0 10px; margin: 0;}
+    .header { text-align: center; }
+    .logo { margin: 60px 0; }
+    .invoice-number { font-size: 13px; font-weight: bold; text-transform: uppercase; border-top: 2px solid #38435c; border-bottom: 2px solid #38435c; padding: 5px 0; color: #38435c; }
+    .wrapper { margin: 60px auto 0;  width: 700px; }
+    .invoice-info { display: inline-block; width: 333px; padding-bottom: 10px; border-bottom: 1px solid #a7a8aa; }
+    .invoice-info + .invoice-info { margin-left: 29px; }
+    .invoice-info span { display: block; line-height: 1.3em; }
+    .invoice-info span.last { margin-top: 5px; }
+    .order-details { text-align: center; width: 100%; border-collapse: collapse; }
+    .order-details th { padding: 60px 0 45px; color: #38435c; text-transform: uppercase; font-weight: normal; }
+    .order-details td { border-bottom: 1px solid #a7a8aa; padding-top: 15px; padding-bottom: 5px;}
+    .tal { text-align: left; }
+    .tar { text-align: right; }
+    .order-totals { margin-top: 60px; display: table; width: 100%; }
+    .order-info, .order-total { width: 333px; display: table-cell; }
+    .order-info { border-bottom: 1px solid #a7a8aa; }
+    .order-total { padding-left: 29px; }
+    .order-total table { border-bottom: 1px solid #a7a8aa; width: 100%; padding-bottom: 7px;}
+    .order-total .tal { color: #38435c; }
+    .order-total .total { padding-top: 10px; }
+    .order-info span { display: block; }
+    .order-delivery {  margin-bottom: 20px; display: table; margin-top: 20px;}
+    .order-deliverer, .order-address { display: table-cell; width: 333px; }
+    .order-deliverer .signature { vertical-align: top; margin-top: 10px; text-decoration: underline; }
+    .order-deliverer .signature img { float: right; }
+    .order-address {padding-left: 32px;}
+    .order-address span { display: block; line-height: 1.3em;}
+    .order-address .address-title { border-bottom: 1px solid #a7a8aa; text-transform: uppercase; color: #38435c; padding-bottom: 7px; margin-bottom: 10px;}
+    .footer { text-align: center; font-size: 13px; }
+    .prefooter { color: #38435c; }
+    .prefooter p + p { font-size: 12px; }
+    .prefooter span { border-bottom: 2px solid #38435c; width: 400px; display: block; margin: 0 auto;}
+    .payment-info { margin: 10px 0; }
+    .payment-info p { margin: 0; }
+@-->
+<div class="header">
+    <img src="{{var logo_url}}" class="logo" alt="Logo Devialet">
+    <p><span class="invoice-number">Rapport d'erreur des commandes</span></p>
+</div>
+<div class="wrapper"> 
+    <table class="order-details">
+        <thead>
+            <tr>
+                <th class="tal">Date</th>
+                <th>Commande ID</th>
+                <th>Client ID</th>
+                <th>Mail</th>
+                <th>SAP Customer ID</th>
+                <th>SAP CODE</th>
+                <th>SAP message</th>
+                <th class="tar">Vue logs</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{layout area="frontend" handle="te_sapbydexport_email_report_order"}}
+        </tbody>
+    </table> 

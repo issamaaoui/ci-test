@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Te_Ajaxcart>
+            <version>1.0.0</version>
+        </Te_Ajaxcart>
+    </modules>
+
+    <frontend>
+        <routers>
+            <ajaxcart>
+                <use>standard</use>
+                <args>
+                    <module>Te_Ajaxcart</module>
+                    <frontName>ajaxcart</frontName>
+                </args>
+            </ajaxcart>
+        </routers>
+        <translate>
+            <modules>
+                <Te_Ajaxcart>
+                    <files>
+                        <Te_Ajaxcart>Te_Ajaxcart.csv</Te_Ajaxcart>
+                    </files>
+                </Te_Ajaxcart>
+            </modules>
+        </translate>
+    </frontend>
+
+    <global>
+        <models>
+            <te_ajaxcart>
+                <class>Te_Ajaxcart_Model</class>
+            </te_ajaxcart>
+        </models>
+        <helpers>
+            <te_ajaxcart>
+                <class>Te_Ajaxcart_Helper</class>
+            </te_ajaxcart>
+        </helpers>
+    </global>
+</config>

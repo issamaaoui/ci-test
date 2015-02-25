@@ -1,0 +1,59 @@
+.checkbox-code {
+    margin-top: 10px;
+    margin-left: 200px;
+    text-align: left;
+}
+#custom_discount {
+    margin: 0;
+
+    .input-box {
+        display: inline-block;
+        float:right;
+    }
+
+    .toggle-code {
+        display: none;
+
+        &.invalid {
+            .code-input, .button-promo {
+                border-color: red;
+            }
+        }
+    }
+
+    .code-input, .button-promo {
+        float: right;
+    }
+
+    .invalid-code {
+        color: red;
+    }
+
+    .code-input {
+        border: 1px solid #fff;
+        margin-top: 11px;
+        padding: 7px 5px 8px;
+        color: black;
+    }
+
+    .button-orange.button-promo {
+        position: static;
+        margin-right: 10px;
+    }
+
+    .input-box input {
+        color:#000;
+    }
+
+    label {
+       padding-top: 6px;
+    }
+}
+
+#discount-coupon-form {
+    display: none;
+}
+
+.total-price-wrapper .cart-pay, .buttons-set {
+    float: right;
+}

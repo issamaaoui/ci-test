@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Te_SuggestionPopin>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Te_SuggestionPopin>
+    </modules>
+</config>

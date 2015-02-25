@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * Copyright 2010-2012 | Dacrydium
+ * Fabrice Creuzot <fabrice.creuzot@dacrydium.fr>
+ * http://www.dacrydium.fr/
+ *
+ * This source file is based from Magento template, so
+ * it is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+-->
+
+<layout version="0.1.0">
+
+	<te_sapbydexport_email_report_order>
+        <block type="te_sapbydexport/list_order" name="order_list" template="te_sapbydexport/order/list.phtml">
+        </block>
+    </te_sapbydexport_email_report_order>
+</layout>

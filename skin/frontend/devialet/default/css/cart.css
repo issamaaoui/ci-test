@@ -1,0 +1,308 @@
+.product-list-wrapper{
+    margin: 50px 0;
+}
+.add-to-cart .qty-wrapper{
+    display: none;
+}
+#shopping-cart-table{
+    width: 100%;
+}
+#shopping-cart-table td{
+    padding: 10px;
+}
+#shopping-cart-table tr{
+    border-top: 1px solid #333333;
+}
+.step-title .number{
+    display: none;
+}
+.step-title h2{
+    font-size: 22px;
+}
+#checkoutSteps input{
+    margin-bottom: 10px;
+}
+#checkoutSteps input[type="text"]{
+    width: 100%;
+}
+
+#checkoutSteps select{
+    width: 100%;
+    margin: 10px 0;
+}
+
+#checkoutSteps li.control::after,
+#checkoutSteps .sp-methods dt::after{
+    content: '';
+    display: table;
+    width: 100%;
+    clear:both;
+}
+
+#checkoutSteps li.control input[type="radio"],
+#checkoutSteps li.control input[type="checkbox"],
+#checkoutSteps .sp-methods dt input[type="radio"],
+#checkoutSteps .sp-methods dt input[type="checkbox"]{
+    float: left;
+    margin-right: 10px;
+}
+
+#checkoutSteps{
+
+}
+#checkoutSteps li .step-title{
+    padding: 18px 0;
+    margin-bottom: 25px;
+    background: #000000;
+    position: relative;
+}
+#checkoutSteps li .step-title::after{
+    display: table;
+    width: 100%;
+    clear: both;
+    content: '';
+}
+
+#checkoutSteps li .step-title h2{
+    margin: 0;
+    font-weight: 300;
+    font-size: 24px;
+    color: #ffffff;
+    text-align: center;
+    letter-spacing: 1px;
+    font-weight: 100;
+}
+
+#checkoutSteps li .step-title a{
+    line-height: 22px;
+    text-transform: uppercase;
+    color: #999999;
+    text-decoration: none;
+}
+
+#checkoutSteps li .step-title .bt-back {
+    position: absolute;
+    left: 39px;
+    top: 50%;
+    margin-top: -18.5px;
+}
+
+@media only screen and (max-width: 979px){
+    #checkoutSteps li .step-title .bt-back {
+        left: 8px;
+        margin-top: -15.5px;
+        padding: 8px;
+        font-size: 8px;
+    }
+}
+
+#checkoutSteps li .step-title a:hover{
+    color: #000000;
+}
+
+#checkoutSteps input{
+    margin-bottom: 0;
+}
+
+#checkoutSteps select{
+    padding: 10px;
+    background: rgba(255,255,255,0.8);
+}
+#checkoutSteps select:focus{
+    outline: none;
+}
+
+#checkoutSteps .field-wrapper select{
+    margin: 0;
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+ul.form-list::after{
+    display: table;
+    width: 100%;
+    content: '';
+    clear: both;
+}
+#co-billing-form ul.form-list li.control{
+    float: left;
+    margin-right: 30px;
+    padding: 8px 0;
+}
+ul.form-list li.action button.button-submit{
+    margin: 0;
+    float: right;
+}
+
+#checkoutSteps .paybox-form-wrapper ul {
+    padding-top: 40px;
+}
+
+#checkoutSteps .paybox-form-wrapper select{
+    padding: 0;
+    margin: 0;
+}
+
+#checkoutSteps .paybox-form-wrapper .card-cvc input[type="text"]{
+    width: initial;
+}
+
+p.required{
+    color: #000000;
+    padding-left: 2px;
+}
+/*#checkoutSteps .buttons-set{*/
+    /*margin-top: 40px;*/
+/*}*/
+.buttons-set::after{
+    display: table;
+    content: '';
+    width: 100%;
+    clear: both;
+}
+
+.buttons-set p.back-link{
+    float: left;
+}
+
+.buttons-set p.back-link a{
+    display: inline-block;
+    color: #000000;
+    background: #FFFFFF;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid #000000;
+}
+.buttons-set p.back-link a:hover{
+    color: #FFFFFF;
+    background: #000000;
+}
+
+.buttons-set .please-wait{
+    float: right;
+    line-height: 39px;
+    margin-right: 30px;
+}
+
+.buttons-set button.button-submit{
+    float: right;
+    margin: 0;
+}
+
+#checkout-review-table{
+    width: 100%;
+}
+#checkout-review-table thead{
+    display: none;
+}
+#checkout-review-table tbody tr td.last{
+    text-align: right;
+}
+.v-hidden{
+    display: none;
+}
+
+#checkout-review-table tfoot tr.last{
+    display: table-row;
+    border-top: 1px solid #cecece;
+    border-bottom: 1px solid #cecece;
+    font-size: 22px;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+#checkout-review-table tfoot tr.last td{
+    padding: 22px 0;
+}
+
+#checkout-review-table tfoot tr td.last{
+    text-align:right;
+}
+
+#review-buttons-container p.f-left{
+    display: none;
+}
+.product-name-wrapper{
+    text-transform: uppercase;
+    font-weight: 300;
+}
+.checkout-review-submit{
+    margin-top: 30px;
+}
+label.control-label{
+    float: left;
+    display: block;
+    margin-right: 9px;
+    width: 200px;
+    text-align: right;
+    color: #000000;
+}
+.help-block{
+    margin-left: 210px;
+}
+#checkoutSteps .form-list .card-cvc .input-box input.input-text{
+    width: 48px;
+}
+h3.product-name{
+    font-weight: 300;
+}
+
+.content-login{
+    height: 250px;
+}
+
+@media only screen and (max-width: 979px){
+    .content-login{
+        height: auto;
+    }
+}
+
+@media only screen and (max-width: 480px){
+    h3.product-name{
+        font-size: 18px;
+        margin-bottom: 5px;
+    }
+    #review-buttons-container{
+        margin-top: 15px;
+    }
+}
+
+#checkoutSteps .section {
+    display: none;
+    position: absolute;
+    top: 102px;
+    width: 100%;
+    left: 0;
+}
+
+#checkoutSteps .section.active {
+    display: block;
+}
+
+.payment-method {
+    float: left;
+    text-align: center;
+    width: 25%;
+}
+
+.payment-method label {
+    height: 37px;
+}
+
+.payment-method input[type=radio] {
+    display: inline-block;
+}
+
+.payment-form {
+    margin-top: 40px;
+}
+
+.cw_payment_description {
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.cw_payment_description img {
+    display: none;
+}

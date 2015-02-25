@@ -1,0 +1,48 @@
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<?php $_registeredProducts = $this->getRegisteredProducts(); ?>
+<div class="page-title">
+    <h1><?php echo Mage::helper('pws_productregistration')->getRegisteredProductsTitle(); ?></h1>
+</div>
+
+<div class="registered-products-wrapper">
+    <?php if(count($_registeredProducts) > 0): ?>
+
+        <?php foreach($_registeredProducts as $_registeredProduct): ?>
+            <?php $_product = Mage::getModel('catalog/product')->loadByAttribute('sku',$_registeredProduct->getSku()) ?>
+            <div class="registered-product">
+                <div class="info-wrapper">
+                    <div class="name-product"><?php echo $_product->getName() ?></div>
+                    <?php if($serial_id = $_registeredProduct->getSerialNumber() && isset($serial_id)): ?>
+                    <div class="command-id">n°<?php echo $_registeredProduct->getSerialNumber(); ?></div>
+                    <?php endif; ?>
+                    <div class="command-date"><?php echo $this->__('Purchased on ') ?><?php echo $this->formatDate($_registeredProduct->getDateOfPurchase(),"long",false); ?></div>
+                    <div class="link-wrapper">
+                        <a class="b-grey" href="#"><?php echo $this->__('applications') ?></a>
+                        <a class="b-grey" href="#"><?php echo $this->__('User Manual') ?></a>
+                    </div>
+                </div>
+                <div class="image-wrapper">
+                    <?php $image_url = Mage::helper('catalog/image')->init($_product, 'small_image')?>
+                    <img src="<?php echo $image_url  ?>"/>
+                </div>
+                <div class="info-wrapper-mobil">
+                    <?php if($serial_id = $_registeredProduct->getSerialNumber() && isset($serial_id)): ?>
+                        <div class="command-id">n°<?php echo $_registeredProduct->getSerialNumber(); ?></div>
+                    <?php endif; ?>
+                    <div class="command-date"><?php echo $this->__('Acheté le ') ?><?php echo $this->formatDate($_registeredProduct->getDateOfPurchase(),"long",false); ?></div>
+                    <div class="link-wrapper">
+                        <a class="b-grey" href="#"><?php echo $this->__('applications') ?></a>
+                        <a class="b-grey" href="#"><?php echo $this->__('User Manual') ?></a>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; ?>
+
+    <?php else: ?>
+
+        <div class="message-wrapper">
+            <?php echo $this->__('No products were recorded.') ?>
+        </div>
+
+    <?php endif; ?>
+</div>

@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<package>
+    <name>Adfab_Avatar</name>
+    <version>1.1.0</version>
+    <stability>stable</stability>
+    <license>http://opensource.org/licenses/osl-3.0.php Academic Free License (AFL)</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Give your customers the opportunity to personalize their account by uploading an avatar.</summary>
+    <description>This module introduces a creative space in your e-commerce.&#xD;
+&#xD;
+Your customers will be able to upload an avatar on their account. This is this kind of detail which give your customers the feeling to be "at home" on your website. Being able to personalize their experince give them the feeling to be part of the website.&#xD;
+&#xD;
+You just have to install this module and go you're ready!&#xD;
+&#xD;
+The main features are :&#xD;
+&#xD;
+- On registration / checkout or account edit, an avatar can be uploaded by your customer.&#xD;
+- Moderation : you can choose to activate a moderation workflow. If activated, you'll be aable to moderate avatars from the customer grid in the back-office !&#xD;
+- Once activated, you'll be able to display the user avatar ANYWHERE on the site !&#xD;
+- languages : FR/EN</description>
+    <notes>Fix version</notes>
+    <authors><author><name>Adfab</name><user>Adfab</user><email>dev@adfab.fr</email></author></authors>
+    <date>2013-01-02</date>
+    <time>18:44:42</time>
+    <contents><target name="magecommunity"><dir name="Adfab"><dir name="Avatar"><dir name="Block"><dir name="Widget"><file name="Avatar.php" hash="5466dfdb50afeb62b72a3864440eb42a"/></dir></dir><dir name="Helper"><file name="Data.php" hash="1b863ae053ec31cc6d548621906aff36"/></dir><dir name="Model"><dir name="Adminhtml"><file name="Observer.php" hash="4fcf609172e93f03913be3be1764f721"/></dir><dir name="Mysql4"><file name="Setup.php" hash="74c1bcdef10c635c69f285176814fa53"/></dir><file name="Observer.php" hash="c2f569cc25e4d13ad936a60d43cbdf37"/></dir><dir name="controllers"><file name="AjaxController.php" hash="63f939c2e94ecc87a8ad974ab77e8f38"/></dir><dir name="etc"><file name="config.xml" hash="d5e911bc94a8bee2fb6df65cd9e47cdc"/><file name="system.xml" hash="22a5ad32bbe016722b8056655b7aaaec"/></dir><dir name="sql"><dir name="avatar_setup"><file name="mysql4-install-1.0.0.php" hash="e1c726beba8eee17b791620c796cd668"/></dir></dir></dir></dir></target><target name="magedesign"><dir name="frontend"><dir name="base"><dir name="default"><dir name="layout"><file name="adfab_avatar.xml" hash="d5a4dbcd22035c06bcf6e20d0972e856"/></dir><dir name="template"><dir name="adfab"><dir name="avatar"><dir name="checkout"><dir name="onepage"><file name="billing.phtml" hash="47866bf4953d0c1e7888a10a78d0be79"/></dir></dir><dir name="customer"><dir name="account"><dir name="dashboard"><file name="info.phtml" hash="ddbbb4f821dbd32cda0e53ec5758f3d7"/></dir><dir name="form"><file name="edit.phtml" hash="a8cbe794a2600c819d7fb8e5195d5886"/><file name="register.phtml" hash="42ad39474121ed0d7551b29cf0e2d1ca"/></dir></dir></dir><dir name="page"><dir name="html"><file name="header.phtml" hash="a1b9e065d4af5e37ab0186ba33eb8b83"/></dir></dir><dir name="persistent"><dir name="checkout"><dir name="onepage"><file name="billing.phtml" hash="646a8c950a97657b2a9f6196500a35f2"/></dir></dir><dir name="customer"><dir name="form"><file name="register.phtml" hash="0c32d8991097d821e3451c9067afbaff"/></dir></dir></dir><dir name="widget"><file name="avatar.phtml" hash="f6ddb37a2aac37af4abe50f9dfe1132f"/></dir></dir></dir></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Adfab_Avatar.xml" hash="c7123918cab3a6ec610f00a26a34ca6f"/></dir></target><target name="magelocale"><dir name="en_US"><file name="Adfab_Avatar.csv" hash="4be92a6bf7bde600a1c67c9d24e65e76"/></dir><dir name="fr_FR"><file name="Adfab_Avatar.csv" hash="74081936842d68ef50c69d614dfa5fdb"/></dir></target><target name="mageskin"><dir name="frontend"><dir name="base"><dir name="default"><dir name="css"><dir name="avatar"><file name="avatar.css" hash="3a8fd2f32015f30eaf789fbd39c3c210"/></dir></dir><dir name="images"><dir name="avatar"><file name="avatar.png" hash="cdc12b9997c315802e3dc4d7a7eebd56"/></dir></dir><dir name="js"><dir name="adfab"><dir name="core"><file name="ajaxupload.js" hash="4d09101fd2c59f0d3892239e479ec9b8"/></dir></dir></dir></dir></dir></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.0.0</min><max>5.5.0</max></php></required></dependencies>
+</package>

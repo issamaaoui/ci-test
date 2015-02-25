@@ -1,0 +1,375 @@
+<?php
+$formData = $this->getFormData();
+
+$dateFormatIso = Mage::app()->getLocale()->getDateFormat(Mage_Core_Model_Locale::FORMAT_TYPE_SHORT);
+switch ($dateFormatIso) {
+    case 'dd/MM/yyyy':
+        $dateFormat = 'd-sl-m-sl-Y';
+        break;
+    case 'MM/dd/yyyy':
+        $dateFormat = 'm-sl-d-sl-Y';
+        break;
+    case 'M/d/yy':
+        $dateFormat = 'm-sl-d-sl-Y';
+        break;
+    default:
+        $dateFormat = 'm-sl-d-sl-Y';
+        break;
+}
+?>
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('js/datepicker.js') ?>"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('js/jquery.autocomplete.min.js') ?>"></script>
+<script type="text/javascript">
+    jQuery.noConflict();
+</script>
+<div id="messages_product_view"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
+<div class="page-head">
+    <h3><?php echo $this->__('Register Products') ?></h3>
+</div>
+<form action="<?php echo $this->getUrl('productregistration/productregistration/registerProduct',array('_secure'=>true)); ?>" id="registerProductsForm" method="post">
+<fieldset class="group-select">
+    <h4 class="legend"><?php echo $this->__('Contact Information') ?></h4>
+    <ul>
+        <li>
+            <div class="input-box-short field-wrapper">
+                <label for="title"><?php echo $this->__('Title') ?> </label>
+                <input name="customer[title]" title="<?php echo $this->__('Title') ?>" value="<?php echo $formData['customer']['title']; ?>" class="input-text" type="text" />
+            </div>
+
+            <div class="clear"></div>
+
+            <div class="input-box field-wrapper">
+                <label for="firstname"><?php echo $this->__('First Name') ?> <span class="required-icon">*</span></label>
+                <input name="customer[firstname]" title="<?php echo $this->__('First Name') ?>" value="<?php echo $formData['customer']['firstname']; ?>" class="required-entry input-text" type="text" />
+            </div>
+
+            <div class="input-box field-wrapper">
+                <label for="lastname"><?php echo $this->__('Last Name') ?> <span class="required-icon">*</span></label>
+                <input name="customer[lastname]" title="<?php echo $this->__('Last Name') ?>" value="<?php echo $formData['customer']['lastname']; ?>" class="required-entry input-text" type="text" />
+            </div>
+
+            <div class="clear"></div>
+
+            <?php $_dob = $this->getLayout()->createBlock('customer/widget_dob')->setFieldNameFormat('customer[%s]') ?>
+            <?php if ($_dob->isEnabled()): ?>
+                <div class="input-box-long">
+                    <?php echo $_dob->setDate($formData['customer']['dob'])->toHtml() ?>
+                </div>
+                <div class="clear"></div>
+            <?php endif ?>
+
+            <div class="input-box field-wrapper">
+                <label for="street1"><?php echo $this->__('Address1') ?> <span class="required-icon">*</span></label>
+                <input name="customer[street][]" title="<?php echo $this->__('Address 1') ?>" value="<?php echo $formData['customer']['street'][0]; ?>" class="required-entry input-text" type="text" />
+            </div>
+
+            <div class="input-box field-wrapper">
+                <label for="street2"><?php echo $this->__('Address2') ?> </label>
+                <input name="customer[street][]" title="<?php echo $this->__('Address 2') ?>" value="<?php echo $formData['customer']['street'][1]; ?>" class="input-text" type="text" />
+            </div>
+
+            <div class="clear"></div>
+
+            <div class="input-box field-wrapper">
+                <label for="city"><?php echo $this->__('City') ?> <span class="required-icon">*</span></label>
+                <input name="customer[city]" title="<?php echo $this->__('City') ?>" value="<?php echo $formData['customer']['city']; ?>" class="input-text required-entry" type="text" />
+            </div>
+
+            <div class="input-box input-box-short field-wrapper">
+                <label for="zip"><?php echo $this->__('Zip') ?> <span class="required-icon">*</span></label>
+                <input name="customer[postcode]" title="<?php echo $this->__('Zip/Postal Code') ?>" value="<?php echo $formData['customer']['postcode']; ?>" class="required-entry input-text" type="text" />
+            </div>
+
+
+            <div class="clear"></div>
+
+            <div class="input-box field-wrapper">
+                <label for="country"><?php echo $this->__('Country') ?> <span class="required-icon">*</span></label>
+                <?php echo $this->getCountryHtmlOptions($defValue=$formData['customer']['country_id'], $name='customer[country_id]', $id='country', $title='Customer'); ?>
+            </div>
+
+            <div class="input-box field-wrapper">
+                <label for="region_id"><?php echo $this->__('State/Province/County') ?> <span class="required-icon">*</span></label>
+
+                <select id="region_id" name="customer[region_id]" title="<?php echo $this->__('State/Province') ?>" class="validate-select" style="display:none">
+                    <option value=""><?php echo $this->__('Please select region, state or province') ?></option>
+                </select>
+                <script type="text/javascript">
+                    $('region_id').setAttribute('defaultValue',  "<?php echo $formData['customer']['region_id']; ?>");
+                </script>
+                <input type="text" id="region" name="customer[region]" value="<?php echo $formData['customer']['region']; ?>"  title="<?php echo $this->__('State/Province') ?>" class="input-text" style="display:none" />
+            </div>
+
+            <div class="clear"></div>
+
+            <div class="input-box field-wrapper">
+                <label for="telephone"><?php echo $this->__('Telephone') ?> <span class="required-icon">*</span></label>
+                <input name="customer[telephone]" title="<?php echo $this->__('Telephone') ?>" value="<?php echo $formData['customer']['telephone']; ?>" class="required-entry input-text" type="text" />
+            </div>
+
+            <div class="input-box field-wrapper">
+                <label for="mobile"><?php echo $this->__('Mobile') ?></label>
+                <input name="customer[mobile]" title="<?php echo $this->__('Mobile') ?>" value="<?php echo $formData['customer']['mobile']; ?>" class="input-text" type="text" />
+            </div>
+
+            <div class="clear"></div>
+
+            <div class="input-box field-wrapper">
+                <label for="e-mail"><?php echo $this->__('E-Mail') ?> <span class="required-icon">*</span></label>
+                <input name="customer[email]" title="<?php echo $this->__('E-Mail') ?>" value="<?php echo $formData['customer']['email']; ?>" class="required-entry input-text validate-email" type="text" />
+            </div>
+
+            <div class="input-box field-wrapper">
+                <label for="fax"><?php echo $this->__('Fax') ?></label>
+                <input name="customer[fax]" title="<?php echo $this->__('Fax') ?>" value="<?php echo $formData['customer']['fax']; ?>" class="input-text" type="text" />
+            </div>
+
+            <?php if($this->isNewAccount()): ?>
+                <div class="clear"></div>
+                <div class="input-box field-wrapper">
+                    <label for="password"><?php echo $this->__('Password') ?> <span class="required-icon">*</span></label>
+                    <input type="password" name="customer[password]" id="password" title="<?php echo $this->__('Password') ?>" class="required-entry validate-password input-text" />
+                </div>
+
+                <div class="input-box field-wrapper">
+                    <label for="confirmation"><?php echo $this->__('Confirm Password') ?> <span class="required-icon">*</span></label>
+                    <input type="password" name="customer[confirmation]" title="<?php echo $this->__('Confirm Password') ?>" id="confirmation" class="required-entry validate-cpassword input-text" />
+                </div>
+
+            <?php endif; ?>
+
+        </li>
+    </ul>
+</fieldset>
+
+<div id="product-information">
+    <fieldset class="group-select">
+        <h4 class="legend"><?php echo $this->__('Product Information') ?></h4>
+        <ul>
+            <?php if(count($formData['registered_product'])==0): ?>
+                <li>
+                    <?php if (Mage::helper('pws_productregistration')->useProductSkuInput()): ?>
+                        <div class="input-box field-wrapper">
+                            <label for="registered_product[product_sku][]"><?php echo $this->__('Product Sku') ?> <span class="required-icon">*</span></label>
+
+                            <input name="registered_product[product_sku][]" title="<?php echo $this->__('Product Sku') ?>" value="" class="required-entry input-text" type="text" />
+                        </div>
+
+                    <?php elseif (Mage::helper('pws_productregistration')->useProductNameInput()): ?>
+                        <div class="input-box field-wrapper">
+                            <label for="registered_product[product_name][]"><?php echo $this->__('Product Name') ?> <span class="required-icon">*</span></label>
+
+                            <input name="registered_product[product_name][]" title="<?php echo $this->__('Product Name') ?>" value="" class="required-entry input-text product-name" type="text" id="pn_<?php echo microtime(); ?>"/>
+                        </div>
+
+                    <?php else: ?>
+                        <div class="input-box field-wrapper">
+                            <label for="registered_product[product_id][]"><?php echo $this->__('Product Name') ?> <span class="required-icon">*</span></label>
+
+                            <?php echo $this->getProductHtmlOptions($defValue=null, $name='registered_product[product_id][]', $id='', $title='Product'); ?>
+                        </div>
+                    <?php endif; ?>
+
+                    <div class="input-box-short field-wrapper">
+                        <label for="registered_product[serial_number][]"><?php echo $this->__('Serial Number') ?> </label>
+                        <input name="registered_product[serial_number][]" title="<?php echo $this->__('Serial Number') ?>" value="" class="input-text" type="text" />
+                    </div>
+
+                    <div class="input-box-short field-wrapper">
+                        <label for="registered_product[date_of_purchase][]"><?php echo $this->__('Date of Purchase') ?> <span class="required-icon">*</span></label>
+                        <input name="registered_product[date_of_purchase][]" title="<?php echo $this->__('Date of Purchase') ?>
+				            (<?php echo $dateFormatIso; ?>: <?php echo date($dateFormatIso); ?>)" value=""
+                               class="required-entry input-text dateformat-<?php echo $dateFormat; ?> datepicker" type="text" id="dp_<?php echo microtime(); ?>" />
+                    </div>
+
+                    <div class="input-box field-wrapper">
+                        <label for="registered_product[purchased_from][]"><?php echo $this->__('Purchased from') ?> <span class="required-icon">*</span></label>
+                        <input name="registered_product[purchased_from][]" title="<?php echo $this->__('Purchased from') ?>" value="" class="required-entry input-text" type="text" />
+                    </div>
+
+
+                </li>
+            <?php else: ?>
+                <?php $i=0; foreach($formData['registered_product'] as $registeredProduct): ?>
+                    <li>
+                        <?php if (Mage::helper('pws_productregistration')->useProductSkuInput()): ?>
+                            <div class="input-box field-wrapper">
+                                <label for="registered_product[product_sku][]"><?php echo $this->__('Product Sku') ?> <span class="required-icon">*</span></label>
+                                <input name="registered_product[product_sku][]" title="<?php echo $this->__('Product Sku') ?>" value="<?php echo $registeredProduct['product_sku']; ?>" class="required-entry input-text" type="text" />
+                            </div>
+                        <?php elseif (Mage::helper('pws_productregistration')->useProductNameInput()): ?>
+                            <div class="input-box field-wrapper">
+                                <label for="registered_product[product_name][]"><?php echo $this->__('Product Name') ?> <span class="required-icon">*</span></label>
+                                <input name="registered_product[product_name][]" title="<?php echo $this->__('Product Name') ?>" value="<?php echo $registeredProduct['product_name']; ?>" class="required-entry input-text product-name" type="text" id="pn_<?php echo microtime(); ?>"/>
+                            </div>
+                        <?php else: ?>
+                            <div class="input-box field-wrapper">
+                                <label for="registered_product[product_id][]"><?php echo $this->__('Product Name') ?> <span class="required-icon">*</span> : </label>
+                                <?php echo $this->getProductHtmlOptions($defValue=$registeredProduct['product_id'], $name='registered_product[product_id][]', $id='product', $title='Product'); ?>
+                            </div>
+                        <?php endif; ?>
+
+                        <div class="input-box-short field-wrapper">
+                            <label for="registered_product[serial_number][]"><?php echo $this->__('Serial Number') ?> : </label>
+                            <input name="registered_product[serial_number][]" title="<?php echo $this->__('Serial Number') ?>" value="<?php echo $registeredProduct['serial_number']; ?>" class="input-text" type="text" />
+                        </div>
+
+                        <div class="input-box-short field-wrapper">
+                            <label for="registered_product[date_of_purchase][]"><?php echo $this->__('Date of Purchase') ?> <span class="required-icon">*</span> : </label>
+                            <input name="registered_product[date_of_purchase][]" title="<?php echo $this->__('Date of Purchase') ?>
+				            (<?php echo $dateFormatIso; ?>: <?php echo date($dateFormatIso); ?>)" value="<?php echo $registeredProduct['date_of_purchase']; ?>"
+                                   class="required-entry input-text dateformat-<?php echo $dateFormat; ?> datepicker" type="text" id="dp_<?php echo microtime(); ?>" />
+                        </div>
+
+                        <div class="input-box field-wrapper">
+                            <label for="registered_product[purchased_from][]"><?php echo $this->__('Purchased from') ?> <span class="required-icon">*</span> : </label>
+                            <input name="registered_product[purchased_from][]" title="<?php echo $this->__('Purchased from') ?>" value="<?php echo $registeredProduct['purchased_from']; ?>" class="required-entry input-text" type="text" />
+                        </div>
+
+                        <div class="input-box-actions">
+                            <?php if($i==0): ?>
+                                <button type="submit" href="#" class="add_new_row button-submit"><?php echo $this->__('Add') ?></button>
+                            <?php else: ?>
+                                <button type="submit" href="#" class="remove_row button-submit">remove</button>
+                            <?php endif; ?>
+                        </div>
+                    </li>
+                    <?php $i++; endforeach; ?>
+            <?php endif; ?>
+        </ul>
+    </fieldset>
+</div>
+
+<div class="button-set block-form">
+    <div class="content">
+        <p class="required-icon"><?php echo $this->__('* Required Fields') ?></p>
+        <button class="form-button button-submit" type="submit"><span><?php echo $this->__('Preview') ?></span></button>
+            <button type="submit" href="#" class="add_new_row button-submit"><?php echo $this->__('Add') ?></button>
+    </div>
+</div>
+</form>
+
+<?php
+$row_template = '<li>';
+
+if (Mage::helper('pws_productregistration')->useProductSkuInput()):
+    $row_template .=    '<div class="input-box">
+		                <label for="registered_product[product_sku][]">'.$this->__('Product Sku').'<span class="required-icon">*</span></label><br />
+		                ' . '<input name="registered_product[product_sku][]" title="' . $this->__('Product Sku') . '" value="" class="required-entry input-text" type="text" />'
+        . '</div>';
+elseif (Mage::helper('pws_productregistration')->useProductNameInput()):
+    $row_template .=    '<div class="input-box">
+		                <label for="registered_product[product_name][]">'.$this->__('Product Name').'<span class="required-icon">*</span></label><br />
+		                ' . '<input name="registered_product[product_name][]" title="' . $this->__('Product Name') . '" value="" class="required-entry input-text product-name" type="text" id="pn_{{id}}" />'
+        . '</div>';
+else:
+    $row_template .=    '<div class="input-box">
+		                <label for="registered_product[product_id][]">'.$this->__('Product Name').'<span class="required-icon">*</span></label><br />
+		                '.$this->getProductHtmlOptions($defValue=null, $name='registered_product[product_id][]', $id='product', $title='Product').'
+		            </div>';
+endif;
+$row_template .=    '<div class="input-box-short">
+		                <label for="registered_product[serial_number][]">'.$this->__('Serial Number').'</label><br />
+		                <input name="registered_product[serial_number][]" title="'.$this->__('Serial Number').'" value="" class="input-text" type="text" />
+		            </div>
+
+		            <div class="input-box-short">
+		                <label for="registered_product[date_of_purchase][]">'.$this->__('Date of Purchase').'<span class="required-icon">*</span></label><br />
+		                <input name="registered_product[date_of_purchase][]" title="'.$this->__('Date of Purchase').'" value="" class="required-entry input-text
+		                dateformat-<?php echo $dateFormat; ?> datepicker" type="text" id="dp_{{id}}"/>
+		            </div>
+
+		            <div class="input-box">
+		                <label for="registered_product[purchased_from][]">'.$this->__('Purchased from').'<span class="required-icon">*</span></label><br />
+		                <input name="registered_product[purchased_from][]" title="'.$this->__('Purchased from').'" value="" class="required-entry input-text" type="text" />
+		            </div>
+
+		            <div class="input-box-actions">
+		               <a href="#" class="remove_row">remove</a>
+		            </div>
+		         </li>';
+$row_template = str_replace(array("\n","\r\n",'"'),array("","",'\"'),$row_template);
+$row_template = preg_replace('/\s\s+/', ' ', $row_template);
+?>
+<script type="text/javascript">
+    var contactForm = new VarienForm('registerProductsForm', true);
+    new RegionUpdater('country', 'region', 'region_id', <?php echo $this->helper('directory')->getRegionJson() ?>);
+
+    var suggestions = <?php echo $this->getProductJsonOptions(); ?>
+
+
+        //datepicker settings
+        datepickerGeneralConfig = {
+            "nodrag":1,
+            "lang":"en",
+            "format":["<?php echo $dateFormat; ?>"],
+            "cellformat":["<?php echo $dateFormat; ?>"]
+        }
+
+    datePickerController.setGlobalVars(datepickerGeneralConfig);
+
+    var template = "<?php echo $row_template; ?>";
+
+    var initJs = function(){
+        $$('.add_new_row').each(function(indexAdd){
+            indexAdd.observe('click',function(event){
+                var templateNew = template.replace('{{id}}', new Date().getTime());
+                this.up('ul').insert(templateNew,{position:'bottom'});
+
+
+                // --------------- set events for last inserted row
+
+                //add datepicker
+                datePickerController.createDatePicker({id:	this.up('ul').down('li:last-child input.datepicker').id,format: 'm-sl-d-sl-Y'});
+
+                this.up('ul').down('li:last-child input.datepicker').observe('click',function(event){
+                    datePickerController.show(this.up('ul').down('li:last-child input.datepicker').id);
+                    Event.stop(event);
+                });
+
+                //remove row link
+                this.up('ul').down('li:last-child .remove_row').observe('click',function(event){
+                    this.up('li').remove();
+                    Event.stop(event);
+                });
+
+                jQuery('.product-name').autocomplete({
+                    lookup: suggestions
+                });
+
+                Event.stop(event);
+            })
+        });
+
+        $$('.remove_row').each(function(indexRemove){
+            indexRemove.observe('click',function(event){
+                this.up('li').remove();
+                Event.stop(event);
+
+                Event.stop(event);
+            });
+        });
+
+        $$('.datepicker').each(function(indexDate){
+            datePickerController.createDatePicker({id:	indexDate.id,format: '<?php echo $dateFormat; ?>'});
+
+            indexDate.observe('click',function(event){
+                datePickerController.show(indexDate.id);
+                Event.stop(event);
+            });
+
+        });
+
+
+    }
+
+    initJs();
+
+    jQuery(function(){
+        jQuery('.product-name').autocomplete({
+            lookup: suggestions
+        });
+    });
+</script>
+

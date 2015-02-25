@@ -1,0 +1,8 @@
+<config>
+    <modules>
+        <Te_Enhancedbo>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Te_Enhancedbo>
+    </modules>
+</config>

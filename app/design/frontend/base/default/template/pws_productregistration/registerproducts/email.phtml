@@ -1,0 +1,12 @@
+<!-- this is only to show the registered products; the rest of the email is in locale/en_US/emails
+- see the module's config.xml for the exact location-->
+<?php $customerData = $this->getData('customer_data'); ?>
+<?php foreach($this->getData('registered_products') as $registeredProduct): ?>
+    <p>&nbsp;</p>
+    <p>Owner: <?php echo $customerData['firstname']; ?> <?php echo $customerData['lastname']; ?></p>
+    <p>Product: <?php echo $registeredProduct['product_name']; ?></p>
+    <p>Serial Number: <?php echo $registeredProduct['serial_number']; ?></p>
+    <p>Date of Purchase: <?php echo $registeredProduct['date_of_purchase']; ?></p>
+    <p>Purchased From:   <?php echo $registeredProduct['purchased_from']; ?></p>
+    <br />
+<?php endforeach; ?>

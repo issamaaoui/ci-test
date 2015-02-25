@@ -1,0 +1,16 @@
+<?php $parentMenu = $this->getParentMenu() ?>
+<?php if ($parentMenu) { ?>
+  <?php $subMenuItems = $this->getMenuSubItems($parentMenu); ?>
+  <?php if (count($subMenuItems) > 0) { ?>
+    <ul class="submenu">
+      <?php foreach ($subMenuItems as $_subMenuItem): ?>
+        <li>
+          <a href="<?php echo $_subMenuItem->getRealUrl() ?>"  <?php echo $_subMenuItem->getProprerty();?> >
+          		<span><?php echo $_subMenuItem->getName() ?></span>
+          </a>
+        <?php echo $this->getSubMenuBlock($_subMenuItem)->toHtml(); ?>
+        </li>
+    <?php endforeach; ?>
+    </ul>
+  <?php } ?>
+<?php } ?>

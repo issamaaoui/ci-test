@@ -1,0 +1,94 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2014 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<?php $_orders = $this->getOrders(); ?>
+<!--<div class="page-title">-->
+<!--    <h1>--><?php //echo $this->__('My Orders') ?><!--</h1>-->
+<!--</div>-->
+<!-- <div class="pager-wrapper col-md-12">
+<?php //echo $this->getPagerHtml(); ?>
+</div> -->
+<?php if($_orders->getSize()): ?>
+<div class="command-list-wrapper col-md-12">
+    <?php foreach ($_orders as $_order): ?>
+    <div class="command" data-order-id="<?php echo $_order->getId() ?>">
+        <div class="header-command">
+            <div class="button-wrapper">
+                <button class="article-dropdown"></button>
+            </div>
+            <div class="command-info">
+                <div class="command-id"><?php echo $this->__('Commande n°') ?><?php echo $_order->getRealOrderId() ?></div>
+                <div class="command-date">
+                    <?php
+                        echo Mage::helper('core')->formatDate($_order->getCreatedAt(), 'long', false);
+                    ?>
+                </div>
+                <div><?php echo $_order->formatPrice($_order->getGrandTotal()) ?></div>
+            </div>
+            <div class="f-right">
+                <div class="status-wrapper <?php if($_order->getStatus() == 'canceled') echo 'canceled' ?>">
+                    <?php echo $_order->getStatusLabel() ?>
+                </div>
+                <div class="invoice-link-wrapper">
+                    <a class="b-white" href="<?php echo Mage::getUrl('sales/order/view', array('order_id'=>$_order->getId()));  ?>"><?php echo $this->__('See invoice') ?></a>
+                </div>
+            </div>
+        </div>
+        <?php $_items = $_order->getItemsCollection(); ?>
+        <?php if($_items->getSize()):?>
+            <div class="body-command" style="display: none">
+            <?php foreach($_items as $_item): ?>
+                <?php $image_url = Mage::helper('catalog/image')->init($_item->getProduct(), 'thumbnail')?>
+                <div class="command-article">
+                    <div class="image-wrapper">
+                        <img src="<?php echo $image_url ?>"/>
+                    </div>
+                    <div class="info-wrapper">
+                        <span class="qty"><?php echo intval($_item->getData('qty_ordered')) ?></span> x <span class="product-name"><?php echo $_item->getName() ?></span>
+                        <br/>
+                        <?php if($_item->getProduct()->getDateLivraison()!='' && $_order->getStatus() != 'canceled' && $_order->getStatus() != 'complete'): ?>
+                            <div class="delivrary-date">
+                                <?php echo $this->__('Delivery from '). $_item->getProduct()->getDateLivraison(); ?>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            <?php endforeach;?>
+            </div>
+        <?php endif; ?>
+    </div>
+    <?php endforeach; ?>
+</div>
+<script type="text/javascript">decorateTable('my-orders-table');</script>
+<div class="pager-wrapper col-md-12">
+    <?php echo $this->getPagerHtml(); ?>
+</div>
+<?php else: ?>
+    <div class="message-wrapper">
+        <p><?php echo $this->__('You have placed no orders.'); ?></p>
+    </div>
+<?php endif ?>

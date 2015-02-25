@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<config>
+    <acl>
+		<resources>
+			<admin>
+				<children>
+					<system>
+						<children>
+							<config>
+								<children>
+									<te_sapbydexport translate="title" module="te_sapbydexport">
+										<title>SAPByDesign Export</title>
+									</te_sapbydexport>
+								</children>
+							</config>
+						</children>
+					</system>
+				</children>
+			</admin>
+		</resources>
+	</acl>
+</config>

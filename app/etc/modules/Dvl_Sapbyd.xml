@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Dvl_Sapbyd>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Dvl_Sapbyd>
+    </modules>
+</config>

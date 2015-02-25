@@ -1,0 +1,67 @@
+<?php
+/**
+ * AdFab
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@adfab.fr so we can send you a copy immediately.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 AdFab (http://www.adfab.fr)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php if ($this->getCustomer()->getAvatarSrc()!="" && $this->getCustomer()->getAvatarValid()==0):?>
+	<?php $avatar = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA)."avatar".$this->getCustomer()->getAvatarSrc(); ?>
+	<?php $msg = $this->__('Your avatar is being checked by our team'); ?>
+<?php elseif ($this->getCustomer()->getAvatarSrc() != "" && $this->getCustomer()->getAvatarValid()==1):?>
+	<?php $avatar = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA)."avatar".$this->getCustomer()->getAvatarSrc(); ?>
+	<?php $msg = ""; ?>
+<?php else:?>
+	<?php $avatar = $this->getSkinUrl("images/avatar")."/avatar.png"; ?>
+	<?php $msg = $this->__('Customize your account with an avatar'); ?>
+<?php endif;?>
+<div class="Upload">
+    <label for="Photo" class="tPhoto"><span>Avatar</span></label><br/>
+	<input type="button" id="uploadPhoto" class="btnParcourir" value="<?php echo $this->__('Browse') ?>"/>
+    <div class="photo"><img id="uPhoto" src="<?php echo $avatar ?>" width="50" alt="Avatar"/> </div>
+	<p id="uError"><?php echo $msg ?></p>
+</div>
+<script type="text/javascript">
+//<![CDATA[
+    document.observe("dom:loaded", function() {
+    	new AjaxUpload('#uploadPhoto', {
+    		action: '<?php echo $this->helper('avatar')->getUploadUrl();?>',
+    		name: 'photo',
+    		autoSubmit: true,
+    		onSubmit: function(file,ext){
+                if (!(ext && /^(jpg|png|jpeg|gif)$/i.test(ext))){
+                	$("uError").innerHTML="<span style='color:red;'><?php echo $this->__('Please select an image (.jpg ou .png ou .gif)') ?></span>";
+                    return false;
+                }
+    			//this.disable();
+    		},
+    		onComplete : function(file, response){
+				var res = eval('('+response+')');
+				if (res.success == true){
+					$("uPhoto").src=res.message;
+					$("uError").innerHTML="";
+					//$("uError").innerHTML="<?php echo $this->__('Customize your account with an avatar') ?>";
+				} else {
+					$("uPhoto").src='<?php echo $this->getSkinUrl("images/avatar") ?>/avatar.png';
+					$("uError").innerHTML="<span style='color:red;'>"+res.message+"</span>";
+					//this.enable();
+				}
+    		}
+    	});
+    });
+
+//]]>
+</script>

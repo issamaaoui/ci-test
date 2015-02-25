@@ -1,0 +1,210 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <PWS_ProductRegistration>
+            <version>0.1.8</version>
+        </PWS_ProductRegistration>
+    </modules>
+    <frontend>
+        <routers>
+            <productregistration>
+                <use>standard</use>
+                <args>
+                    <module>PWS_ProductRegistration</module>
+                    <frontName>productregistration</frontName>
+                </args>
+            </productregistration>
+        </routers>
+        <layout>
+            <updates>
+                <pws_productregistration module="PWS_ProductRegistration">
+                    <file>productregistration.xml</file>
+                </pws_productregistration>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <PWS_ProductRegistration>
+                    <files>
+                        <default>PWS_ProductRegistration.csv</default>
+                    </files>
+                </PWS_ProductRegistration>
+            </modules>
+        </translate>
+    </frontend>
+    <admin>
+		<routers>
+			<adminhtml>
+				<args>
+					<modules>
+	 					<PWS_ProductRegistration before="Mage_Adminhtml">PWS_ProductRegistration_Adminhtml</PWS_ProductRegistration>
+					</modules>
+					<frontName>admin</frontName>
+				</args>
+			</adminhtml>
+		</routers>
+    </admin>
+    <adminhtml>
+   		<translate>
+            <modules>
+                <PWS_ProductRegistration>
+                    <files>
+                        <default>PWS_ProductRegistration.csv</default>
+                    </files>
+                </PWS_ProductRegistration>
+            </modules>
+        </translate>
+   		<layout>
+			<updates>
+				<pws_productregistration>
+					<file>productregistration.xml</file>
+				</pws_productregistration>
+			</updates>
+		</layout>
+		<menu>
+            <catalog>
+                <children>
+                    <pws_productregistration translate="title" module="pws_productregistration">
+                        <title>Devialet Products</title>
+                        <children>
+                          <attributes translate="title" module="catalog">
+                              <title>Devialet Registered Products</title>
+                              <action>adminhtml/productregistration/</action>
+                              <sort_order>5</sort_order>
+                          </attributes>
+                          <sets translate="title" module="catalog">
+                              <title>Devialet Unregistered Products</title>
+                              <action>adminhtml/productregistration/serialNumbers</action>
+                              <sort_order>10</sort_order>
+                          </sets>
+                        </children>
+                        <sort_order>3</sort_order>
+                    </pws_productregistration>
+                </children>
+             </catalog>
+        </menu>
+		<acl>
+            <resources>
+				<all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <catalog>
+                            <children>
+                                <pws_productregistration translate="title" module="pws_productregistration">
+                                    <title>Product Registrations</title>
+                                </pws_productregistration>
+                            </children>
+                        </catalog>
+						<system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <pws_productregistration translate="title" module="pws_productregistration">
+                                            <title>PWS ProductRegistration</title>
+                                            <sort_order>10000</sort_order>
+                                        </pws_productregistration>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+    <global>
+		<models>
+			<pws_productregistration>
+				<class>PWS_ProductRegistration_Model</class>
+				<resourceModel>pws_productregistration_mysql4</resourceModel>
+			</pws_productregistration>
+			<pws_productregistration_mysql4>
+            	<class>PWS_ProductRegistration_Model_Mysql4</class>
+            	<entities>
+		            <productregistration>
+		                <table>customer_product_registrations</table>
+		            </productregistration>
+					<serial_numbers>
+		                <table>product_registrations_serial_numbers</table>
+		            </serial_numbers>
+            	</entities>
+        	</pws_productregistration_mysql4>
+		</models>
+		<resources>
+            <productregistration_setup>
+                <setup>
+                    <module>PWS_ProductRegistration</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </productregistration_setup>
+            <pws_productregistration_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </pws_productregistration_write>
+            <pws_productregistration_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </pws_productregistration_read>
+        </resources>
+		<blocks>
+			  <pws_productregistration>
+			  	<class>PWS_ProductRegistration_Block</class>
+			  </pws_productregistration>
+		</blocks>
+		<helpers>
+			<pws_productregistration>
+				<class>PWS_ProductRegistration_Helper</class>
+			</pws_productregistration>
+		</helpers>
+		<template>
+            <email>
+                <pws_productregistration_email_template translate="label" module="pws_productregistration">
+                    <label>Product Registration</label>
+                    <file>pws_productregistration/product_registration_notification.html</file>
+                    <type>html</type>
+                </pws_productregistration_email_template>
+                <pws_productregistration_email_notification_invalid_template translate="label" module="pws_productregistration">
+                    <label>Product Registration Invalid</label>
+                    <file>pws_productregistration/product_registration_notification_invalid.html</file>
+                    <type>html</type>
+                </pws_productregistration_email_notification_invalid_template>
+                <pws_productregistration_email_notification_admin_template translate="label" module="pws_productregistration">
+                    <label>Product Registration Invalid</label>
+                    <file>pws_productregistration/product_registration_notification_admin.html</file>
+                    <type>html</type>
+                </pws_productregistration_email_notification_admin_template>
+            </email>
+        </template>
+        <events>
+			<core_block_abstract_to_html_before>
+				<observers>
+					<pws_productregistration>
+						<class>pws_productregistration/observer</class>
+						<method>addCustomerProductRegistrationTab</method>
+					</pws_productregistration>
+				</observers>
+			</core_block_abstract_to_html_before>
+            <pws_productregistration_serial_number_validation>
+				<observers>
+					<pws_productregistration>
+						<class>pws_productregistration/observer</class>
+						<method>validateSerialNumber</method>
+					</pws_productregistration>
+				</observers>
+			</pws_productregistration_serial_number_validation>
+		</events>
+    </global>
+    <default>
+        <pws_productregistration>
+            <emails>
+            	<email_identity>general</email_identity>
+            </emails>
+        </pws_productregistration>
+    </default>
+</config>

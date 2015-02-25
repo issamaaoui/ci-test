@@ -1,0 +1,35 @@
+<?php $key_menu = $this->getMenu(); ?>
+<?php if ($key_menu != null): ?>
+    <?php $menu = Mage::getModel('fluidmenu/fluidmenu')->load($key_menu, 'key_menu') ?>
+    <?php $menuItems = $this->getMenuItems($key_menu); ?>
+    <?php if (count($menuItems) > 0): $noItems = count($menuItems); $count = 0; ?>
+        <div id="sidebarRight">
+                <ul>
+                    <?php foreach ($menuItems as $_menuItem): ?>
+                    
+                        <?php if (preg_match("/slide/i", $_menuItem->getClassLink())) :?>
+                        <li class="<?php echo $_menuItem->getClassLink();?> nav-sidebar-right-<?php echo $_menuItem->getId(); ?>">
+                            <div class="left">
+                                <?php echo $_menuItem->getName();?>
+                            </div>
+                            <div class="text">
+                                <?php if ($_menuItem->getTitleLink() == 'newsletter') : ?>
+                                    <?php echo $this->getLayout()->createBlock('newsletter/subscribe')->setTemplate('newsletter/sidebar_subscribe.phtml')->toHtml(); ?>
+                                <?php else : ?>
+                                    <?php echo $_menuItem->getTitleLink();?>
+                                <?php endif; ?>
+                            </div>
+                        </li>
+                        <?php else : ?>
+                        <li class="simple <?php echo $_menuItem->getClassLink();?> nav-sidebar-right-<?php echo $_menuItem->getId(); ?>">
+                            <a href="<?php echo $_menuItem->getRealUrl() ?>">
+                                <?php echo $_menuItem->getName();?>
+                            </a> 
+                        </li>
+                        <?php endif;?>
+
+                    <?php endforeach; ?>
+                </ul>
+        </div>
+    <?php endif; ?>
+<?php endif; ?>

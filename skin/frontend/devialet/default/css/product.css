@@ -1,0 +1,102 @@
+.phantom-product-wrapper{
+
+}
+
+.product-options .option-title-wrapper{
+    margin: 75px 0;
+    text-align: center;
+    font-size: 20px;
+}
+
+.phantom-product-wrapper .option-wrapper{
+
+}
+
+.phantom-product-wrapper .option-wrapper .product-option .image-wrapper{
+
+}
+
+.phantom-product-wrapper .option-wrapper .product-option .image-wrapper img{
+    width: 100%;
+    height: auto;
+}
+
+.phantom-product-wrapper .option-wrapper .product-option .select-wrapper{
+    float: left;
+}
+
+.phantom-product-wrapper .option-wrapper .product-option .info-wrapper{
+    float: left;
+}
+
+.phantom-product-wrapper .option-wrapper .product-option,
+.accessoir-product-wrapper .option-wrapper .product-option{
+    border: 1px solid #000000;
+    padding: 20px;
+}
+
+.accessoir-product-wrapper .option-wrapper .product-option{
+    border: 1px solid #000000;
+    margin-top: -1px;
+}
+
+.accessoir-product-wrapper .option-wrapper .product-option::after{
+    display: table;
+    content: '';
+    clear: both;
+    width: 100;
+}
+
+.accessoir-product-wrapper .product-option .checkbox-wrapper,
+.accessoir-product-wrapper .product-option .info-wrapper,
+.accessoir-product-wrapper .product-option .image-wrapper{
+    float: left;
+}
+
+.accessoir-product-wrapper .product-option .checkbox-wrapper{
+    width: 5%;
+}
+
+.accessoir-product-wrapper .product-option .info-wrapper{
+    width: 75%;
+}
+
+.accessoir-product-wrapper .product-option .info-wrapper .product-name-wrapper,
+.accessoir-product-wrapper .product-option .info-wrapper .qty-wrapper,
+.accessoir-product-wrapper .product-option .info-wrapper .price-wrapper{
+    float: left;
+    line-height: 29px;
+}
+
+.accessoir-product-wrapper .product-option .info-wrapper .product-name-wrapper{
+    text-transform: uppercase;
+    width: 30%;
+    font-weight: 600;
+    font-size: 22px;
+}
+
+.accessoir-product-wrapper .product-option .info-wrapper .qty-wrapper{
+    width: 40%;
+}
+
+.accessoir-product-wrapper .product-option .info-wrapper .price-wrapper{
+    width: 30%;
+    text-align: center;
+    font-weight: 600;
+    font-size: 22px;
+}
+
+.accessoir-product-wrapper .product-option .image-wrapper{
+    width: 15%;
+    float: right;
+}
+
+.accessoir-product-wrapper .product-option .image-wrapper img{
+    width: 100%;
+    height: auto;
+}
+
+/* TEMP */
+.price-box-bundle, .availability{
+    display: none;
+}

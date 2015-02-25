@@ -1,0 +1,15 @@
+<?php $key_menu = $this->getMenu(); ?>
+<?php if ($key_menu != null): ?>
+    <?php $menuItems = $this->getMenuItems($key_menu); ?>
+    <?php if (count($menuItems) > 0): ?>
+        <div class="menu-label"><?php echo $this->__('Suivez-nous') ?></div>
+        <ul <?php echo trim($this->getHtmlId()) ? 'id="'.$this->getHtmlId().'"' : '';?> class="float-wrapper">
+            <?php foreach ($menuItems as $_menuItem): ?>
+                <li>
+                    <a href="<?php echo $_menuItem->getRealUrl(); ?>"><i  <?php echo $_menuItem->getClassHtml(); ?>></i></a>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    <?php endif; ?>
+<?php endif; ?>
+

@@ -1,0 +1,139 @@
+
+/* Store HP */
+
+.storehp .col-md-8, .storehp .col-md-4{padding-left: 7px; padding-right: 7px}
+.storehp h1{ font-size: 19px; text-transform: uppercase; color: #000; margin: 0;margin-bottom: 10px;letter-spacing: 2.9px;}
+.storehp h2{ font-size: 20px; letter-spacing: 3px; text-transform: uppercase; color: #828282; margin: 0;margin-bottom: 5px;}
+.storehp h3{ font-size: 13px; text-transform: uppercase; color: #828282;margin: 0;}
+
+.storehp >div >div >span {position: relative;}
+.storehp >div >div * {font-weight: 300;}
+
+.storehp .price{background-color: #fff;position: absolute;padding: 9px 8px; margin-bottom: 0; font-weight: 500}
+.storehp .phantomorder .price, .storehp .branch .price{bottom: 7px;right: 7px;}
+.storehp .dialog .price {top: 7px;right: 7px;}
+
+.storehp span{background-color: #f1f1f1; display: block; margin-bottom: 13px}
+.storehp .signupstore {padding-left:50px; padding-right: 50px; }
+.storehp .phantomorder{min-height: 673px; padding-top: 30px; position: relative}
+.storehp .reviews {margin-top: 115px; padding-right: 40px;padding-left: 0;}
+.storehp .reviews p{margin-bottom:18px;font-size: 15px; text-transform: uppercase; font-weight: 100; color: #8b8b8b; letter-spacing: 1px}
+.storehp .dialog{min-height: 200px; background-image: url(../images/home/dialog-bg.jpg); background-repeat:  no-repeat;
+background-position: center 15px; padding-top: 140px}
+.storehp .branch{min-height: 460px; background-image: url(../images/home/branch-bg.jpg); background-repeat:  no-repeat;
+background-position: center bottom; padding-top: 255px}
+.storehp .branch h2, .storehp .branch h3 {text-shadow: 0px 1px 2px rgba(255, 255, 255, 0.5);}
+
+
+@media (max-width: 1200px) {
+    .storehp .reviews {margin-top: 30px;padding-right: 30px;padding-left: 10px;}
+    .storehp .dialog {min-height: 240px;background-image: url(../images/home/dialog-bg.jpg);background-repeat: no-repeat;background-position: center 35px;padding-top: 170px;}
+    .phantomorder .img-responsive{max-height: 414px}
+    .storehp .phantomorder .price {bottom: 180px;right: 10px;}  
+
+}
+@media (max-width: 768px) {
+    .storehp .col-md-8, .storehp .col-md-4{padding-left: 15px; padding-right: 15px}
+    .col-md-3.col-sm-4.action-wrapper {padding: 0;}
+}
+@media (max-width: 479px) {
+    .storehp h1 {font-size: 16px;letter-spacing: 1px;}
+    .storehp .signupstore {padding-left: 20px;padding-right: 20px;margin-bottom: 25px;}
+    #preorder-form-code input[type="email"] {font-size: 11px;padding: 12px 0px 13px 12px;}
+    .mc-field-group.validate {padding-left:0;}
+    .storehp .phantomorder{padding-bottom: 60px}
+    .storehp .phantomorder .price {bottom: 7px;}
+
+}
+
+
+.preorder-form-codet .button-submit{margin:0;padding: 10px 30px;width: 100%}
+.preorder-form-codet input placeholder{margin:0;padding: 10px 30px;}
+.preorder-form-codet input[type="text"] ::-webkit-input-placeholder { color:#898989;font-weight: 500; font-size: 10px; font-style: normal!important}
+.preorder-form-codet input[type="text"] ::-moz-placeholder { color:#898989;font-weight: 500; font-size: 10px; font-style: normal!important} /* firefox 19+ */
+.preorder-form-codet input[type="text"] :-ms-input-placeholder { color:#898989; font-weight: 500; font-size: 10px; font-style: normal!important} /* ie */
+.preorder-form-codet input[type="text"] :-moz-placeholder { color:#898989; font-weight: 500; font-size: 10px; font-style: normal!important}
+.preorder-form-codet input:focus::-webkit-input-placeholder {transition: text-indent .5s .5s ease;text-indent: -100%;opacity: 1;}
+
+
+
+
+/* signup  */
+
+
+#mc_embed_signup .select-style select  {
+	border: none;
+box-shadow: none;
+background-image: none;
+-webkit-appearance: none;
+-moz-appearance: none;
+font-size: 12px;
+color: #898989;
+appearance: none;
+padding: 12px 5px;
+background: #f4f4f4 url("http://fr.devialet.com/assets/v2/arrow-select.jpg") no-repeat 90% 50%;
+width: 100%}
+
+
+
+
+
+#mc_embed_signup input,#mc_embed_signup .select, #mc_embed_signup button {text-transform: uppercase;border: solid #f4f4f4 1px;border-radius: 5px;padding: 10px;}
+
+/*
+#mc_embed_signup .select-style {padding: 0;margin: 0;border-radius: 5px;overflow: hidden;background: #f4f4f4 url("http://fr.devialet.com/assets/v2/arrow-select.jpg") no-repeat 90% 50%;{border: none;}
+#mc_embed_signup .select-style select {padding: 13px 0px 12px 12px;width: 130%;border: none;box-shadow: none;background-color: transparent;background-image: none;-webkit-appearance: none;-moz-appearance: none;font-size: 12px;color: #898989;font-weight: 500;appearance: none;background: transparent;border: none;-webkit-appearance: none;-moz-appearance: none;appearance: none;width: 100%}
+#mc_embed_signup .select-style select:focus {outline: none;}
+*/
+
+
+#mc_embed_signup form .col-sm-4{margin-top: 15px;margin-bottom: 5px;padding-left: 0;padding-right: 10px;}
+#mc_embed_signup .response {color: #fff;font-weight: 100;font-size: 15px;line-height: 17px;font-style: italic;float: left;}
+
+#mc_embed_signup div.mc-field-group div.mce_inline_error{background-color:transparent;}
+#mc_embed_signup * {text-transform: uppercase;}
+#mc_embed_signup {zoom: 1;margin: 0 15px 15px 15px;background-color: #3A606E;padding: 10px 20px 10px 20px;}
+#mc_embed_signup p {color: #fff;font-size: 18px;padding: 10px 0;font-weight: 200;letter-spacing: 2px;line-height: 18px; margin-bottom: 0}
+#mc_embed_signup:after {content: "";display: table;clear: both;}
+#mc_embed_signup span {font-size: 12px;letter-spacing: 0.2px;display: block;line-height: 10px;margin-top: 8px;text-transform: initial;}
+
+
+#mc_embed_signup input {background: #f4f4f4;width: 100%;}
+#mc_embed_signup input:focus::-webkit-input-placeholder {transition: text-indent .5s .5s ease;text-indent: -100%;opacity: 1;}
+button#mc-embedded-subscribe {color: #fff;width: 100%;background: #3A606E;border: 1px solid #FFFFFF;padding-top: 11px;padding-bottom: 11px;}
+button#mc-embedded-subscribe:hover {color: #6aa1b6;background: #fff;}
+
+
+
+
+#mc-embedded-subscribe-form.success .mc-field-group {display: none;}
+
+
+@media (max-width: 479px) {
+	#mc_embed_signup p {color: #fff;font-size: 14px;padding: 10px 0;font-weight: 300;letter-spacing: 0px;line-height: 16px;margin-bottom: 5px;padding-bottom: 0;}
+	#mc_embed_signup span{display: none}
+	#mc_embed_signup input {width: 91%;}
+	#mc_embed_signup form .col-sm-4 {text-align: center; margin-top: 5px;}
+	#mc_embed_signup {zoom: 1;margin: 0 0 10px 0;}
+	#mc_embed_signup .select-style, button#mc-embedded-subscribe {width: 91%;margin: auto;}
+	#mc_embed_signup .response {padding: 10px 15px 0 15px;margin: 4px;}
+	#mc_embed_signup div.mc-field-group div.mce_inline_error {left: 15px;}
+	#mc_embed_signup input[type="email"] {padding: 6px 0px 6px 12px;}
+	
+}
+
+
+
+@media (max-width: 767px) {
+		#mc_embed_signup {zoom: 1;margin: 0 0 10px 0;}
+}
+
+
+#mc_embed_signup .field-wrapper {border: none;padding: 0;margin-bottom: 0;background: transparent;}
+#mc_embed_signup .select-style.field-wrapper {background: #f4f4f4;}
+#mc_embed_signup .validation-advice {color: #ff6700; text-transform: none;font-size: 15px;padding: 0.5em 1em;}
+#preorder-form-code input {background: transparent;padding: 0;border: none;}
+#preorder-form-code button[type=submit] {background-color: #fff;padding: 10px 25px;}
+#preorder-form-code button[type=submit]:hover {background-color: #000;}
+#mc_embed_signup .messages span {font-size: 20px;color: #ff6700;}
+html body.preorder-index-index {background: #fff;}

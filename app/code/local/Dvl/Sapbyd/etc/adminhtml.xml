@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+	<menu>
+		<dvl_sapbyd translate="title" module="sapbyd">
+			<title>DEVIALET</title>
+			<sort_order>99999</sort_order>
+		</dvl_sapbyd>
+	</menu>
+</config>

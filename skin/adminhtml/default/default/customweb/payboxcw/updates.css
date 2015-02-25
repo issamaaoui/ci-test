@@ -1,0 +1,62 @@
+@CHARSET "UTF-8";
+
+.control-group {
+	margin-bottom: 30px;
+}
+
+label.control-label {
+	float: left;
+}
+
+.control-group > .controls {
+	margin-left: 200px;
+}
+.control-group.date-of-birth .select-field {
+	display: inline-block;
+}
+.control-group.date-of-birth .select-field select {
+	width: 90px;
+	margin-right: 5px;
+}
+.control-group .option input[type=checkbox],
+.control-group .option input[type=radio] {
+	margin-right: 5px;
+}
+
+.description {
+	margin-left: 200px;
+}
+
+.multi-control .controls { 
+	float: left;
+}
+
+.multi-control {
+	overflow: auto;
+}
+
+.required {
+	color: #ff5000;
+	padding-left: 2px;
+}
+
+.card-cvc input {
+	width: 30px;
+}
+.case-info {
+background-color: rgb(132, 223, 132);
+margin-bottom: 20px;
+}
+
+
+.button { 
+	border-width:1px; 
+	border-style:solid; 
+	border-color:#ed6502 #a04300 #a04300 #ed6502; 
+	padding:1px 7px 2px 7px; 
+	background:#ffac47 url(images/btn_bg.gif) repeat-x 0 100%; 
+	color:#fff; font:bold 12px arial, helvetica, sans-serif; 
+	cursor:pointer; 
+	text-align:center !important; 
+	white-space:nowrap; 
+}

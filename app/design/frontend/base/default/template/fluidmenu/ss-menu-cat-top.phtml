@@ -1,0 +1,24 @@
+<?php $key_menu = $this->getMenu(); ?>
+<?php if ($key_menu != null): ?>
+	  <?php $menu = Mage::getModel('fluidmenu/fluidmenu')->load($key_menu, 'key_menu'); ?>
+	  <?php $menuItems = $this->getMenuItems($key_menu); ?>
+	  <?php if (count($menuItems) > 0): ?>
+	  		<div class="info-list">
+			    <ul>
+				      <?php
+                          // En attendant les liens des pages
+                          $page_currente = Mage::helper('core/url')->getCurrentUrl();
+                        foreach ($menuItems as $_menuItem):
+                      ?>
+					        <li>
+					        <!--	<a href="<?php echo $_menuItem->getRealUrl() ?>"  <?php echo $_menuItem->getProprerty(); ?> >  -->
+					       <a href="<?php echo $page_currente.'#' ?>"  <?php echo $_menuItem->getProprerty(); ?> >
+							         <span class="ico" >icon</span>
+							         <strong><?php echo $_menuItem->getName() ?></strong>
+							     </a>
+					        </li>
+				      <?php endforeach; ?>
+			    </ul>
+			</div>
+	  <?php endif; ?>
+<?php endif; ?>

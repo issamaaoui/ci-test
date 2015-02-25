@@ -1,0 +1,35 @@
+<glob>
+         <Customer>
+            <CategoryCode></CategoryCode>
+            <CustomerIndicator></CustomerIndicator>
+            <Person>
+               <GivenName></GivenName>
+               <FamilyName></FamilyName>
+               <GenderCode></GenderCode>
+               <NonVerbalCommunicationLanguageCode></NonVerbalCommunicationLanguageCode>
+            </Person>
+            
+			<AddressInformation>
+               <Address>
+                  <PostalAddress>
+                     <CountryCode></CountryCode>
+                  </PostalAddress>
+               </Address>
+            </AddressInformation>            
+
+            <SalesArrangement>
+            	<SalesOrganisationID></SalesOrganisationID>
+            	<DistributionChannelCode></DistributionChannelCode>
+            	<DeliveryPriorityCode></DeliveryPriorityCode>
+            	<CompleteDeliveryRequestedIndicator></CompleteDeliveryRequestedIndicator>
+            	<CurrencyCode></CurrencyCode>
+            	<CashDiscountTermsCode></CashDiscountTermsCode>
+            </SalesArrangement>
+            <PaymentData>
+            	<CompanyID></CompanyID>
+            	<DistributionChannelCode></DistributionChannelCode>
+            	<AccountDeterminationDebtorGroupCode></AccountDeterminationDebtorGroupCode>
+            </PaymentData>
+            <DuplicateCheckApplyIndicator></DuplicateCheckApplyIndicator>
+         </Customer>
+</glob>

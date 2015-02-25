@@ -1,0 +1,14 @@
+<?php $key_menu = $this->getMenu(); ?>
+<?php if ($key_menu != null): ?>
+    <?php $menuItems = $this->getMenuItems($key_menu); ?>
+    <?php if (count($menuItems) > 0): ?>
+        <div class="content-link-wrapper">
+            <?php foreach ($menuItems as $_menuItem): ?>
+                <div class="appli-link">
+                    <span class="label-dl-link"><?php echo $_menuItem->getName() ?></span>
+                    <a class="b-grey" href="<?php echo $_menuItem->getRealUrl() ?>"><?php echo $this->__('Télécharger') ?></a>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    <?php endif; ?>
+<?php endif; ?>

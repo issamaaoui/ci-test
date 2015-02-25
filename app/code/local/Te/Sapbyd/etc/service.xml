@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author te <renaud.fasimana@technology-everywhere.fr>
+ * @since 10 févr. 2015
+ *
+**/
+-->
+<config>
+    <sapbyd>
+        <methods>
+            <invoice>getInvoice</invoice>
+            <uuid>getUUID</uuid>
+            <tracking>getTrackingId</tracking>
+        </methods>
+        <adapters>
+            <soap>
+                <models>
+                    <invoice>te_sapbyd/service_soap_client_queryInvoiceIn</invoice>
+                    <uuid>te_sapbyd/service_soap_client_queryOutboundDelivery</uuid>
+                    <tracking>te_sapbyd/service_soap_client_readOutBoundDelivery</tracking>
+                </models>
+            </soap>
+            <default>
+                <use>soap</use>
+            </default>
+        </adapters>
+    </sapbyd>
+</config>

@@ -1,0 +1,1016 @@
+.cms-accessoires-merveilles .widget{
+	display: block;
+}
+.cms-accessoires-merveilles .main-container{
+	padding-bottom: 0px;
+}
+.cms-accessoires-merveilles .container{
+	width: 100%;
+	font-family: Brandon;
+}
+#accessoire-block-1{	
+	background-color:  #f9f9f9;
+	position: fixed;
+	top: 102px;
+	width: 100%;
+	z-index: 10;
+}
+#accessoire-block-1 .liens{
+	display: block;
+	width: 100%;
+	height: 99px;
+	max-width: 940px;
+	margin: 0 auto;
+}
+#accessoire-block-1 .liens .lien-wrapper{
+	display: inline-block;
+	width: 24%;
+	height: 100%;
+}
+#accessoire-block-1 .liens .lien{
+	display: table;
+	text-align: center;
+	width: 100%;
+	height: 100%;
+}
+#accessoire-block-1 .liens .lien a{
+	display: table-cell;
+	padding: 65px 10px 0 10px;
+	background: url(../../images/favoris.png) no-repeat center 19px;
+	color: #707070;
+	font-size: 13px;
+	font-weight: 300;
+	text-transform: uppercase;
+	text-decoration: none;
+}
+
+#accessoire-block-1 .liens .lien.active a{
+	display: table-cell;
+	padding: 65px 10px 0 10px;
+	background: url(../../images/favoris-active.png) no-repeat center 19px;
+	color: #707070;
+	font-size: 13px;
+	font-weight: 300;
+	text-transform: uppercase;
+	text-decoration: none;
+}
+
+#accessoire-block-2{
+	margin: 78px 0 0 0;
+}
+#accessoire-block-2 .main-wrapper{
+	background: url(../../images/devialet-2.png) no-repeat;
+	background-size:  100% auto;
+}
+#accessoire-block-2 .main{
+	display: block;
+	width: 100%;
+	max-width: 800px;
+	margin: 0 auto;
+	text-align: center;
+	color:  #707070;
+	font-size: 18px; 
+	font-weight: 300;
+	text-align: center;
+	padding: 78px 0 0 0;
+}
+#accessoire-block-2 .main .title{
+
+	font-size: 32px; 
+	line-height: 33.701px;
+	text-align: center;
+	text-transform: uppercase;
+	margin: 0 0 5px 0;
+}
+#accessoire-block-2 .main .sub-title{
+
+	font-size: 20px; 
+	font-weight: 300;
+	line-height: 33.701px; 
+	text-align: center;
+	text-transform: uppercase;
+	margin: 0 0 10px 0;
+}
+
+#accessoire-block-2 .main img{
+	margin: 50px 0 20px 0;
+	width: 100%;
+	max-width: 586px;
+}
+#accessoire-block-2 .lien-commande {
+	text-align: center;
+	display: inline-block;
+	width: 100%;
+	padding: 25px;
+	text-align: center;
+}
+
+#accessoire-block-2 .lien-commande a{
+	color: #000000;
+	border: 1px solid #000000;
+	text-decoration: none;
+	padding: 10px;
+	font-size: 16px;
+	text-transform: none;
+	display: inline-block;
+}
+#accessoire-block-2 .lien-commande a:hover{
+	color: #ffffff;
+	background: #000000;
+	border: 1px solid #000000;
+	text-decoration: none;
+	padding: 10px;
+	font-size: 16px;
+	text-transform: none;
+	display: inline-block;
+}
+
+#accessoire-block-2 .description-wrapper{
+	width: 100%;
+	max-width: 1100px;
+	padding: 10px;
+	display: block;
+	margin: auto;
+	color:  #999999;
+	font-size: 18px; 
+	font-weight: 300;
+	text-align: left;
+}
+
+#accessoire-block-2 .description-wrapper .title{
+	color:  #999999;
+	font-size: 20px; 
+	font-weight: 300;
+	padding: 10px 0;
+	text-transform: uppercase;
+	text-align: left;
+}
+#accessoire-block-2 .description-wrapper .last-text{
+	color:  #999999;
+	font-size: 14px; 
+	font-weight: 300;
+	line-height: 33.701px; 
+	padding: 10px 0;
+	text-align: left;
+}
+#accessoire-block-2 .description-wrapper .row .col{
+	width: 48%;
+	padding: 1%;
+	display: inline-block;
+	vertical-align: top;
+}
+#accessoire-block-3{
+	background-color:#f9f9f9 ;
+}
+
+#accessoire-block-3 .image {
+	background: url('../../images/bdbl_back.png');
+	background-position: center center;
+	text-align: center;
+	width: 	100%;
+}
+
+#accessoire-block-3 .image img{
+	width: 100%;
+	max-width: 310px;
+}
+#accessoire-block-3 .main{
+	width: 100%;
+	max-width: 925px;
+	display: block;
+	margin: auto;
+	padding: 10px;
+	color:  #999999;
+	font-size: 18px; 
+	font-weight: 300;
+	text-align: center;
+}
+
+#accessoire-block-3 .main .title{
+	color:  #999999;
+	font-size: 32px; 
+	font-weight: 300;
+	line-height: 33.701px; 
+	text-align: center;
+	text-transform: uppercase;
+	padding: 0 0 5px 0;
+}
+#accessoire-block-3 .main .sub-title{	
+	color:  #999999;
+	font-size: 20px; 
+	font-weight: 300;
+	line-height: 33.701px; 
+	text-align: center;
+	text-transform: uppercase;
+	padding: 0 0 15px 0;
+}
+#accessoire-block-3 .os-wrapper{
+	width: 100%;
+	background-color: white;
+	padding: 48px 0; 
+}
+
+#accessoire-block-3 .os{
+	width: 100%;
+	max-width: 1366px;
+	display: block;
+	margin: auto;
+}
+#accessoire-block-3 .os a{
+	border: 1px solid #000000;
+	text-decoration: none;
+	padding: 10px;
+	font-size: 16px;
+	text-transform: none;
+	display: inline-block;
+	width: 163px;
+	height: 44px;
+	text-align: left;
+	color:  #707070;
+	font-weight: 300;
+	text-transform: uppercase;
+}
+
+#accessoire-block-3 .os a:hover{
+	background: black;
+	color: white;
+}
+#accessoire-block-3 .os a:before{
+	font-family: 'fontello';
+	content: '\e80e'; 
+	color:  #202020;
+	font-size: 21px;
+	line-height: 21px;
+	margin-right: 25px;
+
+}
+#accessoire-block-3 .os a:hover:before{
+	color: white;
+}
+
+#accessoire-block-3 .os .os-lien{
+	width: 24%;
+	display: inline-block;
+	text-align: center;
+}
+
+#accessoire-block-3 .description-wrapper{	
+	padding: 115px 0 60px 10%;
+	background: url(../../images/devialet-11.png) no-repeat right 110px;
+	min-height: 680px;
+}
+#accessoire-block-3 .description{
+	color:  #999999;
+	font-size: 18px; 
+	font-weight: 300;
+	text-align: left;
+	width: 35%;
+}
+
+#accessoire-block-4{
+	position: relative;
+}
+#accessoire-block-4 .image{
+	margin: -25px 0 0 0 ;
+	width: 100%;
+	z-index: 1;
+	text-align: center;
+}
+#accessoire-block-4 .main{
+	position: absolute;
+	top: 40%;
+	left: 60%;
+	color:  #878787;
+	font-size: 18px; 
+	font-weight: 300;
+	width: 349px;
+	text-align: left;
+}
+
+#accessoire-block-4 .main .title{
+	color:  #878787;
+	font-size: 32px; 
+	font-weight: 300;
+	text-align: left;
+	text-transform: uppercase;
+}
+
+#accessoire-block-4 .main .sub-title{
+	color:  #878787;
+	font-size: 20px; 
+	font-weight: 300;
+	text-align: left;
+	text-transform: uppercase;
+	margin-bottom: 15px;
+}
+
+#accessoire-block-4 .lien{	
+	width: 100%;
+	padding: 60px;
+	text-align: center;
+}
+
+#accessoire-block-4 .lien a{
+	color: #000000;
+	border: 1px solid #000000;
+	text-decoration: none;
+	padding: 10px;
+	font-size: 16px;
+	text-transform: none;
+	display: inline-block;
+}
+#accessoire-block-4 .lien a:hover{
+	color: #ffffff;
+	background: #000000;
+	border: 1px solid #000000;
+	text-decoration: none;
+	padding: 10px;
+	font-size: 16px;
+	text-transform: none;
+	display: inline-block;
+}
+
+#accessoire-block-5{
+	background-color: #f9f9f9;
+}
+
+#accessoire-block-5 .main{	
+	color:  #999999;
+	font-size: 18px; 
+	font-weight: 300;
+	text-align: center;
+	width: 100%;
+	max-width: 896px;
+	display: block;
+	margin: auto;	
+	padding: 8% 10px 45px 10px;
+}
+
+#accessoire-block-5 .main .title{	
+	color:  #888888;
+	font-size: 32px; 
+	font-weight: 300;
+	line-height: 33.701px; 
+	text-align: center;
+	text-transform: uppercase;
+}
+
+#accessoire-block-5 .main .sub-title{	
+	color:  #999999;
+	font-size: 20px; 
+	font-weight: 300;
+	line-height: 33.701px; 
+	text-align: center;
+	text-transform: uppercase;
+	margin-bottom: 30px;
+}
+
+#accessoire-block-5 .image{
+	width: 100%;
+	text-align: center;
+}
+
+#accessoire-block-5 .lien{	
+	width: 100%;
+	padding: 60px;
+	text-align: center;
+}
+#accessoire-block-5 .lien a{
+	color: #000000;
+	border: 1px solid #000000;
+	text-decoration: none;
+	padding: 10px;
+	font-size: 16px;
+	text-transform: none;
+	display: inline-block;
+}
+#accessoire-block-5 .lien a:hover{
+	color: #ffffff;
+	background: #000000;
+	border: 1px solid #000000;
+	text-decoration: none;
+	padding: 10px;
+	font-size: 16px;
+	text-transform: none;
+	display: inline-block;
+}
+
+.cms-phantom-un-plusieurs .widget,
+.cms-phantom-plusieurs .widget,
+.cms-phantom-plusieur .widget{
+	display: block;
+}
+.cms-phantom-un-plusieurs .main-container,
+.cms-phantom-plusieurs .main-container,
+.cms-phantom-plusieur .main-container{
+	padding-bottom: 100px;
+}
+.cms-phantom-un-plusieurs .container,
+.cms-phantom-plusieurs .container,
+.cms-phantom-plusieur .container{
+	width: 100%;
+	font-family: Brandon;
+}
+#phantom-block-1 {
+	width: 100%;
+	background-color: #f9f9f9;
+}
+#phantom-block-1 .main-text{	
+	width: 100%;
+	max-width: 757px;
+	margin: auto;
+	display: block;
+	padding: 8% 0px 8% 0px;
+}
+
+#phantom-block-1 .main-text .text{
+	color:  #8d8d8d;
+	font-size: 19.97px; 
+	font-weight: 300;
+	text-align: center;
+	margin: 40px 16% 0 16%;
+}
+#phantom-block-1 .main-text .title{
+	color:  #8d8d8d;
+	font-size: 33.95px; 
+	font-weight: 300;
+	line-height: 43.125px; 
+	text-align: center;
+	text-transform: uppercase;
+}
+
+
+#phantom-block-2 {
+	width: 100%;
+	position: relative;
+}
+#phantom-block-2 .image-phantom{
+	position: absolute;
+	top: -85px;
+	left: 0;
+}
+
+#phantom-block-2 .main-text{	
+	color:  #999999;
+	font-size: 20.75px;
+	font-weight: 300;
+	text-align: center;
+	width: 100%;
+	max-width: 475px;
+	display: block;
+	margin: auto;
+	min-height: 715px;
+	padding-top: 17%;
+}
+#phantom-block-2 .main-text .title{
+	color:  #999999;
+	font-size: 26.21px;
+	font-weight: 300;
+	line-height: 26.25px;
+	padding-bottom: 50px;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+#phantom-block-2 .image-phone{
+	position: absolute;
+	top: 135px;
+	left: 73%;
+}
+
+
+#phantom-block-3{
+	width: 100%;
+	position: relative;	
+	background: url(../../images/devialet-5.png) no-repeat left 0, url(../../images/devialet-6.png) no-repeat right 0;
+	text-align: center;
+	min-height: 455px;
+	margin-top: 150px;
+}
+#phantom-block-3 .main-text {
+	color:  #999999;
+	font-size: 19px; 
+	font-weight: 300;
+	line-height: 29.996px; 
+	text-align: center;
+	width: 100%;
+	max-width: 665px;
+	display: block;
+	margin: auto;
+	padding-top: 125px;
+	padding-bottom: 125px;
+}
+
+#phantom-block-3 .main-text .title{
+	color:  #999999;
+	font-size: 26.21px;
+	font-weight: 300;
+	line-height: 29.956px;
+	text-align: justify;
+	text-transform: uppercase;
+	text-align: center;
+	padding-bottom: 20px;
+}
+
+
+#phantom-block-4{
+
+	width: 100%;
+	position: relative;	
+	background: url(../../images/devialet-3.png) center center no-repeat;
+	text-align: center;
+	min-height: 455px;
+	margin-top: 150px;
+	margin-bottom: 62px;
+	min-height: 770px;
+}
+
+
+#phantom-block-4 .main-text .title{
+	color:  #999999;
+	font-size: 26.21px; 
+	font-weight: 300;
+	line-height: 33.701px; 
+	text-align: left;
+	text-transform: uppercase;
+	padding-bottom: 20px;
+}
+#phantom-block-4 .main-text {
+	color:  #999999;
+	font-size: 20.75px; 
+	font-weight: 300;
+	text-align: left;	
+	width: 100%;
+	max-width: 362px;
+	display: block;
+	position: absolute;
+	top: 240px;
+	left: 60%;
+}
+
+#phantom-block-5{
+	position: relative;
+	width: 100%;
+	height: 100%;
+	min-height: 385px;	
+	background: url(../../images/devialet-7.png) no-repeat;
+	background-size:  100% auto;
+}
+#phantom-block-5 .title{
+	color:  #797979;
+	font-size: 31.95px;
+	font-weight: 100;
+	line-height: 43.125px;
+	text-align: center;
+	width: 100%;
+	max-width: 522px;
+	display: block;
+	margin: auto;
+	padding: 8% 0 1% 0;
+	text-transform: uppercase;
+}
+#phantom-block-5 .lien{
+	text-align: center;
+}
+
+#phantom-block-5 .lien a{
+	color: #000000;
+	border: 1px solid #000000;
+	text-decoration: none;
+	padding: 10px;
+	font-size: 16px;
+	text-transform: none;
+	display: inline-block;
+}
+#phantom-block-5 .lien a:hover{
+	color: #ffffff;
+	background: #000000;
+	border: 1px solid #000000;
+	text-decoration: none;
+	padding: 10px;
+	font-size: 16px;
+	text-transform: none;
+	display: inline-block;
+}
+
+.cms-phantom-cybernetique .main-container,
+.cms-la-superiorite-du-son-cybernetique .main-container{
+	padding-bottom: 100px;
+}
+.cms-phantom-cybernetique .container,
+.cms-la-superiorite-du-son-cybernetique .container{
+	width: 100%;
+	font-family: Brandon;
+}
+
+#superiorite-block-1{
+	font-family: Brandon;
+	width: 100%;
+	position: relative;	
+	background: white;
+	text-align: center;
+	border-bottom: 1px solid #DDDDDD;
+}
+
+#superiorite-block-1 .main-text{
+	text-transform: uppercase;
+	width: 100%;
+	color:  #999999;
+	font-size: 33.75px; 
+	font-weight: 500;
+	line-height: 43.125px;
+	max-width: 443px;
+	margin-top: 100px;
+	margin-bottom: 100px;
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+#superiorite-block-2 {
+	width: 49.6%;
+	box-sizing: border-box;
+	position: relative;
+	display: inline-block;
+	padding: 100px 60px;
+	/*border-right: 1px solid #EEEEEE;*/
+}
+#superiorite-block-2 .main-text{
+	font-size: 18.72px; 
+	font-weight: 300;
+	line-height: 29.956px; 
+	text-align: left;
+	vertical-align: top;
+}
+#superiorite-block-2 .main-text .title{
+	font-size: 26.21px; 
+	font-weight: 300;
+	margin-bottom: 20px;
+	text-align: left;
+	text-transform: uppercase;
+}
+#superiorite-block-2 .main-text a {
+	text-decoration: underline;
+	color: #999;
+}
+#superiorite-block-3 {
+	width: 49.6%;
+	box-sizing: border-box;
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	border-left: 1px solid #DDDDDD;
+}
+
+#superiorite-block-3 .title{
+	font-size: 26.25px; 
+	font-weight: 300;
+	line-height: 33.75px; 
+	text-align: left;
+	text-transform: uppercase;
+	margin: 100px 60px 60px 60px;
+}
+#superiorite-block-3 .product-1,
+#superiorite-block-3 .product-2{
+	width: 49.6%;
+	box-sizing: border-box;
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	text-align: center;
+	padding-bottom: 30px;
+}
+#superiorite-block-3 .product-1 .product-title,
+#superiorite-block-3 .product-2 .product-title{
+	color:  #818080;
+	font-size: 10.88px; 
+	font-weight: 300;
+	line-height: 36.005px;
+	margin-bottom: 20px;
+}
+
+#superiorite-block-3 .product-1 .product-main,
+#superiorite-block-3 .product-2 .product-main{
+	color:  #818080;
+	font-size: 25.34px; 
+	font-weight: 500;
+	line-height: 36.005px;
+}
+#superiorite-block-3 .product-1{
+	border-right: 1px solid #DDDDDD;
+}
+
+#superiorite-block-3 .detail{
+	border-top: 1px solid #DDDDDD;
+}
+
+#superiorite-block-3 .detail .detail-1,
+#superiorite-block-3 .detail .detail-2,
+#superiorite-block-3 .detail .detail-3{
+	display: inline-block;
+	width: 32%;
+	height: 160px;
+}
+
+#superiorite-block-3 .detail .detail-1{
+	background: url(../../images/distorsion.png) center center no-repeat;
+}
+#superiorite-block-3 .detail .detail-2{
+	background: url(../../images/souffle.png) center center no-repeat;
+}
+#superiorite-block-3 .detail .detail-3{
+	background: url(../../images/impédance.png) center center no-repeat;
+}
+
+#superiorite-block-4 {
+	display: inline-block;
+	background: #f5f4f4;
+	width: 100%;
+	border-top: 1px solid #DDDDDD;
+}
+
+#superiorite-block-4 .main-text{
+	display: block;
+	font-size: 26.24px; 
+	font-weight: 400;
+	font-style: italic;
+	line-height: 33.742px; 
+	text-align: center;
+	width: 100%;
+	max-width: 576px;
+	margin: 120px auto;
+}
+
+.cms-les-technologies-qui-revolutionnent-le-son .main-container,
+.cms-phantom-revolutionnaire .main-container{
+	padding-bottom: 100px;
+}
+.cms-les-technologies-qui-revolutionnent-le-son .container,
+.cms-phantom-revolutionnaire .container{
+	width: 100%;
+	font-family: Brandon;
+}
+#revolutionnaire-block-1{
+	display: inline-block;
+	width: 100%;
+	background: #f9f9f9;
+}
+
+#revolutionnaire-block-1 .main-text{
+	display: block;
+	margin: 100px auto;
+	width: 100%;
+	max-width: 704px;
+	color:  #999999;
+	font-size: 19.97px; 
+	font-weight: 300;
+	line-height: 27.959px; 
+	text-align: center;
+}
+
+#revolutionnaire-block-1 .main-text .title{
+	margin-bottom: 20px;
+	color:  #999999;
+	font-size: 33.95px; 
+	font-weight: 300;
+	line-height: 43.125px; 
+	text-transform: uppercase;
+	text-align: center;
+}
+#revolutionnaire-block-2 ,
+#revolutionnaire-block-3 ,
+#revolutionnaire-block-4 {
+	position: relative;
+}
+#revolutionnaire-block-2 .main-text .title,
+#revolutionnaire-block-3 .main-text .title,
+#revolutionnaire-block-4 .main-text .title{
+	color:  #999999;
+	font-size: 26.21px; 
+	font-weight: 300;
+	line-height: 31.934px; 
+	text-align: left;
+	text-transform: uppercase;
+	margin-bottom: 20px;
+}
+#revolutionnaire-block-2 .main-text,
+#revolutionnaire-block-3 .main-text,
+#revolutionnaire-block-4 .main-text{
+	color:  #999999;
+	font-size: 18.75px; 
+	font-weight: 300;
+	text-align: left;
+}
+
+#revolutionnaire-block-2{
+	width: 100%;
+	min-height: 700px;
+	display: inline-block;
+	background: url(../../images/devialet-bg1.png) no-repeat left 180px;
+}
+#revolutionnaire-block-2 .main-text{
+	position: absolute;
+	top: 200px;
+	left: 60%;
+	width: 380px;
+}
+
+
+#revolutionnaire-block-3{
+	width: 100%;
+	min-height: 1140px;
+	display: inline-block;
+	background: url(../../images/devialet-bg2.png) no-repeat right 180px;
+}
+#revolutionnaire-block-3 .main-text{
+	position: absolute;
+	top: 200px;
+	left: 5%;
+	width: 340px;
+}
+
+
+#revolutionnaire-block-4{
+	width: 100%;
+	min-height: 2150px;
+	display: inline-block;
+	background: url(../../images/devialet-bg4.png) no-repeat right 1300px,
+	url(../../images/devialet-bg3.png) no-repeat left 180px	;
+}
+#revolutionnaire-block-4 .main-text-1{
+	position: absolute;
+	top: 670px;
+	left: 55%;
+	width: 430px;
+}
+#revolutionnaire-block-4 .main-text-2{
+	position: absolute;
+	top: 1500px;
+	left: 7%;
+	width: 380px;
+}
+
+#revolutionnaire-block-5{
+	width: 100%;
+	display: inline-block;
+	min-height: 455px;
+	background: url(../../images/devialet-6.png) no-repeat right 0px,
+	url(../../images/devialet-5.png) no-repeat left 0px	;
+	background-color: #f9f9f9;
+}
+#revolutionnaire-block-5 .title{
+	margin: 150px auto 30px auto;
+	width: 100%;
+	max-width: 460px;
+	display: block;
+	color:  #999999;
+	font-size: 31.95px; 
+	font-weight: 100;
+	line-height: 31.95px; 
+	text-align: center;
+	width: 461px;
+	text-transform: uppercase;
+}
+
+#revolutionnaire-block-5 .lien {
+	width: 100%;
+	text-align: center;
+}
+
+#revolutionnaire-block-5 .lien a{
+	color: #000000;
+	border: 1px solid #000000;
+	text-decoration: none;
+	padding: 10px;
+	font-size: 16px;
+	text-transform: none;
+	display: inline-block;
+}
+#revolutionnaire-block-5 .lien a:hover{
+	color: #ffffff;
+	background: #000000;
+	border: 1px solid #000000;
+	text-decoration: none;
+	padding: 10px;
+	font-size: 16px;
+	text-transform: none;
+	display: inline-block;
+}
+
+.cms-devialet-flagships .main-container{
+	padding-bottom: 100px;
+}
+.cms-devialet-flagships .container{
+	width: 100%;
+	font-family: Brandon;
+}
+
+#alamaison-block-1 {
+	width: 100%;
+	background: #f9f9f9;
+	display: inline-block;
+}
+#alamaison-block-1 .title{
+	display: block;
+	margin:6% auto 3% auto;
+	color:  #8d8d8d;
+	font-size: 31.95px; 
+	font-weight: 300;
+	line-height: 37.945px; 
+	text-align: center;
+	width: 100%;
+	max-width: 406px;
+	text-transform: uppercase;
+}
+#alamaison-block-1 .lien{
+	width: 100%;
+	text-align: center;
+	margin-bottom: 3%;
+}
+
+#alamaison-block-1 .lien a{
+	color: #000000;
+	border: 1px solid #000000;
+	text-decoration: none;
+	padding: 10px;
+	font-size: 16px;
+	text-transform: none;
+	display: inline-block;
+}
+#alamaison-block-1 .lien a:hover{
+	color: #ffffff;
+	background: #000000;
+	border: 1px solid #000000;
+	text-decoration: none;
+	padding: 10px;
+	font-size: 16px;
+	text-transform: none;
+	display: inline-block;
+}
+#alamaison-block-2 {
+	width: 100%;
+}
+#alamaison-block-2 img{
+	width: 100%;
+	height: auto;
+}
+#alamaison-block-3 {
+	width: 100%;
+	text-align: center;
+}
+#alamaison-block-3 .image{
+	margin: 3% auto;
+}
+#alamaison-block-3 .main-text{
+	width: 100%;
+	max-width: 942px;
+	display: block;
+	margin: auto;
+	color:  #999999;
+	font-size: 19px; 
+	font-weight: 300;
+	line-height: 29.996px;
+}
+
+#alamaison-block-3 .lien{
+	width: 100%;
+	text-align: center;
+	margin: 3% auto;
+}
+
+#alamaison-block-3 .lien a{
+	color: #000000;
+	border: 1px solid #000000;
+	text-decoration: none;
+	padding: 10px;
+	font-size: 16px;
+	text-transform: none;
+	display: inline-block;
+}
+#alamaison-block-3 .lien a:hover{
+	color: #ffffff;
+	background: #000000;
+	border: 1px solid #000000;
+	text-decoration: none;
+	padding: 10px;
+	font-size: 16px;
+	text-transform: none;
+	display: inline-block;
+}
+
+#alamaison-block-4 {
+	width: 100%;
+	text-align: center;
+	background: #f9f9f9;
+	display: inline-block;
+}
+#alamaison-block-4 .main-text{
+	width: 100%;
+	max-width: 737px;
+	display: block;
+	margin: 3% auto;
+	color:  #999999;
+	font-size: 19.97px; 
+	font-weight: 300;
+	line-height: 27.959px; 
+}

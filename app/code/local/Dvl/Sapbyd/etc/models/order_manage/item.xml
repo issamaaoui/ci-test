@@ -1,0 +1,22 @@
+<glob>
+	<Item>
+		<ID>10</ID> <!-- Variable. ID Bydesign de la ligne de  commande-->
+		<BuyerID>10</BuyerID> <!-- Variable. ID Magento de la ligne de commande -->
+		<ItemProduct>
+			<ProductID>DEV_110_STR</ProductID> <!-- Variable. ID Bydesign du produit vendu -->
+		</ItemProduct>
+		<ItemScheduleLine>
+ 			<Quantity unitCode="EA">1</Quantity><!-- Variable. Quantité commandée, la caractéristique EA est fixe -->
+		</ItemScheduleLine>
+	</Item>
+	<Item><!--Balise. Dans cette Balise nous décrirons les information à renseigné pour le transport. Uniquement pour le process Devialet FR -->
+    	<ID>99</ID> <!-- Valeur Fixe: 99 POur faciliter la mise à jours du prix du transport l'identifiant de la ligne de commande est fixe  -->
+		<BuyerID>20</BuyerID> <!-- Variable. ID MAgento de la ligne de commande-->
+		<ItemProduct>
+			<ProductID>TRANSPORT</ProductID> <!-- Valeur Fixe: TRANSPORT. Pour matérialiser le transport -->
+		</ItemProduct>
+		<ItemScheduleLine>
+			<Quantity unitCode="EA">1</Quantity><!-- Quantité commandée, la caractéristique EA est fixe -->
+		</ItemScheduleLine>
+	</Item>	
+</glob>

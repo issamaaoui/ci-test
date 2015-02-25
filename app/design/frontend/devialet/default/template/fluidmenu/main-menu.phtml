@@ -1,0 +1,42 @@
+<?php $key_menu = $this->getMenu(); ?>
+<?php if ($key_menu != null): ?>
+    <?php $menuItems = $this->getMenuItems($key_menu); ?>
+    <?php if (count($menuItems) > 0): ?>
+        <ul <?php echo trim($this->getHtmlId()) ? 'id="'.$this->getHtmlId().'"' : '';?> class="nav navbar-nav">
+            <?php foreach ($menuItems as $_menuItem): ?>
+                <li <?php echo $_menuItem->getClassHtml(); ?> >
+                    <a href="<?php echo $_menuItem->getRealUrl() ?>"  <?php echo $_menuItem->getProprerty(); ?> >
+                        <?php echo $_menuItem->getName() ?>
+                    </a>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+
+        <button class="menu-open-trigger"><?php echo $this->__('menu') ?></button>
+
+        <div class="mobile-nav-wrapper">
+
+            <div class="button-wrapper">
+                <button class="menu-close-trigger">X</button>
+            </div>
+
+            <ul class="menu-mobile-tablette">
+                <?php foreach ($menuItems as $_menuItem): ?>
+                    <li <?php echo $_menuItem->getClassHtml(); ?> >
+                        <a href="<?php echo $_menuItem->getRealUrl() ?>"  <?php echo $_menuItem->getProprerty(); ?> >
+                            <?php echo $_menuItem->getName() ?>
+                        </a>
+                    </li>
+                <?php endforeach; ?>
+                <?php if(Mage::getSingleton('customer/session')->isLoggedIn()): ?>
+                    <li><a href="<?php echo $this->getUrl('customer/account') ?>" title="<?php echo $this->__('Mon compte') ?>"><?php echo $this->__('Mon compte') ?></a></li>
+                    <li><a href="<?php echo $this->getUrl('customer/account/logout') ?>" title="<?php echo $this->__('Déconnexion') ?>"><?php echo $this->__('Déconnexion') ?></a></li>
+                <?php else: ?>
+                    <li><a href="<?php echo $this->getUrl('customer/account') ?>" title="<?php echo $this->__('Connexion') ?>"><?php echo $this->__('Connexion') ?></a></li>
+                <?php endif; ?>
+            </ul>
+
+        </div>
+    <?php endif; ?>
+<?php endif; ?>
+

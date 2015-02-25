@@ -1,0 +1,185 @@
+<?php
+    //Mage::getSingleton('customer/session')->unsShoppingCode();
+?>
+
+
+
+
+	    
+	    <div class="container-fluid signup" id="mc_embed_signup">
+        <div class="row ">
+            <div class="col-sm-12 ">
+                <div class="row ">
+                    <div class="col-sm-6 ">
+	                    
+
+                
+               <!-- <div class="label_form"><?php echo $this->__("No invitation code? ask yours"); ?></div> -->
+	                    
+	                    
+                        <p><?php echo $this->__("TO FACE HIGH DEMAND, PHANTOM IS CURRENTLY AVAILABLE BY INVITATION ONLY"); ?>
+                        
+                                             
+ <span><?php echo $this->__("Leave us your email and we will send you a personal code to be among the firsts to own Phantom"); ?></span>
+</p>
+                    </div>
+                    <div class="col-sm-6 ">
+                        <div class="row ">              
+                        
+                            
+                            
+<form id='preorder-form-email' action="<?php echo $this->getEmailAction() ?>" method="post" class="preorder-form-codet" role="form">
+	                            
+                                    <div class="col-sm-4 mc-field-group field-wrapper">
+  				<input type="text" class="input-text required-entry validate-email" name="code-email"  id="code-email" placeholder="<?php echo $this->__('Email') ?>  *"/>
+                                        
+                                    </div>
+                                    
+                                    <div class="col-sm-4 mc-field-group field-wrapper">
+	                                    
+<div class="select-style">
+
+                                <select id="code-country" name="code-country" class="required-entry">
+                                    <option value=""><?php echo $this->__('Country') ?> *</option>
+                                    <?php
+                                    $collection = Mage::getModel('directory/country')->getCollection();
+                                    foreach ($collection as $country)
+                                        echo '<option value="'.$country->getName().'">'.$country->getName().'</option>';
+                                    ?>
+                                </select>   
+                                
+</div>                         
+                                    </div>
+                                    
+                                    <div class="col-sm-4 ">
+            <button id ="mc-embedded-subscribe" type="submit" class="button-submit"><?php echo $this->__('Send') ?></button>   
+                                    </div>
+                                
+                            </form>
+                            
+                            
+                <!-- <?php echo $this->__('* Required Fields') ?>          -->              
+                          
+                         
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        </div>
+
+
+
+
+<div class="pre-order">
+
+<div class="container-fluid text-center">
+
+		            <?php if(strlen($this->getMessagesBlock()->getGroupedHtml()) > 0): ?>
+                    <div class="col-xs-12" ><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
+                <?php endif; ?>
+
+</div>
+
+<div class="container storehp">
+	
+
+	
+	
+    <div class="row">
+        <div class="col-lg-9 col-md-8">
+            <span class="phantomorder">
+                <div class="row signupstore">
+	                
+	                
+                    <div class="col-md-12">
+                        <h1><?php echo $this->__("You have an invitation code ?"); ?></h1>
+                    </div>               
+                   
+                </div>
+                
+                
+                <div class="row signupstore">
+	                
+	                <form id='preorder-form-code' action="<?php echo $this->getCodeAction() ?>" method="post" class="preorder-form-codet" role="form">               
+	                
+	                
+            
+	                
+	                <div class="col-md-9 col-sm-8 field-wrapper">
+					<input type="text" class="input-text required-entry " id="code-achat" name="code-achat" placeholder="<?php echo $this->__('Enter your code') ?>" >  
+	                </div>
+	                
+	                
+	                <div class="col-md-3 col-sm-4 action-wrapper ">
+		                 <button type="submit" class="button-submit"><?php echo $this->__('Order now') ?></button>
+	                </div>
+	                
+	                </form> 
+	                
+                </div>
+                
+                <div class="row> text-center"<p><?php echo $this->__("First Phantoms will start shipping January 20th, 2015. EU only."); ?></p></div>
+	               
+                
+                
+                <div class="row">
+                    <div class="col-lg-9 col-md-12">
+                        <img style="margin:auto" class="img-responsive" src="/skin/frontend/devialet/default/images/home/phantom.jpg">
+                    </div>
+                    <div class="col-lg-3 col-md-12 text-center reviews">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-6 col-sm-6 col-xs-6">
+                                <p>«Spectaculaire»<br><img title="" src="/skin/frontend/devialet/default/images/home/figarostore.jpg" alt="figaro"></p>
+                            </div>
+                            <div class="col-lg-12 col-md-6 col-sm-6 col-xs-6">
+                                <p>«Better Than Speakers 20X Its Size»<br><img src="/skin/frontend/devialet/default/images/home/techcrunchstore.jpg"></p>
+                            </div>
+                            <div class="col-lg-12 col-md-6 col-sm-6 col-xs-6">
+                                <p>«It’s hard to believe»<br><img src="/skin/frontend/devialet/default/images/home/castore.jpg"></p>
+                            </div>
+                            <div class="col-lg-12 col-md-6 col-sm-6 col-xs-6">
+                                <p>«You might not believe your ears» <br><img src="/skin/frontend/devialet/default/images/home/telegraphstore.jpg"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <span class="price">dès 1690€</span>
+            </span>
+        </div>
+        <div class="col-lg-3 col-md-4">
+            <span class="dialog">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <h2>dialog</h2>
+                        <h3><?php echo $this->__('Ultra-powerful WIFI sharing center') ?></h3>
+                    </div>
+                </div>
+                <span class="price">299€</span>
+            </span>
+            <span class="branch">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <h2>Branch</h2>
+                        <h3><?php echo $this->__('Branch Phantom’ intelligent base') ?></h3>
+                    </div>
+                </div>
+                <span class="price"><?php echo $this->__('coming soon') ?></span>
+            </span>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+    var codeForm = new VarienForm('preorder-form-code', true);
+    var emailForm = new VarienForm('preorder-form-email', true);
+//]]>
+</script>

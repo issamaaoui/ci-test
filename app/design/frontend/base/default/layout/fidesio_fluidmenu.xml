@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+  <default translate="label">
+    <reference name="fluidmenu">
+      <block type="fluidmenu/fluidmenu" after="-" name="fluidmenu.top">
+        <action method="setMenu"><value>main</value></action>
+        <action method="setHtmlId"><value>nav</value></action>
+        <action method="setTemplate"><value>fluidmenu/menu.phtml</value></action>
+        <action method="setSubmenuTemplate"><value>fluidmenu/submenu.phtml</value></action>
+      </block>
+    </reference>
+  </default>
+</layout>

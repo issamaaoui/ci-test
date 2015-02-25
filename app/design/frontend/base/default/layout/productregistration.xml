@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+	<customer_account>
+        <!-- Mage_Sales -->
+        <reference name="customer_account_navigation">
+            <block type="pws_productregistration/customer_link" name="productregistration.customer.link"/>
+            <action method="addLink" translate="label" block="productregistration.customer.link" module="pws_productregistration"><name>productregistration</name><path>productregistration/productregistration/history/</path><label>My Registered Products</label></action>
+        </reference>
+    </customer_account>
+
+	<productregistration_productregistration_history>
+		<update handle="customer_account"/>
+		<reference name="content">
+		    <block type="pws_productregistration/customer_registeredProducts_history" name="productregistration.customer.registeredproducts.history"/>
+		    <block type="customer/account_dashboard" name="customer.account.link.back" template="pws_productregistration/customer/registeredproducts/link.phtml"/>
+		</reference>
+	</productregistration_productregistration_history>
+
+	<productregistration_productregistration_registerproduct>
+		<reference name="root">
+            <action method="setTemplate"><template>page/2columns-left.phtml</template></action>
+        </reference>
+        <reference name="head">
+        	<action method="addCss"><stylesheet>css/pws_productRegistration.css</stylesheet></action>
+        	<action method="addCss"><stylesheet>css/datepicker.css</stylesheet></action>
+        </reference>
+		<reference name="content">
+		    <block type="pws_productregistration/registerProducts_form" name="productregistration.registerproducts.form"/>
+		</reference>
+	</productregistration_productregistration_registerproduct>
+
+	<productregistration_productregistration_previewregisterproduct>
+		<reference name="root">
+            <action method="setTemplate"><template>page/2columns-left.phtml</template></action>
+        </reference>
+        <reference name="head">
+        	<action method="addCss"><stylesheet>css/pws_productRegistration.css</stylesheet></action>
+        </reference>
+		<reference name="content">
+		    <block type="pws_productregistration/registerProducts_preview" name="productregistration.registerproducts.preview"/>
+		</reference>
+	</productregistration_productregistration_previewregisterproduct>
+
+	<productregistration_productregistration_registrationsuccess>
+		<reference name="root">
+            <action method="setTemplate"><template>page/2columns-left.phtml</template></action>
+        </reference>
+        <reference name="head">
+        	<action method="addCss"><stylesheet>css/pws_productRegistration.css</stylesheet></action>
+        </reference>
+		<reference name="content">
+		    <block type="pws_productregistration/registerProducts_success" name="productregistration.registerproducts.success"/>
+		</reference>
+	</productregistration_productregistration_registrationsuccess>
+
+	<productregistration_productregistration_setlanguage>
+		<reference name="root">
+            <action method="setTemplate"><template>page/2columns-left.phtml</template></action>
+        </reference>
+        <reference name="head">
+        	<action method="addCss"><stylesheet>css/pws_productRegistration.css</stylesheet></action>
+        </reference>
+		<reference name="content">
+		    <block type="core/template" name="productregistration.registerproducts.setlanguage" template="pws_productregistration/registerproducts/language.phtml" />
+		</reference>
+	</productregistration_productregistration_setlanguage>
+
+
+	<productregistration_productregistration_setregistrationmethod>
+		<reference name="root">
+            <action method="setTemplate"><template>page/2columns-left.phtml</template></action>
+        </reference>
+        <reference name="head">
+        	<action method="addCss"><stylesheet>css/pws_productRegistration.css</stylesheet></action>
+        </reference>
+		<reference name="content">
+		    <block type="core/template" name="productregistration.registerproducts.registrationmethod" template="pws_productregistration/registerproducts/registrationmethod.phtml" />
+		</reference>
+	</productregistration_productregistration_setregistrationmethod>
+
+
+</layout>

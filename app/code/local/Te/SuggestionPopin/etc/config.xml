@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Te_SuggestionPopin>
+            <version>0.1.0</version>
+        </Te_SuggestionPopin>
+    </modules>
+    <global>
+        <helpers>
+            <te_suggestionpopin>
+                <class>Te_SuggestionPopin_Helper</class>
+            </te_suggestionpopin>
+        </helpers>
+    </global>
+    <frontend>
+        <translate>
+            <modules>
+                <Te_SuggestionPopin>
+                    <files>
+                        <default>Te_SuggestionPopin.csv</default>
+                    </files>
+                </Te_SuggestionPopin>
+            </modules>
+        </translate>
+    </frontend>
+</config>

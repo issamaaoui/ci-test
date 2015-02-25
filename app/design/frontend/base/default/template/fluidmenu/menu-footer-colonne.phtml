@@ -1,0 +1,15 @@
+<?php $key_menu = $this->getMenu(); ?>
+<?php if ($key_menu != null): ?>
+	  <?php $menu = Mage::getModel('fluidmenu/fluidmenu')->load($key_menu, 'key_menu'); ?>
+	  <?php $menuItems = $this->getMenuItems($key_menu); ?>
+	  <?php if (count($menuItems) > 0): ?>
+		  <div class="nav-alt-holder column">		  		
+			      <?php foreach ($menuItems as $_menuItem): ?>
+			      		<section class="nav-alt">
+				        	<strong><?php echo $_menuItem->getName() ?></strong>
+							<?php echo $this->getSubMenuBlock($_menuItem)->toHtml(); ?>
+						</section>
+			      <?php endforeach; ?>				 
+			</div>
+	  <?php endif; ?>
+<?php endif; ?>

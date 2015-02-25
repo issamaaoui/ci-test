@@ -1,0 +1,171 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <pws_extensions translate="label" module="pws_productregistration">
+            <label>DEVIALET Product</label>
+            <sort_order>1002</sort_order>
+        </pws_extensions>
+    </tabs>
+    <sections>
+        <pws_productregistration translate="label" module="pws_productregistration">
+            <class>separator-top</class>
+            <label>DEVIALET Product Registration</label>
+            <tab>sapbyd_extensions</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>100</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <general_settings translate="label">
+                    <label>General Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <register_product_input translate="label">
+                            <label>Register Product Input</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>pws_productregistration/adminhtml_system_config_source_productinput</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment><![CDATA[Type:<br />
+                            select - default option; the user can choose the product from a select box with magento products that are registrable; <br />
+                            input (sku) - the user can enter the sku of the product in an input box (only magento products sku that are registrable)<br />                            
+                            ]]></comment>
+                        </register_product_input>
+                        <receive_email_notification translate="label">
+                            <label>Receive email notifications</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Receive an email notification when a user registers a product</comment>
+                        </receive_email_notification>
+                        <send_email_notification_to translate="label">
+                            <label>Email Address</label>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Email address where you want to receive the email notifications;
+                            If empty, no email is sent]]>
+                            </comment>
+                        </send_email_notification_to>
+                        <notify_customer_registration_invalid translate="label">
+                            <label>Send notification email registration is invalided</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Automatically send an email to customer when a product registration is invalided (by default all saved product registrations are marked as valid but they can be manually invalided)</comment>
+                        </notify_customer_registration_invalid>
+                        <registered_products_title translate="label">
+                            <label>Section "My Registered Products" Title</label>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[The Title of the section 'My Registered Products' - Customer Account;
+                            If empty, the default one is used: 'My Registered Products']]>
+                            </comment>
+                        </registered_products_title>
+                    </fields>
+                </general_settings>
+                <serial_number_validation translate="label">
+                    <label>Validation Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>20</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <sn_validation_enabled translate="label">
+                            <label>Enable Serial Number Validation</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </sn_validation_enabled>
+                        <duplicate_sn translate="label">
+                            <label>Allow duplicate serial numbers</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </duplicate_sn>
+                        <validation_type translate="label">
+                            <label>Validation Type</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>pws_productregistration/adminhtml_system_config_source_validationtype</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment><![CDATA[Type:<br />
+                            none - no validation; all serial numbers entered by users are valid (if they were not used before)<br />
+                            rule - use a rule to validate serial numbers (see below)<br />
+                            exact match - validate based on the imported serial numbers<br />
+                            callback - use a php function to validate each serial number (event/observer; see documentation)<br />
+                            ]]></comment>
+                        </validation_type>
+                        <validation_rule translate="label">
+                            <label>Serial Number Validation Rule</label>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment><![CDATA[Fill only if Validation Type is <em>rule</em>; Use a valid php regex format; eg: rule <em>[a-zA-Z]{4}-\d-\d:\d</em> validates sn such as <em>abcd-1-2:1</em>]]></comment>
+                        </validation_rule>
+                    </fields>
+                </serial_number_validation>
+                <import_settings translate="label">
+                    <label>Serial Numbers Import Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>30</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <comment><![CDATA[<strong>Fill the fields below only if <em>Validation Type</em> is <em>exact match</em></strong>]]></comment>
+                    <fields>
+                        <import_mode translate="label">
+                            <label>Import Mode</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>pws_productregistration/adminhtml_system_config_source_mode</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment><![CDATA[Mode:<br />
+                            add - serial numbers are added to the existing ones<br />
+                            update - serial numbers are replaced with the ones from the uploaded csv;
+                            ]]></comment>
+                        </import_mode>
+                        <import_serial_numbers translate="label">
+                            <label>Import Valid Serial Numbers</label>
+                            <frontend_type>import</frontend_type>
+                            <backend_model>pws_productregistration/adminhtml_system_config_backend_serialnumbers</backend_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment><![CDATA[Import only if serial number validation is enabled and type is <em>exact match</em>CSV file, format: sku, serial_number; no header row<br /> eg:<br /> "abcd-123", "123456"<br />"efgh-456", "999123:abc"<br />"abcd-123", "456789"]]></comment>
+                        </import_serial_numbers>
+                    </fields>
+                </import_settings>
+            </groups>
+        </pws_productregistration>
+    </sections>
+</config>

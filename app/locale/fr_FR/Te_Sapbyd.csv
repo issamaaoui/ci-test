@@ -1,0 +1,8 @@
+"Purchased On","Acheté le"
+"Billing country","Pays de facturation"
+"Shipping country","Pays de livraison"
+"Synchronize to SAP","Synchroniser avec SAP"
+"Configure access to Sap ByDesign webservice","Configurer l'accès au webservice Sap ByDesign"
+"Enable for debug only. Logs found in var/log/soap","Activer pour debug uniquement. Logs dans le dossier var/log/soap"
+"Import invoices","Import des factures"
+"Import tracking number","Import du tracking des expéditions"

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+	<default>
+    </default>
+    <fluidmenu_adminhtml_fluidmenu_index>
+        <reference name="content">
+            <block type="fluidmenu/adminhtml_fluidmenu" name="fluidmenu" />
+        </reference>
+    </fluidmenu_adminhtml_fluidmenu_index>
+    <fluidmenu_adminhtml_fluidmenu_items_index>
+        <reference name="content">
+            <block type="fluidmenu/adminhtml_fluidmenu_items" name="fluidmenu_items" />
+        </reference>
+    </fluidmenu_adminhtml_fluidmenu_items_index>
+</layout>

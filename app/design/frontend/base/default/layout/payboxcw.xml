@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<layout>
+    <!--
+	<checkout_onepage_index>
+			<reference name="head">
+				<action method="addItem"><type>js</type><name>customweb/payboxcw/checkout.js?v=1.0.49</name><params/><if/></action>
+				 <action method="addItem"><type>skin_css</type><name>customweb/payboxcw/updates.css</name></action>
+			</reference>
+			<reference name="content">
+        		<block type="payboxcw/Checkout" name="loadJavascriptForPayboxCw" after="-" />
+   			</reference>
+	</checkout_onepage_index>
+	
+	<onestepcheckout_index_index>
+			<reference name="head">
+				<action method="addItem"><type>js</type><name>customweb/payboxcw/checkout.js?v=1.0.49</name><params/><if/></action>
+				<action method="addItem"><type>skin_css</type><name>customweb/payboxcw/updates.css</name></action>
+			</reference>
+			<reference name="content">
+        		<block type="payboxcw/Checkout" name="loadJavascriptForPayboxCw" after="-" />
+   			</reference>
+	</onestepcheckout_index_index>
+	
+	<onepagecheckout_index_index>
+			<reference name="head">
+				<action method="addItem"><type>js</type><name>customweb/payboxcw/checkout.js?v=1.0.49</name><params/><if/></action>
+				<action method="addItem"><type>skin_css</type><name>customweb/payboxcw/updates.css</name></action>
+			</reference>
+			<reference name="content">
+        		<block type="payboxcw/Checkout" name="loadJavascriptForPayboxCw" after="-" />
+   			</reference>
+	</onepagecheckout_index_index>
+	
+	<gomage_checkout_onepage_index>
+			<reference name="head">
+				<action method="addItem"><type>js</type><name>customweb/payboxcw/checkout.js?v=1.0.49</name><params/><if/></action>
+				<action method="addItem"><type>skin_css</type><name>customweb/payboxcw/updates.css</name></action>
+			</reference>
+			<reference name="before_body_end">
+        		<block type="payboxcw/Checkout" name="loadJavascriptForPayboxCw" after="-" />
+   			</reference>
+	</gomage_checkout_onepage_index>
+
+	<aw_onestepcheckout_index_index>
+			<reference name="head">
+				<action method="addItem"><type>js</type><name>customweb/payboxcw/checkout.js?v=1.0.49</name><params/><if/></action>
+				<action method="addItem"><type>skin_css</type><name>customweb/payboxcw/updates.css</name></action>
+			</reference>
+			<reference name="content">
+        		<block type="payboxcw/Checkout" name="loadJavascriptForPayboxCw" after="-" />
+   			</reference>
+	</aw_onestepcheckout_index_index>
+	
+	<firecheckout_index_index translate="label">
+			<reference name="head">
+				<action method="addItem"><type>js</type><name>customweb/payboxcw/checkout.js?v=1.0.49</name><params/><if/></action>
+				<action method="addItem"><type>skin_css</type><name>customweb/payboxcw/updates.css</name></action>
+			</reference>
+			<reference name="content">
+        		<block type="payboxcw/Checkout" name="loadJavascriptForPayboxCw" after="-" />
+   			</reference>
+	</firecheckout_index_index>
+	
+	<opc_index_index>
+			<reference name="head">
+				<action method="addItem"><type>js</type><name>customweb/payboxcw/checkout.js?v=1.0.49</name><params/><if/></action>
+				<action method="addItem"><type>skin_css</type><name>customweb/payboxcw/updates.css</name></action>
+			</reference>
+			<reference name="content">
+        		<block type="payboxcw/Checkout" name="loadJavascriptForPayboxCw" after="-" />
+   			</reference>
+	</opc_index_index>
+	
+	<payboxcw_checkout_pay>
+		<reference name="head">
+			<action method="addItem"><type>skin_css</type><name>customweb/payboxcw/updates.css</name></action>
+		</reference>
+	</payboxcw_checkout_pay>
+-->
+</layout>

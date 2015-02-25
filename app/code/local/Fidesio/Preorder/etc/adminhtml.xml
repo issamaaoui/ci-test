@@ -1,0 +1,42 @@
+<?xml version="1.0" ?>
+<config>
+    <menu>
+        <customer>
+            <children>
+                <preorder_code translate="title" module="preorder">
+                    <title>Manage shopping codes</title>
+                    <sort_order>102</sort_order>
+                    <action>preorder/adminhtml_code</action>
+                </preorder_code>
+            </children>
+        </customer>
+    </menu>
+    <!-- Aceess permission for the node preorder/adminhtml_code -->
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <customer>
+                        <children>
+                            <preorder_code translate="title" module="preorder">
+                                <title>Manage shopping codes</title>
+                                <sort_order>102</sort_order>
+                            </preorder_code>
+                        </children>
+                    </customer>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <code_achat translate="title" module="preorder">
+                                        <title>Section codes d'achat</title>
+                                    </code_achat>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

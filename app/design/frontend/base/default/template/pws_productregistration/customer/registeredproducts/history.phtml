@@ -1,0 +1,40 @@
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<?php $_registeredProducts = $this->getRegisteredProducts(); ?>
+<div class="page-title">
+    <h1><?php echo Mage::helper('pws_productregistration')->getRegisteredProductsTitle(); ?></h1>
+</div>
+<?php echo $this->getPagerHtml(); ?>
+<?php if($_registeredProducts->getSize()): ?>
+<table cellspacing="0" class="data-table" id="my-registered-products-table">
+    <thead>
+        <tr>
+            <?php if (!Mage::helper('pws_productregistration')->useProductNameInput()): ?>
+            <th><?php echo $this->__('Sku') ?></th>
+            <?php endif; ?>
+            <th><?php echo $this->__('Product Name') ?></th>
+            <th><?php echo $this->__('Serial number') ?></th>
+            <th><?php echo $this->__('Date of purchase') ?></th>
+            <th><?php echo $this->__('Purchased From') ?></th>
+            <th><?php echo $this->__('Created On') ?></th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($_registeredProducts as $_registeredProduct): ?>
+            <tr>
+                <?php if (!Mage::helper('pws_productregistration')->useProductNameInput()): ?>
+                <td><?php echo $_registeredProduct->getSku() ?></td>
+                <?php endif; ?>
+                <td><?php echo $_registeredProduct->getActualProductName() ?></td>
+                <td><?php echo $_registeredProduct->getSerialNumber(); ?></td>
+                <td><?php echo $this->formatDate($_registeredProduct->getDateOfPurchase()); ?></td>
+                <td><?php echo $_registeredProduct->getPurchasedFrom() ?></td>
+                <td><?php echo $this->formatDate($_registeredProduct->getCreatedOn()); ?></td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+<script type="text/javascript">decorateTable('my-registered-products-table')</script>
+<?php echo $this->getPagerHtml(); ?>
+<?php else: ?>
+    <p><?php echo $this->__('You have no registered products.'); ?></p>
+<?php endif ?>

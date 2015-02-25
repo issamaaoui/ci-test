@@ -1,0 +1,8 @@
+<config>
+    <modules>
+        <Te_Coupon>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Te_Coupon>
+    </modules>
+</config>

@@ -1,0 +1,610 @@
+
+<?php
+/**
+ * Category view template
+ * 17:11
+ *
+ * @see Mage_Catalog_Block_Category_View
+ */
+?>
+<?php
+$isActiverOrder = Mage::getStoreConfig('code_achat/order/enabled');
+
+if(!$isActiverOrder){
+    $block = Mage::getModel('cms/block')->setStore(Mage::app()->getStore()->getStoreId())->load('message-order', 'identifier');
+    echo '<h2 class="cat-title cat-title-acc">'. $block->getTitle().'</h2>';
+    echo '<h2 class="cat-title cat-title-acc">'.$block->getContent().'</h2>';
+}
+else{
+
+    $PHANTOM_CATEGORY_ID = 11;
+    $ACCESSOIRE_CATEGORY_ID = 15;
+    $ACCESSOIRE_DIALOG_ID = 25;
+    $store_id = Mage::app()->getStore()->getStoreId();
+
+    $phantom_category = Mage::getModel('catalog/category')
+        ->setStoreId($store_id)
+        ->load($PHANTOM_CATEGORY_ID);
+    $accessoire_category = Mage::getModel('catalog/category')
+        ->setStoreId($store_id)
+        ->load($ACCESSOIRE_CATEGORY_ID);
+
+    $products_phantom = Mage::getResourceModel('catalog/product_collection')
+        ->addAttributeToSelect('*')
+        ->addCategoryFilter($phantom_category);
+    $acc_phantom = Mage::getResourceModel('catalog/product_collection')
+        ->addAttributeToSelect('*')
+        ->addCategoryFilter($accessoire_category);
+
+    $_helper    = $this->helper('catalog/output');
+    $_category  = $this->getCurrentCategory();
+    $_imgHtml   = '';
+    if ($_imgUrl = $_category->getImageUrl()) {
+        $_imgHtml = '<p class="category-image"><img src="'.$_imgUrl.'" alt="'.$this->escapeHtml($_category->getName()).'" title="'.$this->escapeHtml($_category->getName()).'" /></p>';
+        $_imgHtml = $_helper->categoryAttribute($_category, $_imgHtml, 'image');
+    }
+
+    $dialog_product;
+
+    // Recuperer les produits du panier
+    // $products_phantom
+    $quote = Mage::getSingleton('checkout/session')->getQuote();
+    $cartItems = $quote->getAllVisibleItems();
+    $products_qty = array();
+    foreach ($cartItems as $item)
+    {
+        $productId = $item->getProductId();
+        $qty = $item->getQty();
+        $products_qty[$productId] = $qty;
+    }
+
+    $currency = Mage::app()->getLocale()->currency(Mage::app()->getStore()->getCurrentCurrencyCode())->getSymbol();
+?>
+
+    <form id="preorder-form-product" class="form-product-wrapper" action="<? echo Mage::getUrl('preorder/index/formPost'); ?>" method="post" >
+
+        <div class="total-price-wrapper">
+            <div class="container-fluid cart-header">
+                <div class="cart-header-wrapper">
+                    <div class="row">
+                        <div class="total-price col-xs-12">
+                            <button class="button-dropdown button-white">Retour</button>
+                            <span class="price-label"><?php echo $this->__('Total') . ' ' ?><span class="number">0</span><span class="currency-code"><?php echo ' ' . $currency; ?></span></span>
+                            <span class="cart-label"><?php echo $this->__('Your order') ?></span>
+                            <button class="button-white button-command"><?php echo $this->__('Next') ?></button>
+                            <button class="button-orange button-paye"><?php echo $this->__('Pay') ?></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="label-cart"><?php echo $this->__('Your order') ?></div>
+            </div>
+            <div class="container">
+
+                <div class="row">
+                    <div id="loader">
+                        <img src="<?php echo $this->getSkinUrl('images/ajax-loader.gif')?>" alt="laoder"/> 
+                    </div>
+                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                        <div class="cart-active-content">
+                            <div class="cart-alert">
+                                <span class="no-article active"><?php echo $this->__('No item has been selected') ?></span>
+                            </div>
+                            <div class="cart-articles-wrapper" id="cart-articles-wrapper">
+                            </div>
+                            <div class="cart-articles-wrapper">
+                                <div class="article phantom-product" id="phantom-shippping">
+                                    <div class="left-column"></div>
+                                    <div class="middle-column">
+                                        <div class="article-qty">
+                                            <span class="product-name"><?php echo $this->__('Free delivery') ?></span>
+                                        </div>
+                                    </div>
+                                    <div class="right-column"><div class="price-wrapper">0 €</div></div>
+                                </div>
+                            </div>
+                            <div class="cart-articles-wrapper">
+                                 <div class="article phantom-product" id="phantom-discount">
+                                     <div class="left-column"></div>
+                                     <div class="middle-column">
+                                         <div class="article-qty">
+                                             <span class="product-name"><?php echo mage::helper("checkout")->__('Discount Amount') ?></span>
+                                         </div>
+                                     </div>
+                                     <div class="right-column"><div class="price-wrapper">0 €</div></div>
+                                 </div>
+                             </div>
+
+                            <div class="cart-footer-desktop">
+                                <div class="total-price hidden-xs">
+                                    <div class="total-label">
+                                        <span class="cart-item-name"><?php echo $this->__('Total')?></span>
+                                    </div>
+                                    <span class="price-wrapper">
+                                        <span class="number">0</span><span class="currency-code"><?php echo ' ' . $currency ?></span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="cart-footer">
+                                <div class="row">
+                                    <div class="total-price col-xs-12">
+                                        <span class="price-wrapper">
+                                            <span class="price-label"><?php echo $this->__('Total')?></span><span class="number">0</span><span class="currency-code"><?php echo ' ' . $currency ?></span>
+                                        </span>
+                                        <button class="button-orange"><?php echo $this->__('Pay') ?></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                       
+                        <div class="checkbox-code">
+                            <input type="checkbox" id="show-code-input">
+                            <label><?php echo Mage::helper("te_coupon")->__("I have a gift code"); ?></label>
+                        </div>
+                        <div class="cart-pay hidden-xs">
+                            <button class="button-orange button-paye"><?php echo $this->__('Pay') ?></button>
+                        </div>
+                         <div id="custom_discount" class="discount">
+                            <!--<label for="coupon_code">
+                                <?php echo Mage::helper("checkout")->__('Enter your coupon code if you have one.') ?>
+                            </label>
+                            <div class="input-box">
+                                <input type="text" name="coupon_promo" />
+                            </div>-->
+                            <div class="buttons-set toggle-code">
+                                <button class="button-orange button-promo" id="apply_custom_promo">
+                                        <?php echo Mage::helper("te_coupon")->__("Apply Coupon"); ?>
+                                </button>
+                                <input type="text" name="coupon_promo" class="code-input" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="category-models">
+            <div class="container">
+                <div class="row">
+                    <h2 class="cat-title cat-title-phantom"><?php echo $this->__('Choose the products') ?></h2>
+                    <div class="nav-product-wrapper">
+                        <nav class="nav-product">
+                            <ul>
+                                <?php $count = 0; ?>
+                                <?php foreach($products_phantom as $product): ?>
+                                    <li data-id-product="<?php echo $product->getId() ?>" <?php if($count == 0):?> class="active" <?php endif; ?>>
+                                        <?php $image_url = Mage::helper('catalog/image')->init($product, 'thumbnail') ?>
+                                        <img src="<?php echo $image_url ?>"/>
+                                        <span class="product-name upper"><?php echo $product->getName() ?></span>
+                                        <?php $count += 1; ?>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </nav>
+                    </div>
+
+                    <div class="phantom-wrapper category-wrapper">
+                        <?php $count = 0; ?>
+                        <?php foreach($products_phantom as $product): ?>
+                            <?php 
+                                $qty = 0;
+                                if (isset($products_qty[$product->getId()]))
+                                {
+                                    $qty = $products_qty[$product->getId()];   
+                                }
+                            ?>
+                            <?php $image_url = Mage::helper('catalog/image')->init($product, 'thumbnail') ?>
+                            <div class="product-wrapper col-sm-6 <?php if($count == 0) echo 'active'; ?> <?php if(!$product->isSaleable()) echo 'disabled'; ?>"
+                                 data-price="<?php echo number_format($product->getFinalPrice(), 2, '.', false) ?>"
+                                 data-id-product="<?php echo $product->getId() ?>">
+                                <div class="product">
+                                    <?php if($product->getDateLivraison()!=''): ?>
+                                        <div class="delivrary-date">
+                                             <?php echo $this->__('Delivery from '). $product->getDateLivraison(); ?>
+                                        </div>
+                                    <?php endif; ?>
+                                    <div class="product-header">
+                                        <div class="image-wrapper">
+                                            <?php $image_url = Mage::helper('catalog/image')->init($product, 'small_image') ?>
+                                            <img src="<?php echo $image_url ?>"/>
+                                        </div>
+                                    </div>
+                                    <div class="qty-field-wrapper">
+                                        <div class="group-field-qty">
+                                            <button class="remove-qty" <?php if(!$product->isSaleable()) echo 'disabled'; ?>>-</button>
+                                            <span class="qty-field-value"><?php echo $qty; ?></span>
+                                            <input class="qty-field" type="text" name="product_<?php echo $product->getId() ?>" id="product_<?php echo $product->getId() ?>" value="<?php echo $qty; ?>" <?php if(!$product->isSaleable()) echo 'disabled'; ?>/>
+                                            <button class="add-qty" <?php if(!$product->isSaleable()) echo 'disabled'; ?>>+</button>
+                                        </div>
+                                    </div>
+                                    <div class="product-name-wrapper">
+                                        <?php echo $product->getName() ?>
+                                    </div>
+                                    <div class="product-power">
+                                        <?php echo $product->getPower(); ?>
+                                    </div>
+                                    <?php if($product->isSaleable()): ?>
+                                        <div class="product-price-wrapper">
+                                            <?php if($product->isSaleable()): ?>
+                                            <div class="price">
+                                                <span class="number"><?php echo $product->getFinalPrice() ?></span>
+                                                <span class="currency-code"><?php echo $currency ?></span>
+                                            </div>
+                                            <?php else: ?>
+                                            <div class="alert-stock">
+                                                <?php echo $this->__('coming soon') ?>
+                                            </div>
+                                            <?php endif; ?>
+                                        </div>
+                                    <?php endif; ?>
+                                </div>
+
+                            </div>
+                            <?php $count += 1; ?>
+                        <?php endforeach; ?>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="category-accessories">
+            <div class="container">
+                <div class="row">
+                    <h2 class="cat-title cat-title-acc"><?php echo $this->__('Choose accessories') ?></h2>
+                    <div class="accessory-wrapper category-wrapper">
+                        <?php foreach($acc_phantom as $product): ?>
+                            <?php 
+                                $qty = 0;
+                                if (isset($products_qty[$product->getId()]))
+                                {
+                                    $qty = $products_qty[$product->getId()];   
+                                }
+
+                                if($product->getId() == $ACCESSOIRE_DIALOG_ID) {
+                                    $dialog_product = $product;
+                                }
+                            ?>
+                            <div class="product-wrapper col-sm-4 col-xs-12 <?php if(!$product->isSaleable()) echo 'disabled'; ?> <?php echo 'product-name-' . strtolower($product->getName()); ?>" data-price="<?php echo number_format($product->getFinalPrice(), 2, '.', false) ?>">
+                                <div class="product-info">
+                                    <?php if($product->getDateLivraison()!=''): ?>
+                                        <div class="delivrary-date">
+                                            <?php echo $this->__('Delivery from ').$product->getDateLivraison(); ?>
+                                        </div>
+                                    <?php endif; ?>
+                                    <div class="image-container">
+                                        <div class="image-wrapper">
+                                            <?php $image_url = Mage::helper('catalog/image')->init($product, 'small_image') ?>
+                                            <img src="<?php echo $image_url ?>"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="qty-field-wrapper">
+                                        <div class="group-field-qty">
+                                            <button class="remove-qty" <?php if(!$product->isSaleable()) echo 'disabled'; ?>>-</button>
+                                            <span class="qty-field-value"><?php echo $qty; ?></span>
+                                            <input class="qty-field" name="product_<?php echo $product->getId() ?>" id="product_<?php echo $product->getId() ?>" type="text" value="<?php echo $qty; ?>" <?php if(!$product->isSaleable()) echo 'disabled'; ?>/>
+                                            <button class="add-qty" <?php if(!$product->isSaleable()) echo 'disabled'; ?>>+</button>
+                                        </div>
+                                    </div>
+                                     <div class="product-name-wrapper">
+                                        <?php echo $product->getName(); ?>
+                                    </div>
+                                    <?php if($product->isSaleable()): ?>               
+                                        <div class="product-price-wrapper">
+                                            <div class="price">
+                                                <span class="number"><?php echo $product->getFinalPrice() ?></span>
+                                                <span class="currency-code"><?php echo $currency ?></span>
+                                            </div>
+                                        </div>
+                                    <?php endif; ?>
+                                    <?php if($product->isSaleable()): ?>
+                                    <div class="conseil-wrapper">
+                                        <?php echo $product->getProductConseil() ?>
+                                    </div>
+                                    <?php else: ?>
+                                    <div class="alert-stock">
+                                        <?php echo $this->__('coming soon') ?>
+                                    </div>
+                                    <?php endif; ?>
+
+                                </div>
+
+                                <div class="image-container-mobile">
+                                    <div class="image-wrapper">
+                                        <?php $image_url = Mage::helper('catalog/image')->init($product, 'small_image') ?>
+                                        <img src="<?php echo $image_url ?>"/>
+                                    </div>
+                                </div>
+
+                            </div>
+                        <?php endforeach; ?>
+
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </form>
+
+    <script type="text/javascript">
+        //<![CDATA[
+        var codeForm = new VarienForm('preorder-form-product', true);
+
+        var suggestionPopinShowed = false,
+            inputsToCheck = '#preorder-form-product .phantom-wrapper .qty-field-value',
+            inputDialog = '.product-name-dialog .qty-field-value',
+            popinId = 'suggestion-popin',
+            popinOverlayId = 'suggestion-overlay',
+            popinClickableElem = 'js-close-popin',
+            addQtyElem = '.product-name-dialog .add-qty',
+            applyCustomPromo = 'apply_custom_promo',
+            checkboxCode = 'show-code-input';
+        //]]>
+
+        jQuery(document).ready(function(){
+
+            jQuery('.product-wrapper .qty-field-wrapper button').click(function(e){
+                e.preventDefault();
+                var current_input_qty = jQuery(this).parents('.qty-field-wrapper').find("input.qty-field");
+                var current_qty = parseInt(current_input_qty.val());
+                var current_txt_value = jQuery(this).parents('.qty-field-wrapper').find(".qty-field-value");
+
+                if(jQuery(this).hasClass('add-qty')){
+                    current_input_qty.val(current_qty+1);
+                    current_txt_value.text(current_qty+1);
+                }else if(jQuery(this).hasClass('remove-qty')){
+                    if(current_qty > 0){
+                        current_input_qty.val(current_qty-1);
+                        current_txt_value.text(current_qty-1);
+                    }
+                }
+
+                if(jQuery(this).parents('.accessory-wrapper').length > 0){
+                    if( parseInt(current_input_qty.val()) > 0){
+                        jQuery(this).parents('.product-wrapper').addClass('active');
+                    }else{
+                        jQuery(this).parents('.product-wrapper').removeClass('active');
+                    }
+                }
+                var nbModelsSelected = checkNbModels();
+                if(nbModelsSelected > 1 && jQuery(inputDialog).text() < 1 && !suggestionPopinShowed) {
+                    showSuggestionPopin();
+                }
+                updateTotalPrice();
+            });
+
+            jQuery('body').on('click', '.'+popinClickableElem, closeSuggestionPopin);
+
+            jQuery('body').on('click', '#'+checkboxCode, toggleCodeButton);
+
+            function checkNbModels() {
+                var nbModelsSelected = 0;
+                jQuery(inputsToCheck).each(function(index, elem) {
+                    if(jQuery(elem).text() > 0) {
+                        nbModelsSelected += parseInt(jQuery(elem).text());
+                    }
+                });
+                return nbModelsSelected;
+            }
+
+            function toggleCodeButton(event) {
+                if(jQuery(event.currentTarget).prop('checked')) {
+                    jQuery('#'+applyCustomPromo).parent().slideDown('fast');
+                } else {
+                    jQuery('#'+applyCustomPromo).parent().slideUp('fast');
+                }
+            }
+
+            function showSuggestionPopin() {
+                var suggestionPopin = '<div id="'+popinOverlayId+'" class="overlay '+popinClickableElem+'"></div>';
+                suggestionPopin += '<div id="'+popinId+'" class="'+popinId+' popin">';
+                suggestionPopin += '<p class="title"><?php echo Mage::helper('te_suggestionpopin')->__('Do you want to add a Dialog <strong>(%s)</strong> to connect your Phantom together ?', $dialog_product->getFinalPrice().$currency); ?></p>';
+                suggestionPopin += '<p><img src="<?php echo $dialog_product->getImageUrl(); ?>" width="200" height="200"></p>';
+                suggestionPopin += '<button id="add-item" class="popin-button add-to-cart '+popinClickableElem+'"><?php echo  Mage::helper('te_suggestionpopin')->__('Add to my cart'); ?></button>';
+                suggestionPopin += '<button class="popin-button '+popinClickableElem+'"><?php echo  Mage::helper('te_suggestionpopin')->__('No thanks'); ?></button>';
+                suggestionPopin += '</div>';
+
+                jQuery('body').append(suggestionPopin);
+
+                jQuery('#'+popinOverlayId+', #'+popinId).fadeIn(200);
+
+                suggestionPopinShowed = true;
+            }
+
+            function closeSuggestionPopin(event) {
+                if(jQuery(event.currentTarget).is('#add-item')) {
+                    jQuery(addQtyElem).trigger('click');
+                }
+                jQuery('#'+popinOverlayId+', #'+popinId).remove();
+            }
+
+            function updateTotalPrice(){
+                var total_price = 0;
+                var cart_container = jQuery('#cart-articles-wrapper');
+                var no_article_message = jQuery('.cart-alert .no-article');
+                cart_container.empty();
+
+                jQuery('.product-wrapper').each(function(){
+                    var id = jQuery(this).attr("data-id-product");
+                    var qty = parseFloat(jQuery(this).find('.qty-field-wrapper input.qty-field').val());
+                    var price = parseFloat(jQuery(this).attr('data-price'));
+                    total_price +=  qty * price;
+                    if(qty > 0){
+                        var product_name = jQuery(this).find('.product-name-wrapper').text();
+                        var money_code = jQuery(this).find('.currency-code').text();
+                        var url_image = jQuery(this).find('.image-wrapper img').attr('src');
+                        var date_delivrary = jQuery(this).find('.delivrary-date').text();
+                        var article_content =
+                            '<div class="article phantom-product" id="phantom-product-'+ id +'">';
+
+                        if(typeof url_image != 'undefined'){
+                            article_content += '<div class="left-column">';
+                            article_content += '<img src="' + url_image + '"/>'
+                            article_content += '</div>'
+                        }
+
+                        article_content += '<div class="middle-column">'
+                                + '<div class="article-qty">' + qty + ' x <span class="product-name">' +  product_name + '</span></div>'
+                                + '<div class="article-date-delivrary">' + date_delivrary + '</div>'
+                                + '</div>'
+                                + '<div class="right-column">'
+                                + '<div class="price-wrapper">' + qty*price + ' ' + money_code + '</div>'
+                                + '</div>'
+                            + '</div>';
+
+                        var output = jQuery(article_content);
+
+                        if(jQuery(this).parents('.phantom-wrapper').length > 0){
+                            output.addClass('phantom-product');
+                        }
+
+                        cart_container.append(output);
+                    }
+                });
+
+                if(cart_container.find('.article').length < 1){
+                    no_article_message.addClass('active');
+                }else{
+                    no_article_message.removeClass('active');
+                }
+                total_price -= <?php echo mage::helper("te_coupon")->getDiscountAmount();?>;
+                var discount_amount = <?php echo mage::helper("te_coupon")->getDiscountAmount();?>;
+                if(discount_amount ==0)
+                    jQuery("#phantom-discount").hide();
+
+
+                if (total_price <= 0)
+                {
+                    jQuery('.form-product-wrapper').animate({marginTop: "0px"});
+                    jQuery('.form-product-wrapper > .total-price-wrapper').hide("fade");
+                }
+                else
+                {
+                    jQuery('.form-product-wrapper').animate({marginTop: "60px"});
+                    jQuery('.form-product-wrapper > .total-price-wrapper').show("fade");
+                }
+                jQuery('.total-price-wrapper .total-price .number').text(total_price);
+            }
+            updateTotalPrice();
+
+            jQuery('.nav-product ul li').click(function(){
+                var id_product = jQuery(this).attr('data-id-product');
+                jQuery('.nav-product ul li').removeClass('active');
+                jQuery(this).addClass('active');
+                jQuery(".phantom-wrapper .product-wrapper").removeClass('active');
+                jQuery(".phantom-wrapper .product-wrapper[data-id-product='" + id_product + "']").addClass('active');
+            });
+
+            jQuery('.total-price-wrapper .button-dropdown').click(function(e){
+                e.preventDefault();
+                jQuery(this).parents('.total-price-wrapper').toggleClass('active');
+                jQuery('body').toggleClass('dropdown-active');
+            });
+
+            jQuery('.total-price-wrapper .button-command').click(function(e){
+                e.preventDefault();
+                var data = jQuery("#preorder-form-product").serialize();
+                jQuery.ajax({
+                    method:"POST",
+                    url : '<?php echo Mage::helper("te_ajaxcart")->getAjaxUrl(); ?>',
+                    data: data,
+                    dataType: 'json',
+                    beforeSend: function() {
+                         //jQuery('#loader').show();
+                         jQuery(".total-price .number").html('<img src="<?php echo $this->getSkinUrl('images/ajax-loader.gif')?>" alt="laoder"/>'); 
+
+                         jQuery("#phantom-discount .price-wrapper").html('<img src="<?php echo $this->getSkinUrl('images/ajax-loader.gif')?>" alt="laoder"/>');
+                    },
+                    success: function(json) {
+                        jQuery.ajax({
+                        url : '<?php echo Mage::helper("te_ajaxcart")->getIndexAjaxUrl(); ?>',
+                        complete: function(){
+                            jQuery('#loader').hide();
+                        },
+                        success : function(json){
+                  jQuery(".total-price .number").text(parseFloat(json.base_grand_total));
+                  jQuery("#phantom-discount .price-wrapper").html(parseFloat(json.discount_amount) + "  <?php echo $currency ?>");
+                    if(json.discount_amount > 0)
+                    {
+                         jQuery("#phantom-discount").show();
+                    }else{
+                        jQuery("#phantom-discount").hide();
+                    }
+                              //jQuery(".total-price .total-price").text(parseFloat(json.base_grand_total) + "  <?php echo $currency ?>");
+                json.items.items.each(function(item){
+                                 jQuery("#phantom-product-"+item.product_id+" .price-wrapper").html(parseFloat(item.base_row_total_incl_tax)+" <?php echo $currency; ?>");
+            //alert(item.base_row_total_incl_tax);
+                                 
+
+                              });
+                           }
+                        });             
+                    }
+
+                });
+
+                jQuery(this).parents('.total-price-wrapper').toggleClass('active');
+                jQuery('body').toggleClass('dropdown-active');
+            });
+    
+            jQuery('#custom_discount #apply_custom_promo').click(function(e){
+                e.preventDefault();
+                var code = jQuery('#custom_discount input[name=coupon_promo]').val();
+                jQuery('#discount-coupon-form #coupon_code').val(code);
+                var form  = jQuery('#discount-coupon-form');
+                var data = jQuery(form).serialize();
+                jQuery.ajax({
+                    method:"POST",
+                    url : "<?php echo Mage::helper('te_ajaxcart')->getApplyCouponAjaxUrl(); ?>",
+                    data: data,
+                    dataType: 'json',
+                    beforeSend: function() {
+                         //jQuery('#loader').show();
+                         jQuery(".total-price .number").html('<img src="<?php echo $this->getSkinUrl('images/ajax-loader.gif')?>" alt="laoder"/>'); 
+                    },
+                    success: function(json) {
+                        if(!json.coupon_is_applied && !jQuery('#'+applyCustomPromo).parent().hasClass('invalid')) {
+                            jQuery('#'+applyCustomPromo).parent().addClass('invalid').append('<span id="invalid-code" class="invalid-code">'+json.coupon_message+'</span>');
+
+                        } else if(json.coupon_is_applied && jQuery('#'+applyCustomPromo).parent().hasClass('invalid')) {
+                            jQuery('#'+applyCustomPromo).parent().removeClass('invalid');
+                            jQuery('#invalid-code').remove();
+                        }
+                        jQuery.ajax({
+                            url : '<?php echo Mage::helper("te_ajaxcart")->getIndexAjaxUrl(); ?>',
+                            complete: function(){
+                                jQuery('#loader').hide();
+                            },
+                            success : function(json)
+                            {
+                              jQuery(".total-price .number").text(parseFloat(json.base_grand_total));
+                              jQuery("#phantom-discount .price-wrapper").html(parseFloat(json.discount_amount) + "  <?php echo $currency ?>");
+
+                                if(json.discount_amount > 0)
+                                {
+                                     jQuery("#phantom-discount").show();
+                                }else{
+                                    jQuery("#phantom-discount").hide();
+                                }
+                                          //jQuery(".total-price .total-price").text(parseFloat(json.base_grand_total) + "  <?php echo $currency ?>");
+                                json.items.items.each(function(item)
+                                {
+                                     jQuery("#phantom-product-"+item.product_id+" .price-wrapper").html(parseFloat(item.base_row_total_incl_tax)+" <?php echo $currency; ?>");
+                //alert(item.base_row_total_incl_tax);
+                                     
+
+                                });
+                            }
+                        });             
+                    }
+                });
+            });
+            jQuery('.button-paye').click(function(e){
+                e.preventDefault();
+                setLocation("<?php echo Mage::getUrl('checkout/onepage/index'); ?>");
+            });
+            jQuery("#loader").hide();
+        });
+    </script>
+<?php } ?>

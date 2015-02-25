@@ -1,0 +1,11 @@
+<div class="footer-newsletter">
+    <div class="form">
+        <form action="<?php echo $this->getFormActionUrl() ?>" method="post" id="footer-newsletter">
+            <label for="newsletter"><?php echo $this->__('Newsletter') ?></label>
+            <div class="field-newsletter-input">
+                <input type="email" name="email" id="newsletter" title="<?php echo $this->__('Sign up for our newsletter') ?>" class="input-text required-entry validate-email" required="true" />
+                <button type="submit"><?php echo $this->__('ok') ?></button>
+            </div>
+        </form>
+    </div>
+</div>

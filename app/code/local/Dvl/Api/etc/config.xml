@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+    	<Dvl_Api>
+        	<version>1.0.0</version>
+    	</Dvl_Api>
+ 	</modules>
+  	<frontend>
+    	<routers>
+        	<api>
+          		<use>standard</use>
+             	<args>
+                	<module>Dvl_Api</module>
+                	<frontName>dvlapi</frontName>
+              	</args>
+         	</api>
+     	</routers>
+	</frontend>
+	
+	<global>
+		<models>
+			<api_api2>
+				<class>Dvl_Api_Model</class>
+			</api_api2>
+		</models>
+	</global>
+</config>

@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+
+<!--
+New customer registration with Avatar upload
+-->
+    <customer_account_index>
+        <reference name="head">
+            <action method="addCss"><stylesheet>css/avatar/avatar.css</stylesheet></action>
+        </reference>
+        <reference name="customer_account_dashboard_info">
+            <action method="setTemplate"><template>adfab/avatar/customer/account/dashboard/info.phtml</template></action>
+        </reference>
+    </customer_account_index>
+    
+	<customer_account_create>
+        <reference name="head">
+			<action method="addCss"><stylesheet>css/avatar/avatar.css</stylesheet></action>
+			<action method="addItem"><type>skin_js</type><name>js/adfab/core/ajaxupload.js</name></action>
+        </reference>
+        <reference name="customer_form_register">
+            <action method="setTemplate"><template>adfab/avatar/persistent/customer/form/register.phtml</template></action>
+        </reference>
+    </customer_account_create>
+    
+    <checkout_onepage_index>
+        <reference name="head">
+            <action method="addCss"><stylesheet>css/avatar/avatar.css</stylesheet></action>
+			<action method="addItem"><type>skin_js</type><name>js/adfab/core/ajaxupload.js</name></action>
+        </reference>
+        <reference name="checkout.onepage.billing">
+            <action method="setTemplate"><template>adfab/avatar/persistent/checkout/onepage/billing.phtml</template></action>
+        </reference>
+    </checkout_onepage_index>
+    
+    <customer_account_edit>
+        <reference name="head">
+            <action method="addCss"><stylesheet>css/avatar/avatar.css</stylesheet></action>
+            <action method="addItem"><type>skin_js</type><name>js/adfab/core/ajaxupload.js</name></action>
+        </reference>
+        <reference name="customer_edit">
+             <action method="setTemplate"><template>adfab/avatar/customer/account/form/edit.phtml</template></action>
+        </reference>
+    </customer_account_edit>
+</layout>

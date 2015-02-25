@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Fidesio_PreviewApp>
+            <version>1.0.0</version>
+        </Fidesio_PreviewApp>
+    </modules>
+
+    <global>
+        <resources>
+        </resources>
+
+        <models>
+            <previewapp>
+                <class>Fidesio_PreviewApp_Model</class>
+            </previewapp>
+        </models>
+
+        <blocks>
+        </blocks>
+
+        <helpers>
+            <previewapp>
+                <class>Fidesio_PreviewApp_Helper</class>
+            </previewapp>
+        </helpers>
+
+        <rewrite>
+        </rewrite>
+
+        <events>
+            <controller_action_layout_generate_blocks_after>
+                <observers>
+                    <addScript>
+                        <type>singleton</type>
+                        <class>previewapp/observer</class>
+                        <method>addScript</method>
+                    </addScript>
+                </observers>
+            </controller_action_layout_generate_blocks_after>
+
+            <controller_action_predispatch>
+                <observers>
+                    <addScript>
+                        <type>singleton</type>
+                        <class>previewapp/observer</class>
+                        <method>setHeader</method>
+                    </addScript>
+                </observers>
+            </controller_action_predispatch>
+        </events>
+    </global>
+
+    <admin>
+
+    </admin>
+
+    <adminhtml>
+        <events>
+            <controller_action_layout_generate_blocks_after>
+                <observers>
+                    <addScript>
+                        <type>singleton</type>
+                        <class>previewapp/observer</class>
+                        <method>addScriptAdmin</method>
+                    </addScript>
+                </observers>
+            </controller_action_layout_generate_blocks_after>
+        </events>
+    </adminhtml>
+
+    <frontend>
+    </frontend>
+</config>

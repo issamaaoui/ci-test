@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <te_sapbydexport>
+            <label>SAPByDesign export</label>
+            <sort_order>1001</sort_order>
+        </te_sapbydexport>
+    </tabs>
+    <sections>
+        <te_sapbydexport translate="label" module="te_sapbydexport">
+            <label>SAPByDesign Export</label>
+            <tab>te_sapbydexport</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>999999</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+        		<general translate="label">
+                    <expanded>1</expanded>
+                    <label>General</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+					<fields>
+                        <environment translate="label">
+                            <label>Environment</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>te_sapbydexport/source_environment</source_model>
+                        </environment>
+                        <email_recipient translate="label">
+                            <label>Recipient</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </email_recipient>
+                    </fields>
+                </general> 
+            </groups>                                
+    	</te_sapbydexport>
+    </sections>
+</config>

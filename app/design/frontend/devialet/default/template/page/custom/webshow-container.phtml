@@ -1,0 +1,111 @@
+<div class="webshow">
+	<div class="ambiance ambiance-white" >
+		<div class="ambiance-bg black"></div>
+		<div class="ambiance-bg white"></div>
+		<div class="container-fluid" >
+			<div class="row">
+				<div class="section section-001">
+					<div class="section-background bg-black">
+						<div class="amp"></div>
+					</div>
+					<div class="section-background bg-white">
+						<video id="video-implosive" preload="true" autoplay>
+							<source src="<?php echo $this->getSkinUrl('video/webshow/1080p.mp4'); ?>" type="video/mp4">
+						</video>
+					</div>
+					<div class="section-claim starting">
+						<img src="<?php echo $this->getSkinUrl('images/webshow/phantom-logo-claim.png'); ?>"/>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="section section-002">
+					<div class="trigger"></div>
+					<img class="section-background bg-black" src="<?php echo $this->getSkinUrl('images/webshow/section-002-bg-b.png'); ?>"/>
+					<img class="section-background bg-white" src="<?php echo $this->getSkinUrl('images/webshow/section-002-bg-w.png'); ?>" />
+					<div class="section-content">
+						<div class="textblock textblock-1 center">
+							<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('webshow-section-002-text-001')->toHtml(); ?>
+						</div>
+					</div>
+					<div class="section-content">
+						<div class="textblock textblock-2 center">
+							<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('webshow-section-002-text-002')->toHtml(); ?>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="section section-003">
+					<img class="section-background bg-black" src="<?php echo $this->getSkinUrl('images/webshow/section-003-bg-b.png'); ?>" />
+					<img class="section-background bg-white" src="<?php echo $this->getSkinUrl('images/webshow/section-003-bg-w.png'); ?>" />
+					<div class="section-content section-003-001">
+						<div class="textblock textblock-1 center">
+							<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('webshow-section-003-text-001')->toHtml(); ?>
+						</div>
+					</div>
+					<div class="section-content section-003-002">
+						<div class="queenblock">
+							<div class="show-black">
+								<img class="show-black amp-b" src="<?php echo $this->getSkinUrl('images/webshow/section-004-amp-b.png'); ?>"/>
+								<img class="show-black woman-b" src="<?php echo $this->getSkinUrl('images/webshow/section-004-woman-b.png'); ?>"/>
+							</div>
+							<div class="show-white">
+								<img class="amp-w" src="<?php echo $this->getSkinUrl('images/webshow/section-004-amp-w.png'); ?>"/>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="section section-004">
+					<div class="ambiance-bg black"></div>
+					<div class="ambiance-bg white bottom"></div>
+					<div class="section-content">
+						<div class="textblock textblock-1 center">
+							<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('webshow-section-004-text-001')->toHtml(); ?>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="section section-005">
+					<div class="section-background bg-black">
+						<video id="video-mirror" preload="true">
+							<source src="<?php echo $this->getSkinUrl('video/webshow/3p_1080p.mp4'); ?>" type="video/mp4">
+						</video>
+					</div>
+					<div class="section-background bg-white">
+						<div class="pictureblock pictureblock-2">
+							<img class="section-background bg-white" src="<?php echo $this->getSkinUrl('images/webshow/section-005-amp-w.png'); ?>" />
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="section section-006">
+					<div class="ambiance-bg black"></div>
+					<div class="ambiance-bg white bottom">
+					</div>
+					<div class="section-content">
+						<div class="textblock textblock-1 center">
+							<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('webshow-section-005-text-001')->toHtml(); ?>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="section section-007">
+					<div class="pictureblock pictureblock-1">
+						<img src="<?php echo $this->getSkinUrl('images/webshow/section-007-amp.png'); ?>" />
+					</div>
+					<div class="textblock textblock-1">
+						<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('webshow-section-007-text-001')->toHtml(); ?>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

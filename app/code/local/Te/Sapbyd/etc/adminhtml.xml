@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author te <renaud.fasimana@technology-everywhere.fr>
+ * @since 6 févr. 2015
+ *
+**/
+-->
+<config>
+    <menu>
+        <dvl_sapbyd>
+            <children>
+                <sapbyd_customer translate="title" module="te_sapbyd">
+                    <title>Manage Customers</title>
+                    <sort_order>10</sort_order>
+                    <action>adminhtml/sapbyd_customer/</action>
+                </sapbyd_customer>
+                <sapbyd_order translate="title" module="te_sapbyd">
+                    <title>Orders</title>
+                    <sort_order>20</sort_order>
+                    <action>adminhtml/sapbyd_order/</action>
+                </sapbyd_order>
+            </children>
+        </dvl_sapbyd>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <dvl_sapbyd translate="title" module="sapbyd">
+                        <title>DEVIALET</title>
+                        <children>
+                            <sapbyd_customer translate="title" module="te_sapbyd">
+                                <title>Manage Customers</title>
+                                <sort_order>10</sort_order>
+                            </sapbyd_customer>
+                            <sapbyd_order translate="title" module="te_sapbyd">
+                                <title>Orders</title>
+                                <sort_order>20</sort_order>
+                                <children>
+                                    <actions translate="title">
+                                        <title>Actions</title>
+                                        <children>
+                                            <synchronize translate="title"><title>Synchronize to SAP</title></synchronize>
+                                        </children>
+                                    </actions>
+                                </children>
+                            </sapbyd_order>
+                        </children>
+                    </dvl_sapbyd>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <te_sapbyd translate="title" module="te_sapbyd">
+                                        <title>Webservices SAP ByD</title>
+                                        <sort_order>9999</sort_order>
+                                    </te_sapbyd>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

@@ -1,0 +1,38 @@
+<?php
+    $key_menu = $this->getMenu();
+    $menu = Mage::getModel('fluidmenu/fluidmenu')->loadByCode($key_menu);
+?>
+
+<?php if ($key_menu != null): ?>
+    <?php $menuItems = $this->getMenuItems($key_menu); ?>
+    <?php if (count($menuItems) > 0): ?>
+        <div class="menu-content">
+            <div class="menu-header-wrapper">
+                <div class="header-menu">
+                    <div class="title-wrapper">
+                        <span><?php echo $menu->getName() ?></span>
+                    </div>
+                    <div class="desc-wrapper">
+                        <?php echo $menu->getDescription() ?>
+                    </div>
+                </div>
+            </div>
+            <ul <?php echo trim($this->getHtmlId()) ? 'id="'.$this->getHtmlId().'"' : '';?> class="clearfix">
+                <?php $id_menu = 0; ?>
+                <?php foreach ($menuItems as $id => $_menuItem): ?>
+
+                    <li class="menu-item <?php if(($id_menu%2) == 0) echo 'icon-right'; else echo 'icon-left'; ?>">
+                        <a href="<?php echo $_menuItem->getRealUrl() ?>"  <?php echo $_menuItem->getProprerty(); ?>  <?php echo $_menuItem->getClassHtml(); ?>>
+                            <i <?php echo $_menuItem->getClassHtml() ?>></i>
+                            <span class="menu-text"><?php echo $_menuItem->getName() ?></span>
+                        </a>
+                    </li>
+
+                    <?php $id_menu += 1;?>
+
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    <?php endif; ?>
+<?php endif; ?>
+

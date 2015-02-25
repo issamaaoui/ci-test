@@ -1,0 +1,173 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Fidesio_Fluidmenu>
+            <version>1.0.0</version>
+        </Fidesio_Fluidmenu>
+    </modules>
+
+    <frontend>
+        <routers>
+            <fluidmenu>
+                <use>standard</use>
+                <args>
+                    <module>Fidesio_Fluidmenu</module>
+                    <frontName>fluidmenu</frontName>
+                </args>
+            </fluidmenu>
+        </routers>
+        <layout>
+            <updates>
+                <fluidmenu>
+                    <file>fidesio_fluidmenu.xml</file>
+                </fluidmenu>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <Fidesio_Fluidmenu>
+                    <files>
+                        <Fidesio_Fluidmenu>Fidesio_Fluidmenu.csv</Fidesio_Fluidmenu>
+                    </files>
+                </Fidesio_Fluidmenu>
+            </modules>
+        </translate>
+    </frontend>
+
+    <admin>
+        <routers>
+            <fluidmenu>
+                <use>admin</use>
+                <args>
+                    <module>Fidesio_Fluidmenu</module>
+                    <frontName>fluidmenu</frontName>
+                </args>
+            </fluidmenu>
+        </routers>
+    </admin>
+
+    <adminhtml>
+        <menu>
+            <cms>
+                <children>
+                    <fluidmenu module="fluidmenu">
+                        <title>Menu</title>
+                        <sort_order>61</sort_order>
+                        <children>
+                            <menu module="fluidmenu">
+                                <title>Gestion des menus</title>
+                                <sort_order>10</sort_order>
+                                <action>fluidmenu/adminhtml_fluidmenu</action>
+                            </menu>
+                            <items module="fluidmenu">
+                                <title>Gestion des liens de menu</title>
+                                <sort_order>20</sort_order>
+                                <action>fluidmenu/adminhtml_fluidmenu_items</action>
+                            </items>
+                        </children>
+                    </fluidmenu>
+                </children>
+            </cms>
+        </menu>
+
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <cms>
+                            <children>
+                                <fluidmenu translate="title" module="fluidmenu">
+                                    <title>Gestion des menus</title>
+                                    <sort_order>60</sort_order>
+                                    <children>
+                                        <menu>
+                                            <title>Gestion des menus</title>
+                                            <sort_order>10</sort_order>
+                                        </menu>
+                                        <items>
+                                            <title>Gestion des liens de menu</title>
+                                            <sort_order>20</sort_order>
+                                        </items>
+                                    </children>
+                                </fluidmenu>
+                            </children>
+                        </cms>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+        <layout>
+            <updates>
+                <fluidmenu>
+                    <file>fidesio_fluidmenu.xml</file>
+                </fluidmenu>
+            </updates>
+        </layout>
+    </adminhtml>
+
+
+    <global>
+        <models>
+            <fluidmenu>
+                <class>Fidesio_Fluidmenu_Model</class>
+                <resourceModel>fluidmenu_mysql4</resourceModel>
+            </fluidmenu>
+            <fluidmenu_mysql4>
+                <class>Fidesio_Fluidmenu_Model_Mysql4</class>
+                <entities>
+                    <fluidmenu>
+                        <table>fd_fluidmenu</table>
+                    </fluidmenu>
+                    <fluidmenu_items>
+                        <table>fd_fluidmenu_item</table>
+                    </fluidmenu_items>
+                    <fluidmenu_store>
+                        <table>fd_fluidmenu_store</table>
+                    </fluidmenu_store>
+                </entities>
+            </fluidmenu_mysql4>
+        </models>
+        <resources>
+            <fluidmenu_setup>
+                <setup>
+                    <module>Fidesio_Fluidmenu</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </fluidmenu_setup>
+            <fluidmenu_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </fluidmenu_write>
+            <fluidmenu_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </fluidmenu_read>
+        </resources>
+        <blocks>
+            <fluidmenu>
+                <class>Fidesio_Fluidmenu_Block</class>
+            </fluidmenu>
+        </blocks>
+        <helpers>
+            <fluidmenu>
+                <class>Fidesio_Fluidmenu_Helper</class>
+            </fluidmenu>
+        </helpers>
+    </global>
+
+    <default>
+        <fluidmenu>
+            <fluidmenu_setup>
+                <enabled>1</enabled>
+                <width>100</width>
+                <height>100</height>
+                <effect>random</effect>
+            </fluidmenu_setup>
+        </fluidmenu>
+    </default>
+
+</config>

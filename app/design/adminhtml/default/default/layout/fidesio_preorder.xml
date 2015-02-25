@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+
+    <!-- Manage shopping code -->
+    <preorder_adminhtml_code_index>
+        <reference name="content">
+            <block type="preorder/adminhtml_code" name="codemodel" />
+        </reference>
+    </preorder_adminhtml_code_index>
+    <preorder_adminhtml_code_edit>
+        <update handle="editor" />
+    </preorder_adminhtml_code_edit>
+
+</layout>

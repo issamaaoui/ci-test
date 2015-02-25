@@ -1,0 +1,184 @@
+<?xml version="1.0"?>
+<config>
+	<login>_M1</login>
+	<password>Welcome1</password>  
+	<adminEmail>nicolas.renault@te-laval.fr</adminEmail>   
+	<magentoEmail>magento@devialet.com</magentoEmail> 
+	<magentoName>Magento Staging</magentoName> 	
+	<location>
+		<url>https://my327138.sapbydesign.com/sap/bc/srt/scs/sap/</url>
+		<params>
+			<sap_vhost>my327138.sapbydesign.com</sap_vhost>
+		</params>
+	</location>
+	<website>
+		<devialet_store_eu>
+			<sap_store>Ecommerce_FR</sap_store>
+			<sap_currency>EUR</sap_currency>
+			<sap_branch>0</sap_branch>
+			
+			<PartyID></PartyID>
+			<HouseBankAccountKeyInternalID>PAYBOXTESTEURO</HouseBankAccountKeyInternalID>
+			<languageCode>FR</languageCode>
+			<AccountDeterminationDebtorGroupCode>4010</AccountDeterminationDebtorGroupCode>
+			<EmployeeResponsibleParty>8000000100</EmployeeResponsibleParty>
+			<SellerParty>DEVIALET</SellerParty>
+			<DeliveryPriorityCode>2</DeliveryPriorityCode>
+			<ClassificationCode>DDU</ClassificationCode>
+			<GrossAmountIndicator>true</GrossAmountIndicator>
+			<DistributionChannelCode>Z1</DistributionChannelCode>
+			<DataOriginTypeCode>4</DataOriginTypeCode>
+			<CashDiscountTerms>1001</CashDiscountTerms>
+			<CountryCode>FR</CountryCode>
+
+			<CategoryCode>
+				<b2c>1</b2c>
+				<b2b>2</b2b>
+			</CategoryCode>
+			<CustomerIndicator>true</CustomerIndicator>
+			<LifeCycleStatusCode>2</LifeCycleStatusCode>
+			<CompleteDeliveryRequestedIndicator>true</CompleteDeliveryRequestedIndicator>
+			<DuplicateCheckApplyIndicator>false</DuplicateCheckApplyIndicator>
+		</devialet_store_eu>
+		
+		<devialet_store_us>
+			<sap_store>Ecommerce_US</sap_store>
+			<sap_currency>USD</sap_currency>
+			<sap_branch>0</sap_branch>
+			
+			<PartyID>1001811</PartyID>
+			<HouseBankAccountKeyInternalID>PAYBOXTESTEURO</HouseBankAccountKeyInternalID>
+			<languageCode>EN</languageCode>
+			<AccountDeterminationDebtorGroupCode>4020</AccountDeterminationDebtorGroupCode>
+			<EmployeeResponsibleParty>8000000100</EmployeeResponsibleParty>
+			<SellerParty>DEVIALET</SellerParty>
+			<DeliveryPriorityCode>2</DeliveryPriorityCode>
+			<ClassificationCode>DDU</ClassificationCode>
+			<GrossAmountIndicator>true</GrossAmountIndicator>
+			<DistributionChannelCode>Z1</DistributionChannelCode>
+			<DataOriginTypeCode>2</DataOriginTypeCode>
+			<CashDiscountTerms>1001</CashDiscountTerms>
+			<CountryCode>US</CountryCode>
+			
+			<CategoryCode>
+				<b2c>1</b2c>
+				<b2b>2</b2b>
+			</CategoryCode>
+			<CustomerIndicator>true</CustomerIndicator>
+			<LifeCycleStatusCode>2</LifeCycleStatusCode>
+			<CompleteDeliveryRequestedIndicator>true</CompleteDeliveryRequestedIndicator>
+			<DuplicateCheckApplyIndicator>false</DuplicateCheckApplyIndicator>
+		</devialet_store_us>
+		
+		<devialet_store_uk>
+			<sap_store>Ecommerce_UK</sap_store>
+			<sap_currency>GBP</sap_currency>
+			<sap_branch>0</sap_branch>
+			
+			<PartyID></PartyID>
+			<HouseBankAccountKeyInternalID>PAYBOXTESTEURO</HouseBankAccountKeyInternalID>
+			<languageCode>EN</languageCode>
+			<AccountDeterminationDebtorGroupCode>Z401</AccountDeterminationDebtorGroupCode>
+			<EmployeeResponsibleParty>8000000100</EmployeeResponsibleParty>
+			<SellerParty>DEVIALET</SellerParty>
+			<DeliveryPriorityCode>2</DeliveryPriorityCode>
+			<ClassificationCode>DDU</ClassificationCode>
+			<GrossAmountIndicator>true</GrossAmountIndicator>
+			<DistributionChannelCode>Z1</DistributionChannelCode>
+			<DataOriginTypeCode>2</DataOriginTypeCode>
+			<CashDiscountTerms>1001</CashDiscountTerms>
+			<CountryCode>UK</CountryCode>
+			
+			<CategoryCode>
+				<b2c>1</b2c>
+				<b2b>2</b2b>
+			</CategoryCode>
+			<CustomerIndicator>true</CustomerIndicator>
+			<LifeCycleStatusCode>2</LifeCycleStatusCode>
+			<CompleteDeliveryRequestedIndicator>true</CompleteDeliveryRequestedIndicator>
+			<DuplicateCheckApplyIndicator>false</DuplicateCheckApplyIndicator>
+		</devialet_store_uk>
+		
+		<devialet_store_ch>
+			<sap_store>Ecommerce_CH</sap_store>
+			<sap_currency>CHF</sap_currency>
+			<sap_branch>0</sap_branch>
+			
+			<PartyID></PartyID>
+			<HouseBankAccountKeyInternalID>PAYBOXTESTEURO</HouseBankAccountKeyInternalID>
+			<languageCode>FR</languageCode>
+			<AccountDeterminationDebtorGroupCode>4020</AccountDeterminationDebtorGroupCode>
+			<EmployeeResponsibleParty>8000000100</EmployeeResponsibleParty>
+			<SellerParty>DEVIALET</SellerParty>
+			<DeliveryPriorityCode>2</DeliveryPriorityCode>
+			<ClassificationCode>DDU</ClassificationCode>
+			<GrossAmountIndicator>true</GrossAmountIndicator>
+			<DistributionChannelCode>Z1</DistributionChannelCode>
+			<DataOriginTypeCode>2</DataOriginTypeCode>
+			<CashDiscountTerms>1001</CashDiscountTerms>
+			<CountryCode>CH</CountryCode>
+			
+			<CategoryCode>
+				<b2c>1</b2c>
+				<b2b>2</b2b>
+			</CategoryCode>
+			<CustomerIndicator>true</CustomerIndicator>
+			<LifeCycleStatusCode>2</LifeCycleStatusCode>
+			<CompleteDeliveryRequestedIndicator>true</CompleteDeliveryRequestedIndicator>
+			<DuplicateCheckApplyIndicator>false</DuplicateCheckApplyIndicator>
+		</devialet_store_ch>
+	</website>
+	
+	<models>
+		<customer>
+			<manage>
+				<url>managecustomerin1</url>
+				<envelope>xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:glob="http://sap.com/xi/SAPGlobal20/Global" xmlns:a02="http://sap.com/xi/AP/CustomerExtension/BYD/A02IK" xmlns:glob1="http://sap.com/xi/AP/Globalization"</envelope>
+				<glob>CustomerBundleMaintainRequest_sync_V1</glob>
+				<wsdl>managecustomerin1.wsdl</wsdl>
+				<action>http://sap.com/xi/A1S/Global/ManageCustomerIn/MaintainBundle_V1Request</action>
+				<response>Customer</response>
+				<responsedom>Customer</responsedom>
+			</manage>
+			<query>
+				<url>querycustomerin1</url>
+				<envelope>xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:glob="http://sap.com/xi/SAPGlobal20/Global"</envelope>
+				<glob>CustomerByIdentificationQuery_sync</glob>
+				<wsdl></wsdl>
+				<action>http://sap.com/xi/A1S/Global/QueryCustomerIn/FindByIdentificationRequest</action>
+				<response>Customer</response>
+				<responsedom>Customer</responsedom>
+			</query>
+		</customer>
+		<order>
+			<manage>
+				<url>managesalesorderin5</url>
+				<envelope>xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:glob="http://sap.com/xi/SAPGlobal20/Global" xmlns:a02="http://sap.com/xi/AP/CustomerExtension/BYD/A02IK" xmlns:glob1="http://sap.com/xi/AP/Globalization"</envelope>
+				<glob>SalesOrderBundleMaintainRequest_sync</glob>
+				<action>http://sap.com/xi/A1S/Global/ManageSalesOrderIn/MaintainBundleRequest</action>
+				<response>Order</response>
+				<responsedom>SalesOrder</responsedom>
+			</manage>
+			<query>
+				<url>querysalesorderin1</url>
+				<envelope> xmlns:n0="http://sap.com/xi/SAPGlobal20/Global"</envelope>
+				<glob>SalesOrderByElementsQuery_sync</glob>
+				<wsdl></wsdl>
+				<action>http://sap.com/xi/A1S/Global/QuerySalesOrderIn/SalesOrderByElementsRequest</action>
+				<response>Order</response>
+				<responsedom>SalesOrder</responsedom>
+			</query>
+		</order>
+		<stock>
+			<query>
+				<url>querycustomerin1</url>
+				<envelope>xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:glob="http://sap.com/xi/SAPGlobal20/Global"</envelope>
+				<glob>CustomerByIdentificationQuery_sync</glob>
+				<wsdl></wsdl>
+				<action>http://sap.com/xi/A1S/Global/QueryCustomerIn/FindByIdentificationRequest</action>
+				<response>Customer</response>
+				<responsedom>Customer</responsedom>
+			</query>
+		</stock>		
+	</models>
+</config>

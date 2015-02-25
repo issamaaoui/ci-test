@@ -1,0 +1,99 @@
+<?php
+/**
+ * You are allowed to use this API in your web application.
+ *
+ * Copyright (C) 2013 by customweb GmbH
+ *
+ * This program is licenced under the customweb software licence. With the
+ * purchase or the installation of the software in your application you
+ * accept the licence agreement. The allowed usage is outlined in the
+ * customweb software licence which can be found under
+ * http://www.customweb.ch/en/software-license-agreement
+ *
+ * Any modification or distribution is strictly forbidden. The license
+ * grants you the installation in one application. For multiuse you will need
+ * to purchase further licences at http://www.customweb.com/shop.
+ *
+ * See the customweb software licence agreement for more details.
+ *
+ *
+ * @category	Customweb
+ * @package		Customweb_PayboxCw
+ * @version		1.0.49
+ */
+
+try {
+	$transaction = Mage::helper('PayboxCw')->loadTransactionByOrder($this->getInfo()->getOrder()->getId());
+	
+	$output = "";
+	if ($transaction !== null && $transaction->getTransactionObject() !== null) {
+		
+	
+		$output .= '<table class="data order-tables" style="width:100%">
+				<colgroup>
+					<col width="160px" />
+					<col width="40px" />
+					<col />
+				</colgroup>
+				<tbody>';
+	
+		$labels = $transaction->getTransactionObject()->getTransactionLabels();
+		$i = 0;
+		foreach ($labels as $l) {
+			$description = "";
+			if (isset($l['description'])) {
+				//$description = '<div class="field-tooltip"><div>' . $l['description'] . '</div></div>';
+				$description = Mage::helper("PayboxCw")->getTooltip($this, $l['description']);
+			}
+	
+			$output .= '<tr><td><b>' . $l['label'] . '</b></td><td>' . $description . '</td><td> ' . $l['value'] . '</td></tr>';
+			$i++;
+		}
+		$output .= '</tbody></table>';
+	
+		echo $output;
+	
+		$historyItems = $transaction->getTransactionObject()->getHistoryItems();
+	} else {
+		$historyItems = array();
+		echo $this->__("No additional payment information available.");
+	}
+	?>
+	<div class="entry-edit">
+		<div class="entry-edit-head">
+			<h4><?php echo $this->__("Transaction history") ?></h4>
+		</div>
+	</div>
+	<div class="grid np">
+		<div class="hor-scroll">
+			<table cellspacing="0" class="data order-tables" style="width:100%">
+				<colgroup>
+					<col>
+					<col>
+					<col>
+				</colgroup>
+				<thead>
+					<tr class="headings">
+						<th><?php echo $this->__("Date") ?></th>
+						<th><?php echo $this->__("Action") ?></th>
+						<th><?php echo $this->__("Message") ?></th>
+					</tr>
+				</thead>
+	
+				<?php $i = 0;
+				foreach ($historyItems as $item) : ?>
+				<tbody class="<?php echo ($i % 2 == 0) ? 'even' : 'odd' ?>">
+					<tr class="border">
+						<td><?php echo $item->getCreationDate()->format('Y-m-d H:i:s') ?></td>
+						<td><?php echo $this->__($item->getActionPerformed()) ?></td>
+						<td><?php echo $this->__((string)$item->getMessage()) ?></td>
+					</tr>
+				</tbody>
+				<?php $i++;
+				endforeach; ?>
+			</table>
+		</div>
+	</div>
+<?php
+} catch (Exception $e) {}
+?>

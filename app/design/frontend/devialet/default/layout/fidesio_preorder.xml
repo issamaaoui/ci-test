@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<layout>
+    <!-- Custom layout handles phantom -->
+    <phantom_handle_page>
+        <reference name="content">
+            <block type="fluidmenu/fluidmenu" name="footerMenu" as="footerMenu" before="page_content_heading">
+                <action method="setMenu"><value>phantom_menu</value></action>
+                <action method="setHtmlId"><value>phantom_menu</value></action>
+                <action method="setTemplate"><value>fluidmenu/phantom-menu.phtml</value></action>
+            </block>
+        </reference>
+        <reference name="right">
+            <action method="unsetChildren"></action>
+            <block type="fluidmenu/fluidmenu" name="sidebarPhantom" as="footerMenu" >
+                <action method="setMenu"><value>phantom_sidebar</value></action>
+                <action method="setHtmlId"><value>phantom_sidebar</value></action>
+                <action method="setTemplate"><value>fluidmenu/phantom-sidebar.phtml</value></action>
+            </block>
+        </reference>
+    </phantom_handle_page>
+
+    <phantom_page_layout translate="label">
+        <label>Phantom page layout</label>
+        <reference name="root">
+            <action method="setTemplate"><template>page/2columns-right-phantom.phtml</template></action>
+            <action method="setIsHandle"><applied>1</applied></action>
+        </reference>
+        <update handle="phantom_handle_page" />
+    </phantom_page_layout>
+
+
+
+
+    <!--Pour le webshow-->
+    <handle_include_webshow_jscss>
+        <reference name="head">
+			<action method="addItem"><type>skin_css</type><file>css/webshow/style.css</file></action>
+            <action method="addItem"><type>skin_js</type><name>js/webshow/libraries/greensock/TweenMax.js</name></action>
+            <action method="addItem"><type>skin_js</type><name>js/webshow/libraries/scrollmagic/js/jquery.scrollmagic.js</name></action>
+            <action method="addItem"><type>skin_js</type><name>js/webshow/libraries/scrollmagic/js/jquery.scrollmagic.debug.js</name></action>
+            <action method="addItem"><type>skin_js</type><name>js/webshow/custom.js</name></action>
+        </reference>
+    </handle_include_webshow_jscss>
+    <phantom_homepage translate="label">
+        <label>Phantom page layout</label>
+        <reference name="root">
+            <action method="setTemplate"><template>page/1column-homepage.phtml</template></action>
+            <action method="setIsHandle"><applied>1</applied></action>
+        </reference>
+        <update handle="handle_include_webshow_jscss" />
+    </phantom_homepage>
+
+
+    <preorder_index_index translate="label">
+        <label>Page precommander</label>
+        <reference name="root">
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
+            <action method="setIsHandle"><applied>1</applied></action>
+        </reference>
+        <reference name="content">
+            <block type="preorder/form" name="form-preorder"  template="preorder/form.phtml" />
+        </reference>
+    </preorder_index_index>
+</layout>
