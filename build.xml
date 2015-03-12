@@ -7,7 +7,7 @@
  <!-- <property name="toolsdir" value="${basedir}/vendor/bin/"/> -->
 
  <target name="build"
-         depends="prepare,lint,phploc-ci,phpcpd-ci,phpmd-ci"
+         depends="prepare,lint,phploc-ci,phpcpd-ci,phpcs-ci"
          description=""/>
 
  <target name="build-parallel"
@@ -133,7 +133,7 @@
  <target name="phpcs-ci"
          depends="prepare"
          description="Find coding standard violations using PHP_CodeSniffer and log result in XML format. Intended for usage within a continuous integration environment.">
-  <exec executable="${toolsdir}phpcs" output="/dev/null">
+  <exec executable="${toolsdir}phpcs.phar" output="/dev/null">
    <arg value="--report=checkstyle" />
    <arg value="--report-file=${basedir}/build/logs/checkstyle.xml" />
    <arg value="--standard=PSR2" />
