@@ -154,7 +154,7 @@
  <target name="phpcpd-ci"
          depends="prepare"
          description="Find duplicate code using PHPCPD and log result in XML format. Intended for usage within a continuous integration environment.">
-  <exec executable="${toolsdir}phpcpd">
+  <exec executable="${toolsdir}phpcpd.phar">
    <arg value="--log-pmd" />
    <arg path="${basedir}/build/logs/pmd-cpd.xml" />
    <arg path="${basedir}/app" />
