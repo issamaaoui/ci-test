@@ -50,7 +50,7 @@
  </target>
 
  <target name="lint" description="Perform syntax check of sourcecode files">
-  <apply executable="php" failonerror="false">
+  <apply executable="php" failonerror="true">
    <arg value="-l" />
 
    <fileset dir="${basedir}/app">
@@ -84,7 +84,6 @@
    <arg value="--log-xml" />
    <arg path="${basedir}/build/logs/phploc.xml" />
    <arg path="${basedir}/app" />
-   <arg path="${basedir}/tests" />
   </exec>
  </target>
 
