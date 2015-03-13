@@ -136,7 +136,7 @@
   <exec executable="${toolsdir}phpcs.phar" output="/dev/null">
    <arg value="--report=checkstyle" />
    <arg value="--report-file=${basedir}/build/logs/checkstyle.xml" />
-   <arg value="--standard=Zend" />
+   <arg value="--standard=${basedir}/build/code/coding-standard/" />
    <arg value="--extensions=php" />
    <arg value="--ignore=autoload.php" />
    <arg path="${basedir}/app" />
