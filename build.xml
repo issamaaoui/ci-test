@@ -61,11 +61,18 @@
   <apply executable="php" failonerror="true">
    <arg value="-l" />
 
-   <fileset dir="${basedir}/app">
+   <fileset dir="${basedir}/app/code/community">
     <include name="**/*.php" />
     <modified />
    </fileset>
-
+   <fileset dir="${basedir}/app/code/local">
+    <include name="**/*.php" />
+    <modified />
+   </fileset>
+   <fileset dir="${basedir}/app/design">
+    <include name="**/*.php" />
+    <modified />
+   </fileset>
    <fileset dir="${basedir}/shell">
     <include name="**/*.php" />
     <modified />
@@ -92,6 +99,7 @@
    <arg value="--log-xml" />
    <arg path="${basedir}/build/logs/phploc.xml" />
    <arg path="${basedir}/app" />
+   <arg path="${basedir}/shell" />
   </exec>
  </target>
 
@@ -147,7 +155,10 @@
    <arg value="--standard=${basedir}/build/code/vendor/magento-ecg/coding-standard/Ecg" />
    <arg value="--extensions=php" />
    <arg value="--ignore=autoload.php" />
-   <arg path="${basedir}/app" />
+   <arg path="${basedir}/app/code/community" />
+   <arg path="${basedir}/app/code/local" />
+   <arg path="${basedir}/app/design" />
+   <arg path="${basedir}/shell" />
   </exec>
  </target>
 
